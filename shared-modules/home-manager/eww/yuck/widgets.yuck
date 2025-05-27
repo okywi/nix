@@ -1,0 +1,93 @@
+(deflisten song_title "playerctl metadata --format '{{ title }}' --follow --player=spotify")
+(deflisten song_artist "playerctl metadata --format '{{ artist }}' --follow --player=spotify")
+(deflisten song_scroll "./scripts/music.sh --title")
+(deflisten song_time "playerctl position --follow --player=spotify")
+(deflisten song_art_url "./scripts/getSpotifyImage.sh")
+(deflisten song_volume "./scripts/volume.sh")
+(deflisten song_status "./scripts/music.sh --status")
+(defvar music_reveal false)
+(defvar song_art_reveal true)
+(defvar button_active "active")
+
+(defwidget music_box []
+  (eventbox :onhover "${eww} update music_reveal=true"
+			  :onhoverlost "${eww} update music_reveal=false"
+		(box :class "music" :orientation "h" :hexpand "false" :space-evenly "false"
+      (revealer :transition "crossfade" :reveal song_art_reveal :duration "350ms"
+        (button :class "song_cover_art" :valign "center" :width 200 :height 200 :style "background-image: url('${song_art_url}');"))
+      (box :class "song_info" :orientation "v" :valign "center" :width 250 :height 200 :vexpand "false"
+          (box :orientation "v" :space-evenly "false" :vexpand "false" :valign "center"
+              (label :class "song_title" :limit-width 50 :text "${song_scroll}")
+              (revealer :transition "slideup" :reveal music_reveal :duration "300ms"
+                  (box :class "music_buttons" :orientation "h" :halign "fill" :spacing 10
+                    (eventbox :class "eventbox_song_btn_prev" :timeout "0ms" :cursor "pointer" (button :class "song_btn_prev" :timeout "3ms" :onclick "./scripts/music.sh --prev" ""))
+                    (eventbox :class "eventbox_song_btn_play" :timeout "0ms" :cursor "pointer" (button :class "song_btn_play" :timeout "3ms" :onclick "./scripts/music.sh --toggle" song_status))
+                    (eventbox :class "eventbox_song_btn_next" :timeout "0ms" :cursor "pointer" (button :class "song_btn_next" :timeout "3ms" :onclick "./scripts/music.sh --next" ""))))
+              (revealer :transition "slideup" :reveal music_reveal :duration "350ms"
+                (eventbox :class "volume_scale" :cursor "pointer" (scale :width 200 :value song_volume :min 0 :max 101 :orientation "h"
+                :onchange "playerctl volume $(echo 'scale=2; {} / 100' | bc) --player=spotify")))
+              )))))
+
+
+(defwindow music
+    :monitor 0
+    :windowtype "normal"
+    :namespace "eww"
+    :geometry (geometry
+                :x 1140
+                :y 25
+                :width "0"
+                :height "0")
+    (music_box))
+
+(defwidget stats []
+    (box :class "stats" :space-evenly "false" :orientation "v"
+        (box :class "stats-content" :orientation "v"
+            (box :spacing 10 :space-evenly "false"
+                (overlay :width 75 :height 75
+                    (label :class "cpu-stats-icon" :text "")
+                    (circular-progress :class "cpu-stats" :thickness 8 :value {EWW_CPU["avg"]} :start-at 25))
+                (overlay :width 75 :height 75
+                    (label :class "ram-stats-icon" :text "")
+                    (circular-progress :class "ram-stats" :thickness 8 :value {EWW_RAM["used_mem_perc"]} :start-at 25))
+                (overlay :width 75 :height 75
+                    (label :class "gpu-stats-icon" :text "")
+                    (circular-progress :class "gpu-stats" :thickness 8 :value gpu_usage :start-at 25)))
+            (box :class "disks" :space-evenly "false" :spacing 10
+                (overlay :width 75 :height 75
+                    (label :class "disk1-stats-icon" :text "")
+                    (circular-progress :class "disk1-stats" :thickness 8 :value {EWW_DISK["/"]["used_perc"]} :start-at 25))
+                (overlay :width 75 :height 75
+                    (label :class "disk2-stats-icon" :text "")
+                    (circular-progress :class "disk2-stats" :thickness 8 :value {EWW_DISK["/mnt/sda1"]["used_perc"]} :start-at 25)))
+            )))
+
+(defwindow stats
+    :monitor 0
+    :windowtype "normal"
+    :namespace "eww"
+    :wm-ignore true
+    :geometry (geometry
+                :x 25
+                :y 25
+                :width "0"
+                :height "0"
+                :anchor "top left")
+    (stats))
+
+(defwidget calendarWidget []
+    (box :class "calender"
+    (calendar :class "cal" :day "date +%d" :month "date +%m" :year "date +%Y")))
+
+(defwindow calendar
+    :monitor 0
+    :windowtype "normal"
+    :namespace "eww"
+    :wm-ignore true
+    :geometry (geometry
+                :x 1629
+                :y 25
+                :width "0"
+                :height "0"
+                :anchor "top left")
+    (calendarWidget))

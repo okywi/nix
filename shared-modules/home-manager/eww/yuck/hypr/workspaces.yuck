@@ -1,0 +1,10 @@
+(deflisten workspacesArray "./scripts/hypr/workspaces.sh")
+
+(defwidget workspaces [output]
+  (eventbox
+    (box :class "workspaces"
+      (for i in {workspacesArray[output].workspaces}
+        (button
+          :onclick "hyprctl dispatch workspace ${i.id}"
+          :class "${i.class}"
+          "${i.name}")))))

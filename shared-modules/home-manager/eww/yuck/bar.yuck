@@ -1,0 +1,138 @@
+(defpoll gpu_usage :interval "5s" "cat /sys/class/drm/card1/device/gpu_busy_percent")
+(deflisten twitch_channels :initial "" `tail -F /tmp/streamers`)
+(defpoll time :interval "1s" `date +%H:%M`)
+(defpoll date :interval "1s" `date "+%B %0d, %Y"`)
+(defvar alttime false)
+(deflisten volume `./scripts/audio.sh --volume`)
+(deflisten volume_icon `./scripts/audio.sh --icon`)
+(deflisten microphone_icon `./scripts/microphone.sh --icon`)
+(deflisten microphone_volume `./scripts/microphone.sh --volume`)
+(deflisten notification `swaync-client -s`)
+(defpoll current_temperature :interval "3m" `cat /tmp/weather-temp`)
+(deflisten weather_icon :initial "-" `tail -F /tmp/weather-icon`)
+
+(defwidget bar [output]
+  (centerbox :class "bar" :orientation "h"
+    (left_widgets)
+    (workspaces :output output)
+    (right_widgets)))
+
+(defwidget left_widgets []
+    (box :class "left_widgets" :space-evenly "false"
+    (launcher)
+    (title)
+    (metrics)
+    (tray)))
+
+(defwidget right_widgets []
+    (box :class "right_widgets" :space-evenly "false" :halign "end"
+        (twitch)
+        (rebuild)
+        (spotify)
+        (weather)
+        (microphone)
+        (audio)
+        (clock)
+        (notifications)
+        (power)))
+
+(defwidget launcher []
+    (eventbox :cursor "pointer" (box :class "launcher" (button :onclick "./scripts/pop.sh --launcher" "♥"))))
+
+(defwidget metrics []
+    (eventbox :cursor "pointer" :onhover "./scripts/pop.sh --stats" :onhoverlost "eww close stats" :onrightclick `kitty -e btop && notify-send "test"`(box :class "metrics"
+        (box :class "cpu-box" :space-evenly "false"
+            (label :class "cpu-icon" :text "")
+            (circular-progress :class "cpu" :thickness 7 :value {EWW_CPU["avg"]} :start-at 25))
+        (box :class "ram-box" :space-evenly "false"
+            (label :class "ram-icon" :text "")
+            (circular-progress :class "ram" :thickness 7 :value {EWW_RAM["used_mem_perc"]} :start-at 25))
+        (box :class "gpu-box" :space-evenly "false"
+            (label :class "gpu-icon" :text "")
+            (circular-progress :class "gpu" :thickness 7 :value gpu_usage :start-at 25))
+        )))
+
+(defwidget tray []
+    (systray :class "tray" :spacing 5 :icon-size 18 :prepend-new "false"))
+
+(defwidget twitch []
+    (box :class "twitch" :visible {twitch_channels != "[]" ? "true": "false"} :space-evenly "false"
+        (for channel in twitch_channels
+        (box :class "twitch-icon"
+            (eventbox :onclick `xdg-open 'https://twitch.tv/${channel.name}'` :cursor "pointer"
+            (label :text "${channel.icon}" :style "color: ${channel.color};"))))))
+
+(defwidget rebuild []
+    (box :class "rebuild-box"
+            (eventbox :onclick `kitty -e sudo nixos-rebuild switch --flake ~/nixos && notify-send 'The system has been rebuild and switched'` :cursor "pointer"
+                (label :class "rebuild-icon" :text ""))
+            (eventbox :onclick `kitty -e home-manager switch --flake ~/nixos  && notify-send 'The home manager has been rebuild and switched'` :cursor "pointer"
+                (label :class "rebuild-home-icon" :text ""))))
+        
+
+(defwidget spotify []
+    (box :space-evenly "false" :class "spotify-box"
+        (eventbox :onscroll "./scripts/music.sh {}" :onclick "./scripts/pop.sh --music" :cursor "pointer" :onmiddleclick "./scripts/music.sh --toggle"
+            (box :space-evenly "false" :class "spotify"
+                (label :class "spotify-icon" :text " ")
+                (label :class "spotify-label" :limit-width 24 :text "${song_scroll}")
+                (scale :value song_volume :orientation "v" :flipped "true" :onchange "playerctl volume $(echo 'scale=2; {} / 100' | bc) --player=spotify")))))
+
+(defwidget weather []
+    (box :space-evenly "false" :class "weather"
+        (label :class "weather-icon" :text weather_icon)
+        (label :class "weather-text" :text current_temperature)))
+
+(defwidget internet []
+    (box :space-evenly "false" :class "internet-box"
+        (label :text {EWW_NET["wlan0"]})))
+
+(defwidget microphone []
+    (box :space-evenly "false" :class "microphone-box"
+        (eventbox :cursor "pointer" :onclick `pactl set-source-mute @DEFAULT_SOURCE@ toggle` :onrightclick `./scripts/pop.sh --mic`
+            (box :space-evenly "false"
+            (label :text microphone_icon)))
+        (eventbox :cursor "pointer"
+        (scale :width 40 :onchange `pactl set-source-volume @DEFAULT_SOURCE@ {}%` :class "microphone-scale" :value microphone_volume :orientation "h"))))
+
+
+(defwidget audio []
+    (box :space-evenly "false" :class "audio-box"
+        (eventbox :cursor "pointer" :onclick `pamixer -t` :onrightclick `./scripts/pop.sh --audio`
+            (box :space-evenly "false"
+                (label :text volume_icon)))
+        (eventbox :cursor "pointer"
+            (scale :width 40 :onchange `pamixer --set-volume {}` :class "audio-scale" :value volume :orientation "h"))))
+
+(defwidget clock []
+    (box :space-evenly "false" :class "time-box"
+    (eventbox :cursor "pointer" :onrightclick "./scripts/pop.sh --calendar" :onclick {alttime == false ? `${eww} update alttime="true"` : `${eww} update alttime="false"`}
+        (box :space-evenly "false" :class "time"
+        (label :class "time-icon" :text {alttime == false ? " " : " "})
+        (label :text {alttime == false ? time : date})))))
+
+(defwidget notifications []
+(box :space-evenly "false" :class "notifications-box"
+    (eventbox :cursor "pointer" :onclick "swaync-client -t" :onmiddleclick "swaync-client --toggle-dnd" :onrightclick "swaync-client --close-all"
+        (box :space-evenly "false" :class "notifications"
+            (label :class "notifications-icon" :text {notification["dnd"] == true ? "" : ""})
+            (label :class "notifications-dot" :text {notification["count"] > 0 ? "" : ""})))))
+
+(defwidget power []
+(box :space-evenly "false" :class "power-box"
+    (eventbox :cursor "pointer" :onclick "./scripts/pop.sh --powermenu"
+        (box :space-evenly "false" :class "power"
+            (label :class "power-icon" :text "")))))
+
+(defwindow bar [output screen]
+    :monitor screen
+    :windowtype "dock"
+    :exclusive "true"
+    :namespace "eww"
+    :focusable "false"
+    :geometry (geometry :x "0px"
+                        :y "10px"
+                        :width "100%"
+                        :height "30px"
+                        :anchor "top center")
+    (bar :output screen))

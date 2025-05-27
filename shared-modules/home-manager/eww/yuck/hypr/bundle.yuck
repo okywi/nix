@@ -1,0 +1,2 @@
+(include "./yuck/hypr/workspaces.yuck")
+(include "./yuck/hypr/title.yuck")

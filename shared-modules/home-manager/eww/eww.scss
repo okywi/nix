@@ -1,0 +1,19 @@
+$background_color: rgba(30, 30, 46, 0.99);
+$base_color: rgba(69, 71, 90, 0.99);
+$base_color_darker: rgba(49, 50, 68, 0.99);
+$text_color: #CCD4E7;
+$border_color: #F4B8E4;
+$border_radius: 8px;
+$accent_color: #F4B8E4;
+
+$cpu_color: #96CDFB;
+$ram_color: #E78284;
+$gpu_color: #F8BD96;
+
+@import "./styles/bar.scss";
+@import "./styles/widgets.scss";
+@import "./styles/session/workspaces.scss";
+
+* {
+    all: unset;
+}

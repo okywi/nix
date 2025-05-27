@@ -1,0 +1,171 @@
+
+/* Music widget */
+.music {
+    border-radius: 10px;
+    border: 2px solid #64F090;
+    padding: 30px;
+    color:$text_color;
+    font-family: "JetBrainsMono Nerd Font";
+    background-color: $background_color;
+    background-clip: padding-box;
+}
+
+.song_info {
+    margin-left: 30px;
+}
+
+.song_title {
+    font-size: 16px;
+    padding: 20px;
+    background-color: $base_color_darker;
+    border: 2px solid #64F090;
+    border-radius: 10px;
+}
+
+.song_cover_art {
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+}
+
+.music_buttons {
+    font-family: "Font Awesome 6 Free";
+    background-color: $base_color_darker;
+    border-radius: $border_radius;
+    border: 2px solid #64F090;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.song_btn_prev:hover, .song_btn_play:hover, .song_btn_next:hover {
+    border: 2px solid #64F090;
+    background-color: $background_color;
+}
+
+.song_btn_prev, .song_btn_play, .song_btn_next {
+    font-size: 16px;
+    padding: 15px 20px 15px 20px;
+    background-color: $base_color;
+    border-radius: $border_radius;
+    border: 2px solid transparent;
+}
+
+.volume_scale:hover {
+    background-color: $background_color;
+}
+
+.volume_scale trough highlight {
+    all: unset;
+    background-color: #64F090;
+    color: #000000;
+    border-radius: 3px;
+}
+  
+.volume_scale trough {
+    all: unset;
+    border: 2px solid #64F090;
+    background-color: $base_color_darker;
+    border-radius: 6px;
+    min-height: 15px;
+    min-width: 50px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 20px;
+}
+
+
+// stats widget
+.stats {
+    border-radius: $border_radius + 2px;
+    padding: 2px;
+    background: linear-gradient(to right, $cpu_color, $ram_color, $gpu_color) padding-box;
+}
+
+.stats-content {
+    background-color: $background_color;
+    padding: 30px;
+    border-radius: $border_radius;
+    color: $text_color;
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 24px;
+}
+
+.stats > box > box > overlay > label {
+    font-family: "Font Awesome 6 Free Solid";
+}
+
+.disks {
+    padding-left: 40px;
+}
+
+.cpu-stats, .cpu-stats-icon {
+    color: $cpu_color;
+}
+
+.ram-stats, .ram-stats-icon {
+    color: $ram_color;
+}
+
+.gpu-stats, .gpu-stats-icon {
+    color: $gpu_color;
+}
+
+.disk1-stats, .disk1-stats-icon {
+    color: #B48CE0;
+}
+
+.disk2-stats, .disk2-stats-icon {
+    color: #6b7fda;
+}
+
+.stats > label {
+    font-size: 16px;
+}
+
+// calendar widget
+.calendar {
+    border-radius: 10px;
+    border: 2px solid $border_color;
+    padding: 5px;
+    color: $text_color;
+    background-color: $background_color;
+    background-clip: padding-box;
+
+
+    .cal {
+        background-color: inherit;
+        padding: 2px;
+        font-weight: bold;
+
+        &>* {
+            border: solid 0px transparent;
+            color: $base_color;
+        }
+    
+        &.highlight {
+            color: $accent_color;
+        }
+    
+        &:selected {
+            color: $accent_color;
+        }
+
+        &.button {
+            color: $text_color;
+        }
+
+        &.header {
+            font-weight: bold;
+            color: $accent_color;
+            font-size: 24px;
+        }
+
+        &:indeterminate {
+            color: $base_color_darker;
+        }
+    }
+}
+
+calendar.button {
+    color: $base_color_darker;
+}

@@ -1,0 +1,31 @@
+.workspaces-0, .workspaces-1 {
+    background-color: $background_color;
+    border-radius: $border_radius;
+    color: $text_color;
+}
+
+.workspaces-0 button, .workspaces-1 button {
+    padding-left: 12px;
+    padding-right: 12px;
+    font-size: 16px;
+    color: #aaa;
+    font-family: "Font Awesome 6 Free";
+}
+
+.workspaces-0 button:nth-child(5), .workspaces-1 button:nth-child(3), .workspaces-1 button:nth-child(2) {
+    font-family: "Font Awesome 6 Brands";
+}
+
+.workspaces-1 button:nth-child(4) {
+    font-family: "Font Awesome 6 Solid";
+}
+
+.workspaces-0 .focused, .workspaces-1 .focused {
+    border-radius: $border_radius;
+    border-bottom: 2px solid #ABE9B3;
+    color: #ABE9B3;
+}
+
+.workspaces-0 .occupied, .workspaces-1 .occupied {
+    color: #eee;
+}
