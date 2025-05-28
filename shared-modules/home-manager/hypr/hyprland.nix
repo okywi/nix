@@ -1,7 +1,8 @@
-{ pkgs, config, lib, monitors, username, ... }:
+{ pkgs, config, lib, monitors, ... }:
 with lib;
 let
   cfg = config.modules.hyprland;
+  username = config.home.username;
   getSecond = list:
     if builtins.length list < 2 then
       "null"

@@ -1,9 +1,10 @@
-{ pkgs, config, lib, username, ... }:
+{ pkgs, config, lib, ... }:
 with lib;
 let
   cfg = config.modules.eww;
   eww_yuck = "${builtins.readFile ./eww.yuck}";
   eww_style = "${builtins.readFile ./eww.scss}";
+  username = config.home.username;
 
   # define workspaces for each machine
   hypr_workspaces = if username == "okywi" then ''

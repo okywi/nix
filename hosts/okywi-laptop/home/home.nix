@@ -1,11 +1,11 @@
-{ config, pkgs, username, ...}: {
+{ ... }: {
   imports = [
 		./config.nix
 	];
   
 	home = {
-		username = username;
-		homeDirectory = "/home/${username}";
+		username = "okywi-laptop";
+		homeDirectory = "/home/okywi-laptop";
 		stateVersion = "25.05";
 	};
 

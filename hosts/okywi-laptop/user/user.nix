@@ -1,14 +1,14 @@
-{ pkgs, config, username, home-manager, ... }: {
+{ pkgs, config, home-manager, ... }: {
   imports = [ ./config.nix ];
   
   # enable zsh
   programs.zsh.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.${username} = {
+  users.users.okywi-laptop = {
     shell = pkgs.zsh;
     isNormalUser = true;
-    description = username;
+    description = "okywi-laptop";
     extraGroups = [ "networkmanager" "wheel" "storage" "disk" ];
   };
 
@@ -23,10 +23,9 @@
   };
 
   # Pass `my.monitors` as an argument to Home Manager
-  home-manager.users.${username} = {
+  home-manager.users.okywi-laptop = {
     _module.args = {
       monitors = config.my.monitors; # Pass to HM
-      username = username;
     };
   };
 }

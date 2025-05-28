@@ -18,7 +18,6 @@
         specialArgs = {
           inherit inputs;
           inherit system;
-          username = "okywi";
         };
         modules = [
           ./hosts/okywi/configuration.nix
@@ -35,7 +34,6 @@
         specialArgs = {
           inherit inputs;
           inherit system;
-          username = "okywi-laptop";
         };
         modules = [
           ./hosts/okywi-laptop/configuration.nix

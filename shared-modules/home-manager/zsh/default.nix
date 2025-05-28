@@ -1,4 +1,4 @@
-{ pkgs, config, lib, username, ... }:
+{ pkgs, config, lib, ... }:
 with lib;
 let cfg = config.modules.zsh;
 in {
@@ -12,7 +12,7 @@ in {
       syntaxHighlighting.enable = true;
 
       shellAliases = {
-        rebuild = "sudo nixos-rebuild switch --flake ~/nixos#${username}";
+        rebuild = "sudo nixos-rebuild switch --flake ~/nixos";
       };
       history.size = 10000;
 
