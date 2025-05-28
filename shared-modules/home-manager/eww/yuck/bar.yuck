@@ -19,22 +19,11 @@
 
 (defwidget left_widgets []
     (box :class "left_widgets" :space-evenly "false"
-    (launcher)
-    (title)
-    (metrics)
-    (tray)))
+    config_left_widgets))
 
 (defwidget right_widgets []
     (box :class "right_widgets" :space-evenly "false" :halign "end"
-        (twitch)
-        (rebuild)
-        (spotify)
-        (weather)
-        (microphone)
-        (audio)
-        (clock)
-        (notifications)
-        (power)))
+        config_right_widgets))
 
 (defwidget launcher []
     (eventbox :cursor "pointer" (box :class "launcher" (button :onclick "./scripts/pop.sh --launcher" "♥"))))
@@ -51,6 +40,15 @@
             (label :class "gpu-icon" :text "")
             (circular-progress :class "gpu" :thickness 7 :value gpu_usage :start-at 25))
         )))
+
+
+(defwidget battery []
+    (box :space-evenly "false" :class "battery-box"
+        (eventbox :cursor "pointer" :onclick ``
+            (box :space-evenly "false"
+            (label :text {EWW_BATTERY["BATT"]["status"] == "Charging" ? "󰂄" : ""})
+            (progress :class "battery-progress" :width 40 :value {EWW_BATTERY["BATT"]["capacity"]} :orientation "h")))))
+
 
 (defwidget tray []
     (systray :class "tray" :spacing 5 :icon-size 18 :prepend-new "false"))

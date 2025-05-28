@@ -18,6 +18,33 @@ let
     ''icons=("" "" "" "" "" "" "" "" "" "")''
   else
     "icons=()";
+
+  # define widgets for each machine
+  left_widgets = if username == "okywi" then ''
+    (launcher)
+    (title)
+    (metrics)
+    (tray)
+  '' else if username == "okywi-laptop" then ''
+    (launcher)
+    (title)
+    (metrics)
+    (battery)
+    (tray)
+  '' else '''';
+
+  right_widgets = if username == "okywi" || username == "okywi-laptop" then ''
+    (twitch)
+    (rebuild)
+    (spotify)
+    (weather)
+    (microphone)
+    (audio)
+    (clock)
+    (notifications)
+    (power)
+  '' else "";
+    
 in {
   options.modules.eww = { enable = mkEnableOption "eww"; };
 
@@ -50,6 +77,13 @@ in {
           executable = true;
         };
       })
+
+      # set widgets per host
+      {".config/eww/bar.yuck".text = builtins.replaceStrings 
+      [ "config_left_widgets" "config_right_widgets" ] [ left_widgets right_widgets ]
+      (builtins.readFile ./yuck/bar.yuck);
+      }
+      
       {
         # exclude workspaces.sh
         ".config/eww/scripts" = {
@@ -61,9 +95,17 @@ in {
           };
           recursive = true; # Important for directory copying
         };
-        # Important for directory copying
+
+        ".config/eww/yuck" = {
+          source = lib.cleanSourceWith {
+            src = ./yuck;
+            filter = name: type:
+              type != "regular"
+              || !(lib.hasSuffix "bar.yuck" (toString name));
+          };
+          recursive = true; # Important for directory copying
+        };
         ".config/eww/styles".source = ./styles;
-        ".config/eww/yuck".source = ./yuck;
         ".config/eww/launch_eww.sh".source = ./launch_eww.sh;
       }
     ];

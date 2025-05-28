@@ -87,6 +87,39 @@ circular-progress {
     background-color: $base_color_darker;
 }
 
+.battery-box {
+    background-color: $background_color;
+    background-clip: padding-box;
+    border-radius: $border_radius;
+    border: 2px solid #f7acf3;
+    color: $text_color;
+    padding: 3px 8px 3px 8px;
+    margin-left: 5px;
+}
+
+.battery-box label {
+    font-family: "Font Awesome 6 Free";
+    font-size: 16px;
+    color: #f7acf3;
+    margin: 3px;
+}
+
+.battery-box progressbar > trough {
+    background-color: $base_color_darker;
+    min-width: 40px;
+    min-height: 11.5px;
+
+    margin-left: 5px;
+    border-radius: 4px;
+    margin-bottom: 6px;
+}
+
+.battery-box progress {
+    background-color: #f7acf3;
+    min-height: 11.5px;
+    border-radius: 4px;
+}
+
 .tray {
     background-color: $background_color;
     background-clip: padding-box;
