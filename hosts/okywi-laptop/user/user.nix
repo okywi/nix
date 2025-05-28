@@ -1,4 +1,4 @@
-{ pkgs, config, username, ... }: {
+{ pkgs, config, username, home-manager, ... }: {
   imports = [ ./config.nix ];
   
   # enable zsh

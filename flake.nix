@@ -30,6 +30,7 @@
           }
         ];
       };
+
       nixosConfigurations.okywi-laptop = nixpkgs.lib.nixosSystem {
         specialArgs = {
           inherit inputs;
