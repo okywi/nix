@@ -10,6 +10,7 @@
   # Select modules
   config.modules = {
     sddm.enable = true;
+    redshift.enable = true;
     hyprland.enable = true;
     sway.enable = true;
     storage.enable = true;

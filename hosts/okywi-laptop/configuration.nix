@@ -34,9 +34,6 @@ with lib; {
     LC_TIME = "de_DE.UTF-8";
   };
 
-  # X Server
-  services.xserver.enable = true;
-
   # Configure console keymap
   console.keyMap = "de";
 

@@ -63,10 +63,7 @@
 (defwidget rebuild []
     (box :class "rebuild-box"
             (eventbox :onclick `kitty -e sudo nixos-rebuild switch --flake ~/nixos && notify-send 'The system has been rebuild and switched'` :cursor "pointer"
-                (label :class "rebuild-icon" :text ""))
-            (eventbox :onclick `kitty -e home-manager switch --flake ~/nixos  && notify-send 'The home manager has been rebuild and switched'` :cursor "pointer"
-                (label :class "rebuild-home-icon" :text ""))))
-        
+                (label :class "rebuild-icon" :text ""))))
 
 (defwidget spotify []
     (box :space-evenly "false" :class "spotify-box"
