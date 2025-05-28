@@ -42,8 +42,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.okywi-laptop =
-              import ./hosts/okywi-laptop/home/home.nix;
+            home-manager.users.okywi-laptop = import ./hosts/okywi-laptop/home/home.nix;
           }
         ];
       };
