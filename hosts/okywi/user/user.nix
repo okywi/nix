@@ -30,8 +30,7 @@
   # Pass `my.monitors` as an argument to Home Manager
   home-manager.users.okywi = {
     _module.args = {
-      monitors = config.my.monitors; # Pass to HM
-      username = username;
+      monitors = config.my.monitors;
     };
   };
 }

@@ -1,4 +1,4 @@
-LOCK_FILE="/run/lock/weather.lock"
+LOCK_FILE="/tmp/weather.lock"
 
 # Check if the lock file exists
 if [[ -f "$LOCK_FILE" ]]; then
@@ -13,7 +13,7 @@ touch "$LOCK_FILE"
 trap 'rm -f "$LOCK_FILE"' EXIT
 
 while [ true ]; do 
-    curl -s 'wttr.in/Leutkirch?format=%t' > /run/lock/weather-temp;
-    curl -s 'wttr.in/Leutkirch?format=%c' | awk '{$1=$1};1' > /run/lock/weather-icon
+    curl -s 'wttr.in/Leutkirch?format=%t' > /tmp/weather-temp
+    curl -s 'wttr.in/Leutkirch?format=%c' | awk '{$1=$1};1' > /tmp/weather-icon
     sleep 180
 done
