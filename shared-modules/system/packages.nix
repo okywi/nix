@@ -48,7 +48,7 @@
     vscodium
     signal-desktop
     electron-mail
-    whatsie
+    zapzap
     nwg-look
     loupe
     localsend
