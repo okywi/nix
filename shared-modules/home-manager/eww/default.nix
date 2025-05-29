@@ -79,7 +79,7 @@ in {
       })
 
       # set widgets per host
-      {".config/eww/bar.yuck".text = builtins.replaceStrings 
+      {".config/eww/yuck/bar.yuck".text = builtins.replaceStrings 
       [ "config_left_widgets" "config_right_widgets" ] [ left_widgets right_widgets ]
       (builtins.readFile ./yuck/bar.yuck);
       }
