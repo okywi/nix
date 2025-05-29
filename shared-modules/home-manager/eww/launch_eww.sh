@@ -5,7 +5,6 @@ run_eww() {
     pkill eww
 
     $HOME/.config/eww/scripts/start_streamers.sh &
-    $HOME/.config/eww/scripts/checkupdates.sh &
     $HOME/.config/eww/scripts/weather.sh &
 
     $EWW daemon
