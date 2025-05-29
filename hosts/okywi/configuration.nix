@@ -37,8 +37,17 @@ with lib; {
   # Configure console keymap
   console.keyMap = "de";
 
-  # For 32 bit applications
-  hardware.graphics.enable32Bit = true;
+  # X Server
+  services.xserver = {
+    enable = true;
+    videoDrivers = [ "amdgpu" ];
+  };
+
+  ### Hardware
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
 
   ### Features
   # enable flakes

@@ -37,6 +37,11 @@ with lib; {
   # Configure console keymap
   console.keyMap = "de";
 
+  ### Hardware
+  hardware.opengl = {
+    enable = true;
+    driSupport32Bit = true;
+  };
   # For 32 bit applications
   hardware.graphics.enable32Bit = true;
 

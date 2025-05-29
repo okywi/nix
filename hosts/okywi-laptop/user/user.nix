@@ -12,6 +12,11 @@
     extraGroups = [ "networkmanager" "wheel" "storage" "disk" ];
   };
 
+  environment.sessionVariables = {
+    STEAM_EXTRA_COMPAT_TOOLS_PATHS = "$HOME/.steam/root/compatibilitytools.d";
+    SDL_VIDEODRIVER = "";
+  };
+
   # Define monitors
   my.monitors = {
     hyprland = [

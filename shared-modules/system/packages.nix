@@ -6,6 +6,9 @@
   ### Programs
   programs.direnv.enable = true;
   services.locate.enable = true;
+  programs.steam.enable = true;
+  programs.steam.gamescopeSession.enable = true;
+  programs.gamemode.enable = true;
 
   ### System Packages
   environment.systemPackages = with pkgs; [
@@ -37,6 +40,9 @@
     bc
     tree
     jdk
+    protonup
+    vulkan-tools     # for `vulkaninfo`
+    mesa-demos       # for `glxinfo`
 
     # Applications
     inputs.zen-browser.packages."${system}".default
