@@ -37,7 +37,7 @@
 
   config.my.input = {
     sensitivity = 0;
-    force_no_accel = true;
+    force_no_accel = false;
   };
   
   # eww
