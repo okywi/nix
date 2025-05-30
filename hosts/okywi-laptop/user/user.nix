@@ -16,16 +16,6 @@
     STEAM_EXTRA_COMPAT_TOOLS_PATHS = "$HOME/.steam/root/compatibilitytools.d";
   };
 
-  # Define monitors
-  my.monitors = {
-    hyprland = [
-      "eDP-1,2560x1600@165,0x0,1.6"
-    ];
-    sway = [ 
-      "output eDP-1 scale 1.5 resolution 2560x1600@165Hz position 0,0"
-    ];
-  };
-
   # Pass `my.monitors` as an argument to Home Manager
   home-manager.users.okywi-laptop = {
     _module.args = {

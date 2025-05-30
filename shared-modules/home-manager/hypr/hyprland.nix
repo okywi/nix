@@ -2,15 +2,15 @@
 with lib;
 let
   cfg = config.modules.hyprland;
-  username = config.home.username;
+
+  input = config.my.input;
   getSecond = list:
     if builtins.length list < 2 then
       "null"
     else
       builtins.head (builtins.tail list);
 
-  primary =
-    builtins.head (lib.splitString "," (builtins.elemAt monitors.hyprland 0));
+  primary = builtins.head (lib.splitString "," (builtins.elemAt monitors.hyprland 0));
   secondary = builtins.head (lib.splitString "," (getSecond monitors.hyprland));
 in {
   config = mkIf cfg.enable {
@@ -25,11 +25,11 @@ in {
       settings = {
         monitor = monitors.hyprland;
         input = {
-          sensitivity = if username == "okywi-laptop" then 0 else 0;
+          sensitivity = input.sensitivity;
           kb_layout = "de";
           touchpad = { natural_scroll = false; };
           accel_profile = "flat";
-          force_no_accel = if username == "okywi-laptop" then false else true;
+          force_no_accel = input.force_no_accel;
         };
       };
 

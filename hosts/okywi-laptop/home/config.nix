@@ -19,4 +19,52 @@
     gtk.enable = true;
     git.enable = true;
   };
+
+  config.my.workspaces = {
+    hyprland = ''
+      workspace=1, persistent:true, monitor:$primary
+      workspace=2, persistent:true, monitor:$primary
+      workspace=3, persistent:true, monitor:$primary
+      workspace=4, persistent:true, monitor:$primary
+      workspace=5, persistent:true, monitor:$primary
+      workspace=6, persistent:true, monitor:$primary
+      workspace=7, persistent:true, monitor:$primary
+      workspace=8, persistent:true, monitor:$primary
+      workspace=9, persistent:true, monitor:$primary
+      workspace=10, persistent:true, monitor:$primary
+    ''
+  };
+
+  config.my.input = {
+    sensitivity = 0;
+    force_no_accel = true;
+  };
+  
+  # eww
+  config.my.eww = {
+    hypr_workspaces = ''
+    [0]="         "
+    '';
+    sway_workspaces = ''
+      icons=("" "" "" "" "" "" "" "" "" "") 
+    '';
+    left_widgets = ''
+      (launcher)
+      (title)
+      (metrics)
+      (battery)
+      (tray)
+    '';
+    right_widgets = ''
+      (twitch)
+      (rebuild)
+      (spotify)
+      (weather)
+      (microphone)
+      (audio)
+      (clock)
+      (notifications)
+      (power)
+    '';
+  };
 }

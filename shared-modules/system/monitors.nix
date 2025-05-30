@@ -1,8 +1,7 @@
 { lib, ... }:
 
 let
-  # Define reusable type for monitor configurations
-  monitorType = with lib.types; oneOf [ str (listOf str) ];
+
 in {
   options.my.monitors = lib.mkOption {
     type = lib.types.attrsOf (lib.types.listOf lib.types.str);

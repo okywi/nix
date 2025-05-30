@@ -2,8 +2,7 @@
 with lib;
 let
     cfg = config.modules.hyprland;
-    username = config.home.username;
-
+    workspaces = config.my.workspaces.hyprland;
 in {
     imports = [
         ./hyprland.nix
@@ -34,31 +33,7 @@ in {
           recursive = true; # Important for directory copying
         };
 
-      home.file.".config/hypr/hyprland/workspaces.conf".text = 
-        if username == "okywi" then ''
-          workspace=1, persistent:true, monitor:$primary
-          workspace=2, persistent:true, monitor:$primary
-          workspace=3, persistent:true, monitor:$primary
-          workspace=4, persistent:true, monitor:$primary
-          workspace=5, persistent:true, monitor:$primary
-          workspace=6, persistent:true, monitor:$primary
-          workspace=7, persistent:true, monitor:$secondary
-          workspace=8, persistent:true, monitor:$secondary
-          workspace=9, persistent:true, monitor:$secondary
-          workspace=10, persistent:true, monitor:$secondary
-        '' else if username == "okywi-laptop" then ''
-          workspace=1, persistent:true, monitor:$primary
-          workspace=2, persistent:true, monitor:$primary
-          workspace=3, persistent:true, monitor:$primary
-          workspace=4, persistent:true, monitor:$primary
-          workspace=5, persistent:true, monitor:$primary
-          workspace=6, persistent:true, monitor:$primary
-          workspace=7, persistent:true, monitor:$primary
-          workspace=8, persistent:true, monitor:$primary
-          workspace=9, persistent:true, monitor:$primary
-          workspace=10, persistent:true, monitor:$primary
-        '' else
-          '''';
+        home.file.".config/hypr/hyprland/workspaces.conf".text = workspaces;
 
         # assets
         home.file.".config/hypr/assets".source = ./assets;

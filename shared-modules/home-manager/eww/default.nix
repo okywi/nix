@@ -4,47 +4,11 @@ let
   cfg = config.modules.eww;
   eww_yuck = "${builtins.readFile ./eww.yuck}";
   eww_style = "${builtins.readFile ./eww.scss}";
-  username = config.home.username;
 
-  # define workspaces for each machine
-  hypr_workspaces = if username == "okywi" then ''
-    [0]="     "
-          [1]="   "'' else if username == "okywi-laptop" then
-    ''[0]="         "''
-  else
-    ''[0]=""'';
-  sway_workspaces = if username == "okywi" then
-    ''icons=("" "" "" "" "" "" "" "" "" "")''
-  else if username == "okywi-laptop" then
-    ''icons=("" "" "" "" "" "" "" "" "" "")''
-  else
-    "icons=()";
-
-  # define widgets for each machine
-  left_widgets = if username == "okywi" then ''
-    (launcher)
-    (title)
-    (metrics)
-    (tray)
-  '' else if username == "okywi-laptop" then ''
-    (launcher)
-    (title)
-    (metrics)
-    (battery)
-    (tray)
-  '' else '''';
-
-  right_widgets = if username == "okywi" || username == "okywi-laptop" then ''
-    (twitch)
-    (rebuild)
-    (spotify)
-    (weather)
-    (microphone)
-    (audio)
-    (clock)
-    (notifications)
-    (power)
-  '' else "";
+  hypr_workspaces = config.my.eww.hypr_workspaces;
+  sway_workspaces = config.my.eww.sway_workspaces;
+  left_widgets = config.my.eww.left_widgets;
+  right_widgets = config.my.eww.right_widgets;
     
 in {
   options.modules.eww = { enable = mkEnableOption "eww"; };

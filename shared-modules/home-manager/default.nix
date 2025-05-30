@@ -12,5 +12,6 @@
 		./gtk
 		./qt
 		./git
+		./options.nix
 	];
 }
