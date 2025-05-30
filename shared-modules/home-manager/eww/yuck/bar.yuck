@@ -29,7 +29,7 @@
     (eventbox :cursor "pointer" (box :class "launcher" (button :onclick "./scripts/pop.sh --launcher" "♥"))))
 
 (defwidget metrics []
-    (eventbox :cursor "pointer" :onhover "./scripts/pop.sh --stats" :onhoverlost "eww close stats" :onrightclick `kitty -e btop && notify-send "test"`(box :class "metrics"
+    (eventbox :cursor "pointer" :onclick "./scripts/pop.sh --stats" :onhoverlost "./scripts/pop.sh --stats" :onrightclick `kitty -e btop && notify-send "test"`(box :class "metrics"
         (box :class "cpu-box" :space-evenly "false"
             (label :class "cpu-icon" :text "")
             (circular-progress :class "cpu" :thickness 7 :value {EWW_CPU["avg"]} :start-at 25))
