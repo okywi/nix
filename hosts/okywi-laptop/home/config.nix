@@ -32,7 +32,7 @@
       workspace=8, persistent:true, monitor:$primary
       workspace=9, persistent:true, monitor:$primary
       workspace=10, persistent:true, monitor:$primary
-    ''
+    '';
   };
 
   config.my.input = {
