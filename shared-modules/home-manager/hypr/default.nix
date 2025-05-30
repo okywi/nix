@@ -19,6 +19,7 @@ in {
           hyprlandPlugins.hyprgrass
           brightnessctl
           hyprpicker
+          hyprshade
         ];
 
         # configuration
