@@ -66,6 +66,7 @@
     libreoffice
     obsidian
     prismlauncher
+    heroic
 
     # Gaming
     steam

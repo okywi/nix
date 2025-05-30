@@ -10,8 +10,25 @@ with lib; {
   ];
 
   ### Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader = {
+    grub = {
+      enable = true;
+      useOSProber = true;
+      efiSupport = true;
+      devices = [ "nodev" ];
+      theme = pkgs.catppuccin-grub;
+      extraEntries = ''
+        menuentry "Windows" {
+          insmod part_gpt
+          insmod fat
+          insmod search_fs_uuid
+          insmod chain
+          search --fs-uuid --set=root 3284-5E7F
+          chainloader /EFI/Microsoft/Boot/bootmgfw.efi
+        }
+      '';
+    };
+  };
   boot.kernelParams = [ "amdgpu" ];
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
