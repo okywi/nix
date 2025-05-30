@@ -41,8 +41,6 @@
     tree
     jdk
     protonup
-    vulkan-tools     # for `vulkaninfo`
-    mesa-demos       # for `glxinfo`
 
     # Applications
     inputs.zen-browser.packages."${system}".default

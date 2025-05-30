@@ -19,7 +19,7 @@ in {
           hyprlandPlugins.hyprgrass
           brightnessctl
           hyprpicker
-          hyprshade
+          wlsunset
         ];
 
         # configuration
