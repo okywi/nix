@@ -1,6 +1,6 @@
 { pkgs, inputs, ... }:
 {
-  # Allow unfree packages
+  ### Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   ### Programs
