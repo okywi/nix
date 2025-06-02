@@ -48,6 +48,7 @@
     bitwarden
     vesktop
     spotify
+    spotify-tray
     copyq
     vscodium
     signal-desktop

@@ -1,4 +1,3 @@
-## Open widgets
 EWW="eww -c $HOME/.config/eww/"
 
 run_eww() {

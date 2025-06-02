@@ -8,7 +8,7 @@
 (deflisten microphone_icon `./scripts/microphone.sh --icon`)
 (deflisten microphone_volume `./scripts/microphone.sh --volume`)
 (deflisten notification `swaync-client -s`)
-(defpoll current_temperature :interval "3m" `cat /tmp/weather-temp`)
+(deflisten current_temperature :initial "°C" `tail -F /tmp/weather-temp`)
 (deflisten weather_icon :initial "-" `tail -F /tmp/weather-icon`)
 
 (defwidget bar [output]
