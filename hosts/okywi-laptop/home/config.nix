@@ -52,7 +52,6 @@
       (launcher)
       (title)
       (metrics)
-      (battery)
       (tray)
     '';
     right_widgets = ''
@@ -60,7 +59,7 @@
       (rebuild)
       (spotify)
       (weather)
-      (microphone)
+      (battery)
       (audio)
       (clock)
       (notifications)

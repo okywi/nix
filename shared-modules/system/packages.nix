@@ -64,7 +64,6 @@ in {
     bitwarden
     vesktop
     spotify
-    spotify-tray
     copyq
     vscodium
     signal-desktop
@@ -84,6 +83,8 @@ in {
     obsidian
     prismlauncher
     heroic
+    gnome-themes-extra
+    adwaita-icon-theme
 
     # Programming
     jdk
@@ -102,5 +103,14 @@ in {
   # env variables for programs
   environment.sessionVariables = {
     ANDROID_HOME = "${androidSdk.androidsdk}/libexec/android-sdk";
+    FLATPAK_OVERRIDE_GTK_THEME = "Adwaita-dark";
+  };
+
+  ### FLATPAKS
+  services.flatpak = {
+    enable = true;
+    packages = [
+      "com.github.flxzt.rnote"
+    ];
   };
 }

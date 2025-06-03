@@ -5,13 +5,14 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     hyprland.url = "github:hyprwm/Hyprland";
+    nix-flatpak.url = "github:gmodena/nix-flatpak/";
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { nixpkgs, home-manager, ... }@inputs:
+  outputs = { nixpkgs, home-manager, nix-flatpak, ... }@inputs:
     let system = "x86_64-linux";
     in {
       nixosConfigurations.okywi = nixpkgs.lib.nixosSystem {
@@ -27,6 +28,7 @@
             home-manager.useUserPackages = false;
             home-manager.users.okywi = import ./hosts/okywi/home/home.nix;
           }
+          nix-flatpak.nixosModules.nix-flatpak
         ];
       };
 
@@ -43,6 +45,7 @@
             home-manager.useUserPackages = false;
             home-manager.users.okywi-laptop = import ./hosts/okywi-laptop/home/home.nix;
           }
+          nix-flatpak.nixosModules.nix-flatpak
         ];
       };
     };

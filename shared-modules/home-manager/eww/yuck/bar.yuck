@@ -46,7 +46,7 @@
     (box :space-evenly "false" :class "battery-box"
         (eventbox :cursor "pointer" :onclick ``
             (box :space-evenly "false"
-            (label :text {EWW_BATTERY["BATT"]["status"] == "Charging" ? "󰂄" : ""})
+            (label :text {EWW_BATTERY["BATT"]["status"] == "Charging" ? "" : ""})
             (progress :class "battery-progress" :width 40 :value {EWW_BATTERY["BATT"]["capacity"]} :orientation "h")))))
 
 
