@@ -57,6 +57,7 @@ in {
     dua
     bc
     tree
+    rnote
 
     # Applications
     inputs.zen-browser.packages."${system}".default
