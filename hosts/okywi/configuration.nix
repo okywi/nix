@@ -20,7 +20,6 @@ with lib; {
     };
   };
   boot.kernelParams = [ "amdgpu" ];
-  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   ### Locale
   # Set your time zone.
@@ -55,6 +54,11 @@ with lib; {
     enable = true;
     enable32Bit = true;
   };
+  hardware.openrazer.enable = true;
+  environment.systemPackages = with pkgs; [
+      openrazer-daemon
+      razergenie
+  ];
 
   ### Features
   # enable flakes

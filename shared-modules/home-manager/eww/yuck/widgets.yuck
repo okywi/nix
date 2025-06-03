@@ -20,9 +20,9 @@
               (label :class "song_title" :limit-width 50 :text "${song_scroll}")
               (revealer :transition "slideup" :reveal music_reveal :duration "300ms"
                   (box :class "music_buttons" :orientation "h" :halign "fill" :spacing 10
-                    (eventbox :class "eventbox_song_btn_prev" :timeout "0ms" :cursor "pointer" (button :class "song_btn_prev" :timeout "3ms" :onclick "./scripts/music.sh --prev" ""))
-                    (eventbox :class "eventbox_song_btn_play" :timeout "0ms" :cursor "pointer" (button :class "song_btn_play" :timeout "3ms" :onclick "./scripts/music.sh --toggle" song_status))
-                    (eventbox :class "eventbox_song_btn_next" :timeout "0ms" :cursor "pointer" (button :class "song_btn_next" :timeout "3ms" :onclick "./scripts/music.sh --next" ""))))
+                    (eventbox :class "eventbox_song_btn_prev" :timeout "0ms" :cursor "pointer" (button :class "song_btn_prev" :timeout "50ms" :onclick "./scripts/music.sh --prev" ""))
+                    (eventbox :class "eventbox_song_btn_play" :timeout "0ms" :cursor "pointer" (button :class "song_btn_play" :timeout "50ms" :onclick "./scripts/music.sh --toggle" song_status))
+                    (eventbox :class "eventbox_song_btn_next" :timeout "0ms" :cursor "pointer" (button :class "song_btn_next" :timeout "50ms" :onclick "./scripts/music.sh --next" ""))))
               (revealer :transition "slideup" :reveal music_reveal :duration "350ms"
                 (eventbox :class "volume_scale" :cursor "pointer" (scale :width 200 :value song_volume :min 0 :max 101 :orientation "h"
                 :onchange "playerctl volume $(echo 'scale=2; {} / 100' | bc) --player=spotify")))
