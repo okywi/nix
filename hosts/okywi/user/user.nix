@@ -14,7 +14,6 @@
     description = "okywi";
     extraGroups = [ "networkmanager" "wheel" "storage" "disk" "openrazer" "plugdev" ];
   };
-
   
   environment.sessionVariables = {
     STEAM_EXTRA_COMPAT_TOOLS_PATHS = "$HOME/.steam/root/compatibilitytools.d";

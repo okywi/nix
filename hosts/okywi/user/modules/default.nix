@@ -3,5 +3,6 @@
     ./storage.nix
     ./power.nix
     ./network.nix
+    ./packages.nix
   ];
 }

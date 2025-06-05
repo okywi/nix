@@ -19,6 +19,7 @@
     nautilus.enable = true;
     fonts.enable = true;
     network.enable = true;
+    userPackages.enable = true;
   };
 
   # Define monitors
