@@ -20,7 +20,7 @@ in {
     fileSystems."/mnt/windows" =
     { device = "/dev/disk/by-uuid/1812B31004366418";
       fsType = "ntfs";
-      options = [ "defaults" "x-gvfs-show" ];
+      options = [ "defaults" "x-gvfs-show" "x-udisks-auth" ];
     };
   };
 }

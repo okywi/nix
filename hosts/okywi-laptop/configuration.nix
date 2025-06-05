@@ -56,6 +56,13 @@ with lib; {
     enable32Bit = true;
   };
 
+  ### garbage collection
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 14d";
+  };
+
   ### Features
   # enable flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

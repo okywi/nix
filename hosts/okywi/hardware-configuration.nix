@@ -24,11 +24,6 @@
       options = [ "fmask=0077" "dmask=0077" ];
     };
 
-  fileSystems."/mnt/windows" =
-    { device = "/dev/disk/by-uuid/1812B31004366418";
-      fsType = "ntfs";
-    };
-
   fileSystems."/mnt/games" =
     { device = "/dev/disk/by-uuid/649c5ccc-f498-41b6-b661-de1dd6acc219";
       fsType = "ext4";
