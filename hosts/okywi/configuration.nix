@@ -19,7 +19,7 @@ with lib; {
       theme = pkgs.catppuccin-grub;
     };
   };
-  boot.kernelParams = [ "amdgpu" ];
+  boot.kernelParams = [ "amdgpu" "amdgpu.ppfeaturemask=0xffffffff" ];
 
   ### Locale
   # Set your time zone.

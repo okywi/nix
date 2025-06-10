@@ -57,6 +57,8 @@ in {
     dua
     bc
     tree
+    usbutils
+    caligula # burn usb's cli
 
     # Applications
     inputs.zen-browser.packages."${system}".default
@@ -85,6 +87,10 @@ in {
     heroic
     gnome-themes-extra
     adwaita-icon-theme
+    krita
+    libresprite
+    obs-studio
+    ffmpeg
 
     # Programming
     jdk

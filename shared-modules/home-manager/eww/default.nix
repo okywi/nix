@@ -72,6 +72,7 @@ in {
         };
         ".config/eww/styles".source = ./styles;
         ".config/eww/launch_eww.sh".source = ./launch_eww.sh;
+        ".config/eww/assets".source = ./assets;
       }
     ];
   };

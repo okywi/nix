@@ -5,8 +5,16 @@ in {
   options.modules.userPackages = { enable = mkEnableOption "userPackages"; };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [
-      alvr
-    ];
+    environment.systemPackages = with pkgs;
+      [
+        lact
+      ];
+    systemd.packages = with pkgs; [ lact ];
+    systemd.services.lactd.wantedBy = ["multi-user.target"];
+
+    programs.alvr = {
+      enable = true;
+      openFirewall = true;
+    };
   };
 }
