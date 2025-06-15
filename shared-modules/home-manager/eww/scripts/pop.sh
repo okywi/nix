@@ -6,9 +6,9 @@ elif [[ $DESKTOP_SESSION == "sway" ]]; then
 fi
 
 if [[ $SCREEN == "DP-3" ]]; then
-    SCREEN=0
-elif [[ $SCREEN == "HDMI-A-1" ]]; then
     SCREEN=1
+elif [[ $SCREEN == "HDMI-A-1" ]]; then
+    SCREEN=0
 fi
 
 pop_music() {

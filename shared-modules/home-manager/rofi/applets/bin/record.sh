@@ -76,7 +76,6 @@ fi
 
 # take shots
 recorddesktop () {
-    echo desktop
 	wl-screenrec --codec auto --dri-device /dev/dri/renderD128 -f "$dir/$file" -g "$(slurp -o)"
 }
 

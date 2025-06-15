@@ -19,12 +19,8 @@ set $right l
 # Your preferred terminal emulator
 set $term kitty
 # Your preferred application launcher
-set $menu  rofi -show drun #  ~/.config/rofi/launchers/type-1/launcher.sh
-set $primary eDP-1
+set $menu ~/.config/rofi/launchers/type-1/launcher.sh #rofi -show drun
 set $file_manager nautilus
-
-# Cursor
-set $XCURSOR_SIZE 32
 
 ### Output configuration
 output * max_render_time 5

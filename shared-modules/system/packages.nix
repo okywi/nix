@@ -98,6 +98,7 @@ in {
     jetbrains.pycharm-community
     android-tools
     androidSdk.androidsdk
+    go
 
     # Gaming
     lutris
