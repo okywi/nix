@@ -9,8 +9,8 @@ run_eww() {
     $EWW daemon
 
 	$EWW open-many \
-        bar:primary --arg primary:output="DP-3" --arg primary:screen="1" \
-        bar:secondary --arg secondary:output="HDMI-A-1" --arg secondary:screen="0"
+        bar:primary --arg primary:screen="1" --arg primary:wsscreen="0" \
+        bar:secondary --arg secondary:screen="0" --arg secondary:wsscreen="1"
 }
 
 run_eww

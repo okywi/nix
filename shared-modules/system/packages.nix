@@ -59,6 +59,7 @@ in {
     tree
     usbutils
     caligula # burn usb's cli
+    socat
 
     # Applications
     inputs.zen-browser.packages."${system}".default

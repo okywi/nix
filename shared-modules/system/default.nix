@@ -4,6 +4,7 @@
 		./sddm.nix
 		./hyprland.nix
 		./sway.nix
+		./niri.nix
 		./audio.nix
 		./nautilus.nix
 		./fonts.nix

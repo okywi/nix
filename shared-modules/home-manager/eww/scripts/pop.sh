@@ -3,6 +3,8 @@ if [[ $DESKTOP_SESSION == "hyprland" ]]; then
     SCREEN=$(hyprctl monitors -j | jq -r '.[] | select(.focused) | .name')
 elif [[ $DESKTOP_SESSION == "sway" ]]; then
     SCREEN=$(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name')
+elif [[ $DESKTOP_SESSION == "niri" ]]; then
+    SCREEN=$(niri msg -j focused-output | jq -r .name)
 fi
 
 if [[ $SCREEN == "DP-3" ]]; then
@@ -48,6 +50,8 @@ pop_audio() {
         hyprctl dispatch exec "pavucontrol -t 3"
     elif [[ $DESKTOP_SESSION == "sway" ]]; then
         swaymsg exec "pavucontrol -t 3"
+    elif [[ $DESKTOP_SESSION == "niri" ]]; then
+        niri msg action spawn -- pavucontrol -t 3
     fi
 }
 
@@ -56,6 +60,8 @@ pop_mic() {
         hyprctl dispatch exec "pavucontrol -t 4"
     elif [[ $DESKTOP_SESSION == "sway" ]]; then
         swaymsg exec "pavucontrol -t 4"
+    elif [[ $DESKTOP_SESSION == "niri" ]]; then
+        niri msg action spawn -- pavucontrol -t 4
     fi
 }
 

@@ -11,10 +11,10 @@
 (deflisten current_temperature :initial "°C" `tail -F /tmp/weather-temp`)
 (deflisten weather_icon :initial "-" `tail -F /tmp/weather-icon`)
 
-(defwidget bar [output]
+(defwidget bar [wsscreen]
   (centerbox :class "bar" :orientation "h"
     (left_widgets)
-    (workspaces :output output)
+    (workspaces :wsscreen wsscreen)
     (right_widgets)))
 
 (defwidget left_widgets []
@@ -119,7 +119,7 @@
         (box :space-evenly "false" :class "power"
             (label :class "power-icon" :text "")))))
 
-(defwindow bar [output screen]
+(defwindow bar [screen wsscreen]
     :monitor screen
     :windowtype "dock"
     :exclusive "true"
@@ -130,4 +130,4 @@
                         :width "100%"
                         :height "30px"
                         :anchor "top center")
-    (bar :output output))
+    (bar :wsscreen wsscreen))

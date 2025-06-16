@@ -26,18 +26,8 @@ function get_icon() {
     done
 }
 
-function change_volume() {
-    if [[ $1 == "up" ]]; then
-        pamixer -i 5
-    elif [[ $1 == "down" ]]; then
-        pamixer -d 5
-    fi
-}
-
 if [[ $1 == "--volume" ]]; then
     get_volume
-elif [[ $1 == "up" || $1 == "down" ]]; then
-    change_volume $1
 elif [[ $1 == "--icon" ]]; then
     get_icon $1
 fi

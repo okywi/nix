@@ -12,7 +12,8 @@
     sddm.enable = true;
     redshift.enable = true;
     #hyprland.enable = true;
-    sway.enable = true;
+    #sway.enable = true;
+    niri.enable = true;
     storage.enable = true;
     audio.enable = true;
     power.enable = true;

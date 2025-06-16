@@ -5,7 +5,8 @@
   # Select home modules
   config.modules = {
     git.enable = true;
-    sway.enable = true;
+    #sway.enable = true;
+    niri.enable = true;
     zsh.enable = true;
     #hyprland.enable = true;
     eww.enable = true;

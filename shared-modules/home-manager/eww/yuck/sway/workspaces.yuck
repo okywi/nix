@@ -4,7 +4,7 @@
 (deflisten workspacesArraySecondary :initial ""
   `./scripts/sway/workspaces.sh HDMI-A-1`)
 
-(defwidget workspaces [output]
+(defwidget workspaces [screen]
 (box    :class {output == "DP-3" ? "workspaces-0" : "workspaces-1"}
         :orientation "h"
         :space-evenly true

@@ -42,6 +42,18 @@ in {
           executable = true;
         };
       })
+      (mkIf config.modules.niri.enable {
+        ".config/eww/eww.yuck".text =
+          builtins.replaceStrings [ "session" ] [ "niri" ] eww_yuck;
+        ".config/eww/eww.scss".text =
+          builtins.replaceStrings [ "session" ] [ "niri" ] eww_style;
+        ".config/eww/scripts/niri/workspaces.sh" = {
+          text =
+            builtins.replaceStrings [ "input_workspaces" ] [ niri_workspaces ]
+            (builtins.readFile ./scripts/niri/workspaces.sh);
+          executable = true;
+        };
+      })
 
       # set widgets per host
       {".config/eww/yuck/bar.yuck".text = pkgs.lib.replaceStrings 

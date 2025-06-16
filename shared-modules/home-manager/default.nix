@@ -2,6 +2,7 @@
 	imports = [
 		./hypr
 		./sway
+		./niri
 		./eww
 		./zsh
 		./kitty
@@ -14,4 +15,6 @@
 		./git
 		./options.nix
 	];
+
+	home.file.".wallpapers".source = ./wallpapers;
 }

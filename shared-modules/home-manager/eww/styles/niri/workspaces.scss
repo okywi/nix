@@ -1,0 +1,27 @@
+.workspaces {
+    background-color: $background_color;
+    border-radius: $border_radius;
+    color: $text_color;
+}
+
+.ws {
+    padding-left: 12px;
+    padding-right: 12px;
+    font-size: 16px;
+    color: #999;
+    font-family: "Font Awesome 6 Free Solid";
+}
+
+.w-spotify  {
+    font-family: "Font Awesome 6 Brands";
+}
+
+.ws-occupied {
+    color: #fff;
+}
+
+.ws-active {
+    border-radius: $border_radius;
+    border-bottom: 2px solid #ABE9B3;
+    color: #ABE9B3;
+}

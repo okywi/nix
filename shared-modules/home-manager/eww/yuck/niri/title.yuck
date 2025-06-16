@@ -1,0 +1,4 @@
+(deflisten window_title `./scripts/niri/title.sh`)
+
+(defwidget title []
+    (label :class "title" :limit-width 30 :vexpand "false" :text window_title))

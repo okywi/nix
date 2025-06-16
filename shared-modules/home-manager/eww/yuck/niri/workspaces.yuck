@@ -1,0 +1,10 @@
+(deflisten workspacesArray "./scripts/niri/workspaces.sh")
+
+(defwidget workspaces [wsscreen]
+  (eventbox :cursor "pointer"
+    (box :class "workspaces"
+      (for i in {workspacesArray[wsscreen].workspaces}
+        (button
+          :onclick "niri msg action focus-workspace ${i.idx}"
+          :class "${i.class}"
+          "${i.icon}")))))
