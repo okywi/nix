@@ -1,0 +1,23 @@
+// workspaces
+workspace "terminal" {
+    open-on-output "DP-3"
+}
+workspace "browser" {
+    open-on-output "DP-3"
+}
+workspace "coding" {
+    open-on-output "DP-3"
+}
+workspace "gaming" {
+    open-on-output "DP-3"
+}
+
+workspace "browser2" {
+    open-on-output "HDMI-A-1"
+}
+workspace "spotify" {
+    open-on-output "HDMI-A-1"
+}
+workspace "chat" {
+    open-on-output "HDMI-A-1"
+}

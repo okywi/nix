@@ -1,4 +1,4 @@
-{ config, pkgs, ...}: {
+{ config, pkgs, lib, ...}: {
   imports = [
 		./config.nix
 	];
@@ -12,6 +12,6 @@
 	programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
-		linux-wallpaperengine
-	];
+	] ++ lib.optional config.modules.hyprland.enable linux-wallpaperengine
+    ++ lib.optional config.modules.niri.enable mpvpaper;
 }

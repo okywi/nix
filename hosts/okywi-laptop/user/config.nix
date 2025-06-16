@@ -28,5 +28,16 @@
     sway = [
       "output eDP-1 scale 1.5 resolution 2560x1600@165Hz position 0,0"
     ];
+    niri = [
+      ''
+        output "eDP-1" {
+          mode "2560x1600@165"
+          scale 1.5
+          transform "normal"
+          position x=0 y=0
+          focus-at-startup
+        }
+      ''
+    ];
   };
 }

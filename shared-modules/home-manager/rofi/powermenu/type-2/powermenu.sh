@@ -80,6 +80,8 @@ run_cmd() {
 				hyprctl dispatch exit
 			elif [[ "$DESKTOP_SESSION" == 'sway' ]]; then
 				swaymsg exit
+			elif [[ "$DESKTOP_SESSION" == 'niri' ]]; then
+				niri msg action quit -s
 			elif [[ "$DESKTOP_SESSION" == 'plasma' ]]; then
 				qdbus org.kde.ksmserver /KSMServer logout 0 0 0
 			fi
@@ -105,6 +107,8 @@ case ${chosen} in
 			hyprlock
 		elif [[ "$DESKTOP_SESSION" == 'sway' ]]; then
 			swaylock
+		elif [[ "$DESKTOP_SESSION" == 'niri' ]]; then
+			hyprlock -c ~/.config/niri/hyprlock.conf
 		fi
         ;;
     $suspend)

@@ -1,0 +1,84 @@
+// Window rules let you adjust behavior for individual windows.
+// Find more information on the wiki:
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Window-Rules
+
+// Work around WezTerm's initial configure bug
+// by setting an empty default-column-width.
+window-rule {
+    // This regular expression is intentionally made as specific as possible,
+    // since this is the default config, and we want no false positives.
+    // You can get away with just app-id="wezterm" if you want.
+    match app-id=r#"^org\.wezfurlong\.wezterm$"#
+    default-column-width {}
+}
+
+// Open the Firefox picture-in-picture player as floating by default.
+window-rule {
+    // This app-id regular expression will work for both:
+    // - host Firefox (app-id is "firefox")
+    // - Flatpak Firefox (app-id is "org.mozilla.firefox")
+    match app-id=r#"librewolf$"# title="^Picture-in-Picture$"
+    open-floating true
+}
+
+// Example: block out two password managers from screen capture.
+// (This example rule is commented out with a "/-" in front.)
+window-rule {
+    match app-id=r#"^Bitwarden$"#
+
+    block-out-from "screen-capture"
+
+    // Use this instead if you want them visible on third-party screenshot tools.
+    // block-out-from "screencast"
+}
+
+// Example: enable rounded corners for all windows.
+// (This example rule is commented out with a "/-" in front.)
+window-rule {
+    geometry-corner-radius 10
+    clip-to-geometry true
+}
+
+// autostart
+window-rule {
+    match at-startup=true app-id=r#"^steam$"#
+    match app-id=r#"^steam$"#
+    open-on-workspace "gaming"
+    open-maximized true
+    open-focused false
+}
+window-rule {
+    match at-startup=true app-id=r#"^Spotify$"#
+    match app-id=r#"^Spotify$"#
+    open-maximized true
+    open-on-workspace "spotify"
+    open-focused false
+}
+window-rule {
+    match app-id=r#"^vesktop$"#
+    match at-startup=true app-id=r#"^vesktop$"#
+    open-maximized true
+    open-on-workspace "chat"
+    open-focused true
+}
+window-rule {
+    match app-id=r#"^Signal$"# 
+    match at-startup=true app-id=r#"^Signal$"# 
+    open-maximized true
+    open-on-workspace "chat"
+    open-focused true
+}
+window-rule {
+    match app-id=r#"^com\.rtosta\.zapzap$"#
+    match at-startup=true app-id=r#"^com\.rtosta\.zapzap$"#
+    open-maximized true
+    open-on-workspace "chat"
+    open-focused true
+}
+window-rule {
+    match app-id=r#"^electron-mail$"#
+    match at-startup=true app-id=r#"^electron-mail$"#
+    open-maximized true
+    open-on-workspace "chat"
+    open-focused true
+}

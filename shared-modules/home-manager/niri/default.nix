@@ -3,19 +3,18 @@ with lib;
 let 
   cfg = config.modules.niri;
 in {
+  imports = [
+    ./niri.nix
+  ];
+  
   options.modules.niri = { enable = mkEnableOption "niri"; };
 
   config = mkIf cfg.enable {
-
     home.packages = with pkgs; [
       xwayland-satellite
       swww
       wlsunset
+      hyprlock
     ];
-
-    xdg.configFile = {
-      "niri/config.kdl".source = ./config.kdl;
-      "niri/scripts".source = ./scripts;
-    };
   };
 }
