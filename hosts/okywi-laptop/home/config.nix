@@ -33,6 +33,30 @@
       workspace=9, persistent:true, monitor:$primary
       workspace=10, persistent:true, monitor:$primary
     '';
+    niri = ''
+      workspace "terminal" {
+          open-on-output $primary
+      }
+      workspace "browser" {
+          open-on-output $primary
+      }
+      workspace "coding" {
+          open-on-output $primary
+      }
+      workspace "gaming" {
+          open-on-output $primary
+      }
+
+      workspace "browser2" {
+          open-on-output $primary
+      }
+      workspace "spotify" {
+          open-on-output $primary
+      }
+      workspace "chat" {
+          open-on-output $primary
+      }
+    '';
   };
 
   config.my.input = {

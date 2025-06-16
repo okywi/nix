@@ -18,7 +18,7 @@ let
   inputText = builtins.readFile ./config/input.kdl;
   bindsText = builtins.readFile ./config/binds.kdl;
   appearanceText = builtins.readFile ./config/appearance.kdl;
-  workspacesText = builtins.readFile ./config/workspaces.kdl;
+  workspacesText = pkgs.lib.replaceStrings ["$primary" "$secondary" ] [ "${primary}" "${secondary}" ] (config.my.workspaces.niri);
   windowsText = builtins.readFile ./config/windows.kdl;
   startupText = builtins.readFile ./config/startup.kdl;
 
