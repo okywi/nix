@@ -6,9 +6,10 @@
 
   # Select home modules
   config.modules = {
-    # sway.enable = true
-		zsh.enable = true;
-    hyprland.enable = true;
+    #sway.enable = true
+		niri.enable = true;
+    zsh.enable = true;
+    #hyprland.enable = true;
     eww.enable = true;
     kitty.enable = true;
     fastfetch.enable = true;
@@ -44,10 +45,6 @@
           open-on-output $primary
       }
       workspace "gaming" {
-          open-on-output $primary
-      }
-
-      workspace "browser2" {
           open-on-output $primary
       }
       workspace "spotify" {
@@ -89,5 +86,6 @@
       (notifications)
       (power)
     '';
+    bar = ''$EWW open bar --arg screen="0" --arg wsscreen="0"'';
   };
 }

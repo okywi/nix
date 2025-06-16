@@ -9,9 +9,10 @@
 
   # Select modules
   config.modules = {
+    niri.enable = true;
     sddm.enable = true;
     redshift.enable = true;
-    hyprland.enable = true;
+    # hyprland.enable = true;
     storage.enable = true;
     audio.enable = true;
     power.enable = true;

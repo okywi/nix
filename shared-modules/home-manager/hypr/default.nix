@@ -41,9 +41,6 @@ in {
         # scripts
         home.file.".config/hypr/scripts".source = ./scripts;
 
-        # wallpapers
-        home.file.".config/hypr/wallpapers".source = ./wallpapers;
-        
         # hyprpaper
         home.file.".config/hypr/hyprpaper.conf".source = ./hyprpaper.conf;
 

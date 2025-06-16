@@ -83,7 +83,10 @@ in {
           recursive = true; # Important for directory copying
         };
         ".config/eww/styles".source = ./styles;
-        ".config/eww/launch_eww.sh".source = ./launch_eww.sh;
+        ".config/eww/launch_eww.sh" = {
+          text = builtins.replaceStrings [ "$bar" ] [ "${config.my.eww.bar}" ] (builtins.readFile ./launch_eww.sh);
+          executable = true;
+        };
         ".config/eww/assets".source = ./assets;
       }
     ];
