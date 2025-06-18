@@ -14,9 +14,6 @@ window-rule {
 
 // Open the Firefox picture-in-picture player as floating by default.
 window-rule {
-    // This app-id regular expression will work for both:
-    // - host Firefox (app-id is "firefox")
-    // - Flatpak Firefox (app-id is "org.mozilla.firefox")
     match app-id=r#"librewolf$"# title="^Picture-in-Picture$"
     open-floating true
 }
@@ -37,6 +34,17 @@ window-rule {
 window-rule {
     geometry-corner-radius 10
     clip-to-geometry true
+}
+
+window-rule {
+    match app-id=r#".*steam_app.*"#
+    open-on-workspace "gaming"
+    open-focused true
+}
+window-rule {
+    match app-id=r#".*x86.*"#
+    open-on-workspace "gaming"
+    open-focused true
 }
 
 // autostart
