@@ -5,8 +5,8 @@
   # Select home modules
   config.modules = {
     git.enable = true;
-    #sway.enable = true;
-    niri.enable = true;
+    sway.enable = true;
+    #niri.enable = true;
     zsh.enable = true;
     #hyprland.enable = true;
     eww.enable = true;
@@ -71,7 +71,7 @@
       [0]="     "
       [1]="   "'';
     sway_workspaces = ''
-      icons=("" "" "" "" "" "" "" "" "" "") 
+      icons='[[[1, ""], [2, ""], [3, ""], [4, ""], [5, ""], [6, ""]], [[7, ""], [8, ""], [9, ""], [10, ""]]]'
     '';
     left_widgets = ''
       (launcher)

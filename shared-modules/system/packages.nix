@@ -11,6 +11,7 @@ in {
 
   ### Programs
   programs.direnv.enable = true;
+  programs.dconf.enable = true;
   services.locate.enable = true;
   programs.gamemode.enable = true;
   programs.steam = {
@@ -60,6 +61,7 @@ in {
     usbutils
     caligula # burn usb's cli
     socat
+    gsettings-desktop-schemas
 
     # Applications
     inputs.zen-browser.packages."${system}".default
@@ -119,6 +121,7 @@ in {
     enable = true;
     packages = [
       "com.github.flxzt.rnote"
+      "org.vinegarhq.Sober"
     ];
   };
 }

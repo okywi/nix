@@ -19,7 +19,8 @@ with lib; {
       theme = pkgs.catppuccin-grub;
     };
   };
-  boot.kernelParams = [ "amdgpu" "amdgpu.ppfeaturemask=0xffffffff" ];
+  boot.kernelParams = [ "amdgpu" "amdgpu.ppfeaturemask=0xffffffff" "amd_pstate=active" "amd_pstate_epp=balance_performance" ];
+  #boot.kernelPackages = pkgs.linuxPackages_zen;
 
   ### Locale
   # Set your time zone.
@@ -53,6 +54,7 @@ with lib; {
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
+    extraPackages = [ pkgs.amdvlk ];
   };
   hardware.openrazer.enable = true;
   environment.systemPackages = with pkgs; [

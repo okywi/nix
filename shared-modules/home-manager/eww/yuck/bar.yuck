@@ -64,7 +64,7 @@
     (box :class "rebuild-box"
             (eventbox :onclick `kitty -e sudo nixos-rebuild switch --flake ~/nixos && notify-send 'The system has been rebuild and switched'` :cursor "pointer"
                 (label :class "rebuild-icon" :text ""))))
-
+                
 (defwidget spotify []
     (box :space-evenly "false" :class "spotify-box"
         (eventbox :onscroll "./scripts/music.sh {}" :onclick "./scripts/pop.sh --music" :cursor "pointer" :onmiddleclick "./scripts/music.sh --toggle"
@@ -97,7 +97,7 @@
             (box :space-evenly "false"
                 (label :text volume_icon)))
         (eventbox :cursor "pointer"
-            (scale :width 40 :onchange `pamixer --set-volume {}` :class "audio-scale" :value volume :orientation "h"))))
+            (scale :width 40  :max 50 :onchange `pamixer --set-volume {}` :class "audio-scale" :value volume :orientation "h"))))
 
 (defwidget clock []
     (box :space-evenly "false" :class "time-box"

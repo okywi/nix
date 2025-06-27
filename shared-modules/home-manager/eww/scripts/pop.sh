@@ -14,7 +14,7 @@ elif [[ $SCREEN == "HDMI-A-1" ]]; then
 fi
 
 pop_music() {
-    if [ -z $($EWW active-windows | grep "music: music") ]; then
+    if [[ -z $($EWW active-windows | grep "music: music") ]]; then
         $EWW open music --screen $SCREEN
     else
         $EWW close music

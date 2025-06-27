@@ -1,40 +1,50 @@
-icons=("" "" "" "" "" "" "" "" "" "")
+input_workspaces
 
-get_workspaces_info() {
-    local output=$1
-    local ws_start ws_length
 
-    if [[ $output == "DP-3" ]]; then
-        ws_start=1 ws_length=6
-    elif [[ $output == "HDMI-A-1" ]]; then
-        ws_start=7 ws_length=4
-    elif [[ $output == "eDP-1" ]]; then
-        ws_start=1 ws_length=10
-    fi
+workspaces() {
+    workspaces=$(echo "$(swaymsg -t get_workspaces -r)" | jq -s '.[] | flatten | sort_by(.num) | group_by(.output) | map({name: .[0].output, workspaces: .}) | flatten')
+    
+    echo "$icons" | jq -c --argjson workspaces "$workspaces" '
+    def is_occupied($output_index; $num):
+        any($workspaces[$output_index].workspaces[]; .num == $num);
 
-    local names=$(swaymsg -t get_workspaces | jq -r --arg o "$output" '.[] | select(.output == $o) | .name')
-    local focused=$(swaymsg -t get_workspaces | jq -r '.[] | select(.focused == true) | .name')
-    local workspaces=()
+    def is_focused($output_index; $num):
+        if any($workspaces[$output_index].workspaces[]; .num == $num) then
+            ($workspaces[$output_index].workspaces[] | select(.num == $num) | .focused)
+        else
+            false
+        end;
 
-    for ((i = ws_start; i < ws_start + ws_length; i++)); do
-        local isFocused=$([[ $focused == $i ]] && echo "true" || echo "false")
-        local occupied=$([[ $names == *"$i"* ]] && echo "true" || echo "false")
+    def get_class($focused; $occupied):
+        if $focused then
+            " workspace-focused"
+        elif $occupied then
+            " workspace-occupied"
+        else
+            ""
+        end;
 
-        workspaces+=("$(jq -n \
-            --arg id "$i" \
-            --arg icon "${icons[i - 1]}" \
-            --arg occupied "$occupied" \
-            --arg isFocused "$isFocused" \
-            '{id: ($id | tonumber), icon: $icon, occupied: $occupied, isFocused: $isFocused}')")
-    done
-
-    echo $(printf '%s\n' "${workspaces[@]}" | jq -r . | jq -s)
+    . | to_entries | map(
+        .key as $output_index |
+        .value | to_entries | map(
+            .value[0] as $icon_id |
+            .value[1] as $icon |
+            ($icon_id) as $ws_num |
+            is_occupied($output_index; $ws_num) as $occupied |
+            is_focused($output_index; $ws_num) as $focused |
+            {
+                num: $ws_num,
+                icon: $icon,
+                occupied: $occupied,
+                focused: $focused,
+                class: ("w" + ($ws_num|tostring) + " workspace-button" + get_class($focused; $occupied))
+            }
+        )
+    )'
 }
+# run once then subscribe
+workspaces
 
-get_workspaces_info "$1"
-
-swaymsg -t subscribe '["workspace"]' --monitor | {
-    while read -r; do
-        get_workspaces_info "$1"
-    done
-}
+swaymsg -t subscribe '["workspace"]' --monitor | while read -r _; do
+    workspaces 
+done

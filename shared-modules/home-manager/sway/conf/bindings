@@ -1,0 +1,91 @@
+### Utilities
+bindsym $mod+ctrl+alt+c exec codium $HOME/nixos
+bindsym $mod+Shift+s exec killall rofi 2>/dev/null || $HOME/.config/rofi/applets/bin/screenshot.sh
+bindsym $mod+Shift+c exec killall hyprpicker 2>/dev/null || hyprpicker -a -n -f hex
+bindsym ctrl+$mod+alt+p exec killall rofi 2>/dev/null || $HOME/.config/rofi/powermenu/type-2/powermenu.sh
+bindsym $mod+Shift+v exec killall wl-screenrec 2>/dev/null || bash $HOME/.config/rofi/applets/bin/record.sh
+bindsym $mod+Shift+p exec $HOME/.config/sway/scripts/clipboardedit.sh
+bindsym --whole-window $mod+button2 exec ~/.config/sway/scripts/movetoothermonitor.sh # move workspace to other monitor with mouse middle click
+
+### Applications & Launchers
+bindsym $mod+e exec $file_manager
+bindsym $mod+Return exec $term
+bindsym $mod+d exec pgrep -x rofi || $menu
+bindsym $mod+Shift+b exec $HOME/.config/eww/launch_eww.sh
+bindsym $mod+period exec $HOME/.config/rofi/launchers/emoji.sh
+
+### General
+bindsym $mod+w kill
+bindsym $mod+alt+r reload
+floating_modifier $mod normal
+
+### Media & Brightness Controls
+bindsym --locked XF86AudioMute exec pactl set-sink-mute \@DEFAULT_SINK@ toggle
+bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume \@DEFAULT_SINK@ -5%
+bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume \@DEFAULT_SINK@ +5%
+bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
+bindsym --locked XF86AudioPlay exec playerctl play-pause
+bindsym --locked XF86AudioPrev exec playerctl previous
+bindsym --locked XF86AudioNext exec playerctl next
+bindsym --locked XF86AudioStop exec playerctl stop
+bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
+
+### Scratchpad:
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
+
+### Window Movement
+# Move your focus around
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+# Or use $mod+[up|down|left|right]
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# Move the focused window with the same, but add Shift
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+# Ditto, with arrow keys
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+### Layout
+# You can "split" the current object of your focus with
+# $mod+b or $mod+v, for horizontal and vertical splits
+# respectively.
+bindsym $mod+b splith
+bindsym $mod+v splitv
+
+# Switch the current container between different layout styles
+# bindsym $mod+s layout stacking
+# bindsym $mod+w layout tabbed
+# bindsym $mod+e layout toggle split
+
+# Make the current focus fullscreen
+bindsym $mod+f fullscreen
+
+# Toggle the current focus between tiling and floating mode
+bindsym $mod+space floating toggle
+
+# Swap focus between the tiling area and the floating area
+bindsym $mod+shift+space focus mode_toggle
+
+# Move focus to the parent container
+bindsym $mod+a focus parent
+
+#
+# Resizing containers:
+#
+bindsym $mod+ctrl+Left resize grow width 20px
+bindsym $mod+ctrl+Down resize shrink height 20px
+bindsym $mod+ctrl+Up resize grow height 20px
+bindsym $mod+ctrl+Right resize shrink width 20px:

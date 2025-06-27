@@ -1,16 +1,12 @@
-(deflisten workspacesArrayPrimary :initial ""
-  `./scripts/sway/workspaces.sh DP-3`)
+(deflisten workspacesArray :initial "" `./scripts/sway/workspaces.sh`)
 
-(deflisten workspacesArraySecondary :initial ""
-  `./scripts/sway/workspaces.sh HDMI-A-1`)
-
-(defwidget workspaces [screen]
-(box    :class {output == "DP-3" ? "workspaces-0" : "workspaces-1"}
+(defwidget workspaces [wsscreen]
+(box    :class "workspaces"
         :orientation "h"
         :space-evenly true
         :halign "start"
     
-    (for entry in {output == "DP-3" ? workspacesArrayPrimary : workspacesArraySecondary}
-        (button :onclick `swaymsg workspace "${entry.id}"`
-                :class {entry.isFocused ? "focused" : "" ?: entry.occupied ? "occupied" : ""}
+    (for entry in {workspacesArray[wsscreen]}
+        (button :onclick `swaymsg workspace "${entry.num}"`
+                :class {entry.class}
         `${entry.icon}`))))

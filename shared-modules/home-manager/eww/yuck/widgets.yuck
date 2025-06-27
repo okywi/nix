@@ -27,7 +27,7 @@
                 (eventbox :class "volume_scale" :cursor "pointer" (scale :width 200 :value song_volume :min 0 :max 101 :orientation "h"
                 :onchange "playerctl volume $(echo 'scale=2; {} / 100' | bc) --player=spotify")))
               )))))
-
+        
 
 (defwindow music
     :monitor 0
@@ -59,7 +59,7 @@
                     (circular-progress :class "disk1-stats" :thickness 8 :value {EWW_DISK["/"]["used_perc"]} :start-at 25))
                 (overlay :width 75 :height 75
                     (label :class "disk2-stats-icon" :text "")
-                    (circular-progress :class "disk2-stats" :thickness 8 :value {EWW_DISK["/mnt/sda1"]["used_perc"]} :start-at 25)))
+                    (circular-progress :class "disk2-stats" :thickness 8 :value {EWW_DISK["/mnt/games"]["used_perc"]} :start-at 25)))
             )))
 
 (defwindow stats

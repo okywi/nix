@@ -1,0 +1,14 @@
+### Workspace assignment of applications
+assign [class="steam"] workspace number 5
+assign [class="discord"] workspace number 6
+assign [app_id="vesktop"] workspace number 6
+assign [app_id="spotify"] workspace number 8
+assign [app_id="com.ktechpit.whatsie"] workspace number 9
+assign [app_id="signal"] workspace number 9
+assign [class="electron-mail"] workspace number 10
+assign [class="^steam_app_.*$"] workspace number 4
+assign [class="osu!"] workspace number 4
+for_window [class="^steam_app_.*$"] move to workspace 4
+for_window [class="osu!"] move to workspace 4
+for_window [class="^.*Minecraft.*$"] move to workspace 4
+for_window [app_id="flameshot"] border pixel 0, floating enable, fullscreen disable, move absolute position 0 0

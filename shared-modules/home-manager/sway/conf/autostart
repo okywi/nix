@@ -1,0 +1,17 @@
+### Autostart
+exec_always /home/$USER/.config/sway/scripts/wallpaper.sh
+exec /home/$USER/.config/eww/launch_eww.sh
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+exec nm-applet
+exec copyq --start-server
+exec swaync
+exec sleep 5s && blueman-applet
+exec wlsunset -t 3000 -T 3500
+
+exec swaymsg "workspace 10; exec sleep 3s && electron-mail"
+exec swaymsg "workspace 9; exec sleep 3s && zapzap"
+exec swaymsg "workspace 9; exec sleep 3s && signal-desktop"
+exec swaymsg "workspace 8; exec spotify"
+exec swaymsg "workspace 6; exec sleep 3s && vesktop"
+exec swaymsg "workspace 5; exec steam"
+exec swaymsg "workspace 1"

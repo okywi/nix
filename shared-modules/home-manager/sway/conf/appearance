@@ -1,0 +1,11 @@
+### Appearance
+gaps inner 5
+gaps outer 5
+default_border pixel 3
+client.focused #F4B8E4 #F4B8E4 #F4B8E4 #F4B8E4 #F4B8E4
+client.focused_inactive #181818 #181818 #181818 #181818 #181818
+client.unfocused #181818 #181818 #181818 #181818 #181818
+smart_borders off
+focus_on_window_activation none
+exec split none
+corner_radius 10

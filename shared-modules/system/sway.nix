@@ -24,6 +24,6 @@ in {
        enable = true;
        wrapperFeatures.gtk = true;
        package = pkgs.swayfx;
-     };
+    };
   };
 }

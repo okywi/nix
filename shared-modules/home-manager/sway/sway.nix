@@ -21,6 +21,8 @@ in {
     # Hyprland
     wayland.windowManager.sway = {
       enable = true;
+      package = pkgs.swayfx;
+      checkConfig = false;
 
       config = {
         seat = {
@@ -70,16 +72,25 @@ in {
             text = "#181818";
           };
         };
-
-        #exec = {};
-        #floating.modifier = "";
       };
 
       extraConfigEarly = ''
         set $primary ${primary}
         set $secondary ${secondary}
       '';
-      extraConfig = "include ./sway_config";
+
+      extraConfig = ''
+        include ./conf/variables
+        include ./conf/inputs
+        include ./conf/outputs
+        include ./conf/appearance
+        include ./conf/bindings
+        include ./conf/windows
+        include ./conf/workspaces
+        include ./conf/autostart
+
+        include @sysconfdir@/sway/config.d/*
+      '';
     };
   };
 }

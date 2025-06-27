@@ -1,0 +1,13 @@
+input * { 
+    xkb_layout de
+    xkb_options compose:rctrl
+}
+
+input 5426:132:Razer_Razer_DeathAdder_V2 {
+    accel_profile "flat"
+}
+
+input "type:touchpad" {
+    tap enabled
+    natural_scroll disabled
+}

@@ -12,7 +12,7 @@
     shell = pkgs.zsh;
     isNormalUser = true;
     description = "okywi";
-    extraGroups = [ "networkmanager" "wheel" "storage" "disk" "openrazer" "plugdev" ];
+    extraGroups = [ "video" "input" "networkmanager" "wheel" "storage" "disk" "openrazer" "plugdev" ];
   };
   
   environment.sessionVariables = {
