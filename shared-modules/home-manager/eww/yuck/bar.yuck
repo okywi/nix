@@ -28,6 +28,10 @@
 (defwidget launcher []
     (eventbox :cursor "pointer" (box :class "launcher" (button :onclick "./scripts/pop.sh --launcher" "♥"))))
 
+
+(defwidget overview []
+    (eventbox :cursor "pointer" (box :class "overview" (button :onclick "niri msg action toggle-overview" ""))))
+
 (defwidget metrics []
     (eventbox :cursor "pointer" :onclick "./scripts/pop.sh --stats" :onhoverlost "eww close stats" :onrightclick `kitty -e btop && notify-send "test"`(box :class "metrics"
         (box :class "cpu-box" :space-evenly "false"

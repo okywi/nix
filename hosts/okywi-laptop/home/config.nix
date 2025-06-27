@@ -71,6 +71,7 @@
     '';
     left_widgets = ''
       (launcher)
+      (overview)
       (title)
       (metrics)
       (tray)
