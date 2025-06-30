@@ -1,6 +1,7 @@
 {
 	imports = [
 		./hypr
+		./vesktop
 		./sway
 		./niri
 		./eww
