@@ -90,3 +90,15 @@ window-rule {
     open-on-workspace "chat"
     open-focused true
 }
+
+window-rule {
+    match app-id=r#"^com.github.flxzt.rnote$"#
+    open-maximized true
+    open-focused true
+}
+
+window-rule {
+    match app-id=r#"^librewolf$"#
+    open-maximized true
+    open-focused true
+}

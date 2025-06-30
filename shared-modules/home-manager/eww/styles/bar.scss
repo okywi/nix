@@ -20,6 +20,19 @@
     padding-right: 6px;
 }
 
+.overview {
+    font-family: "Font Awesome 6 Free Solid";
+    background-color: $background_color;
+    background-clip: padding-box;
+    color: #c488db;
+    border-radius: $border_radius;
+    border: 2px solid #c488db;
+    font-size: 18px;
+    padding: 5px;
+    padding-right: 6px;
+    margin-left: 5px;
+}
+
 .title {
     background-color: $background_color;
     background-clip: padding-box;
