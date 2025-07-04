@@ -95,6 +95,7 @@ in {
     obs-studio
     ffmpeg
     gnome-font-viewer
+    calibre
 
     # Programming
     jdk
