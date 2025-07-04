@@ -94,6 +94,7 @@ in {
     libresprite
     obs-studio
     ffmpeg
+    squeekboard
 
     # Programming
     jdk

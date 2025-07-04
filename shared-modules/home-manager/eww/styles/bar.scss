@@ -33,6 +33,19 @@
     margin-left: 5px;
 }
 
+.keyboard {
+    font-family: "Font Awesome 6 Free Solid";
+    background-color: $background_color;
+    background-clip: padding-box;
+    color: #ffffff;
+    border-radius: $border_radius;
+    border: 2px solid #ffffff;
+    font-size: 18px;
+    padding: 5px;
+    padding-right: 6px;
+    margin-left: 5px;
+}
+
 .title {
     background-color: $background_color;
     background-clip: padding-box;
