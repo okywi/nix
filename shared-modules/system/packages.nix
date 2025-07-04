@@ -95,6 +95,8 @@ in {
     obs-studio
     ffmpeg
     squeekboard
+    gnome-font-viewer
+    calibre
 
     # Programming
     jdk

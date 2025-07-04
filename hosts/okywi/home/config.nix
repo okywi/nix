@@ -17,6 +17,7 @@
     wireplumber.enable = false;
     qt.enable = true;
     gtk.enable = true;
+    vesktop.enable = true;
   };
 
   # workspaces for sway/hyprland

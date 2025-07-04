@@ -19,6 +19,7 @@
     qt.enable = true;
     gtk.enable = true;
     git.enable = true;
+    vesktop.enable = true;
   };
 
   config.my.workspaces = {
