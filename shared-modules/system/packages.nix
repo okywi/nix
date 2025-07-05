@@ -95,6 +95,7 @@ in {
     libresprite
     obs-studio
     ffmpeg
+    squeekboard
     gnome-font-viewer
     calibre
 

@@ -417,8 +417,11 @@
       "locked": {
         "lastModified": 1750791124,
         "narHash": "sha256-F5iVU/hjoSHSSe0gllxm0PcAaseEtGNanYK5Ha3k2Tg=",
+        "lastModified": 1750791124,
+        "narHash": "sha256-F5iVU/hjoSHSSe0gllxm0PcAaseEtGNanYK5Ha3k2Tg=",
         "owner": "YaLTeR",
         "repo": "niri",
+        "rev": "37458d94b288945f6cfbd3c5c233f634d59f246c",
         "rev": "37458d94b288945f6cfbd3c5c233f634d59f246c",
         "type": "github"
       },

@@ -9,7 +9,7 @@
     shell = pkgs.zsh;
     isNormalUser = true;
     description = "okywi-laptop";
-    extraGroups = [ "networkmanager" "wheel" "storage" "disk" "plugdev" ];
+    extraGroups = [ "networkmanager" "wheel" "storage" "disk" "plugdev" "input" "video" ];
   };
 
   environment.sessionVariables = {

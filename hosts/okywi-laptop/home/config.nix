@@ -79,7 +79,7 @@
     '';
     right_widgets = ''
       (twitch)
-      (rebuild)
+      (keyboard)
       (spotify)
       (weather)
       (battery)

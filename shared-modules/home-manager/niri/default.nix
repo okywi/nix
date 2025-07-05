@@ -16,5 +16,13 @@ in {
       wlsunset
       hyprlock
     ];
+
+    dconf = {
+      settings = {
+        "org/gnome/desktop/a11y/applications" = {
+          screen-keyboard-enabled = true;
+        };
+      };
+    };
   };
 }
