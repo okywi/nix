@@ -19,7 +19,12 @@ with lib; {
       theme = pkgs.catppuccin-grub;
     };
   };
-  boot.kernelParams = [ "amdgpu" "amdgpu.ppfeaturemask=0xffffffff" "amd_pstate=active" "amd_pstate_epp=balance_performance" ];
+  boot.kernelParams = [
+    "amdgpu"
+    "amdgpu.ppfeaturemask=0xffffffff"
+    "amd_pstate=active"
+    "amd_pstate_epp=balance_performance"
+  ];
   #boot.kernelPackages = pkgs.linuxPackages_zen;
 
   ### Locale
@@ -57,11 +62,25 @@ with lib; {
     extraPackages = [ pkgs.amdvlk ];
   };
   hardware.openrazer.enable = true;
-  environment.systemPackages = with pkgs; [
-      openrazer-daemon
-      razergenie
-  ];
+  environment.systemPackages = with pkgs; [ openrazer-daemon razergenie ];
 
+  ### Printing
+  services.printing = {
+    enable = true;
+    browsing = false;
+    drivers = with pkgs; [
+      gutenprint
+      cnijfilter2
+      cups-bjnp
+    ];
+  };
+  # for printer browsing
+  services.avahi = {
+    enable = false;
+    nssmdns4 = true;
+    openFirewall = true;
+  };
+  
   ### garbage collection
   nix.gc = {
     automatic = true;

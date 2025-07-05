@@ -26,7 +26,7 @@
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = false;
+            home-manager.useUserPackages = true;
             home-manager.users.okywi = import ./hosts/okywi/home/home.nix;
           }
           nix-flatpak.nixosModules.nix-flatpak
@@ -43,7 +43,7 @@
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = false;
+            home-manager.useUserPackages = true;
             home-manager.users.okywi-laptop = import ./hosts/okywi-laptop/home/home.nix;
           }
           nix-flatpak.nixosModules.nix-flatpak

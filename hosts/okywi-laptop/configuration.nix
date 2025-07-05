@@ -57,6 +57,23 @@ with lib; {
   };
   hardware.opengl.enable = true;
 
+  ### Printing
+  services.printing = {
+    enable = true;
+    browsing = false;
+    drivers = with pkgs; [
+      gutenprint
+      cnijfilter2
+      cups-bjnp
+    ];
+  };
+  # for printer browsing
+  services.avahi = {
+    enable = false;
+    nssmdns4 = true;
+    openFirewall = true;
+  };
+
   ### garbage collection
   nix.gc = {
     automatic = true;

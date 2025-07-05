@@ -62,6 +62,7 @@ in {
     caligula # burn usb's cli
     socat
     gsettings-desktop-schemas
+    cups-filters
 
     # Applications
     inputs.zen-browser.packages."${system}".default
