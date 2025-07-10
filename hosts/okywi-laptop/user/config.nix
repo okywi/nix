@@ -12,7 +12,6 @@
     niri.enable = true;
     sddm.enable = true;
     redshift.enable = true;
-    # hyprland.enable = true;
     storage.enable = true;
     audio.enable = true;
     power.enable = true;
@@ -23,9 +22,6 @@
 
   # Define monitors
   config.my.monitors = {
-    hyprland = [
-      "eDP-1,2560x1600@165,0x0,1.6"
-    ];
     sway = [
       "output eDP-1 scale 1.5 resolution 2560x1600@165Hz position 0,0"
     ];

@@ -25,4 +25,9 @@
       monitors = config.my.monitors;
     };
   };
+
+  xdg.icons = {
+    enable = true;
+    fallbackCursorThemes = [ "Banana" ];
+  };
 }

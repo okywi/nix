@@ -8,8 +8,10 @@ binds {
 
     // ----- Applications & Launchers -----
     Mod+Return hotkey-overlay-title="Open a Terminal: alacritty" { spawn "kitty"; }
+    Mod+S hotkey-overlay-title="Open overview" { spawn "niri" "msg" "action" "toggle-overview"; }
     Mod+E hotkey-overlay-title="Run an Application: nautilus" { spawn "nautilus"; }
     Mod+D hotkey-overlay-title="Run an Application: rofi" { spawn "~/.config/rofi/launchers/type-1/launcher.sh"; }
+    Super+Period { spawn "~/.config/rofi/launchers/emoji.sh"; }
     Super+Alt+Ctrl+P { spawn "sh" "-c" "$(killall rofi 2>/dev/null || ~/.config/rofi/powermenu/type-2/powermenu.sh)"; }
     Mod+Shift+B hotkey-overlay-title="Restart eww bar" { spawn "~/.config/eww/launch_eww.sh"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }

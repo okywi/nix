@@ -25,6 +25,7 @@ in {
       cursorTheme = {
         name = "Banana";
         package = pkgs.banana-cursor;
+        size = 24;
       };
 
       gtk3.bookmarks = [

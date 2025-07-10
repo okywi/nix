@@ -98,14 +98,31 @@ in {
     squeekboard
     gnome-font-viewer
     calibre
+    osu-lazer
+    opentabletdriver
+    watchmate
+    pkg-config
 
-    # Programming
+    ### Programming
     jdk
     jetbrains.idea-community-bin
     jetbrains.pycharm-community
     android-tools
     androidSdk.androidsdk
     go
+    glfw
+    libGL
+    xorg.libX11
+    xorg.libXcursor
+    xorg.libXext
+    xorg.libXrandr
+    xorg.libXxf86vm
+
+    # rust
+    rustup
+    cargo
+    gcc
+    rustfmt
 
     # Gaming
     lutris

@@ -12,7 +12,6 @@
 	programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
-	] ++ lib.optional config.modules.hyprland.enable linux-wallpaperengine
-		++ lib.optional config.modules.sway.enable mpvpaper
+	] ++ lib.optional config.modules.sway.enable mpvpaper
     ++ lib.optional config.modules.niri.enable mpvpaper;
 }
