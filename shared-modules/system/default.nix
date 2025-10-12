@@ -2,7 +2,6 @@
 	imports = [
 		./packages.nix
 		./sddm.nix
-		./hyprland.nix
 		./sway.nix
 		./niri.nix
 		./gnome.nix

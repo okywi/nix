@@ -56,35 +56,35 @@ window-rule {
     open-focused false
 }
 window-rule {
-    match at-startup=true app-id=r#"^Spotify$"#
-    match app-id=r#"^Spotify$"#
+    match at-startup=true app-id=r#"^spotify$"#
+    match app-id=r#"^(?i)spotify$"#
     open-maximized true
     open-on-workspace "spotify"
     open-focused false
 }
 window-rule {
-    match app-id=r#"^vesktop$"#
+    match app-id=r#"^(?i)vesktop$"#
     match at-startup=true app-id=r#"^vesktop$"#
     open-maximized true
     open-on-workspace "chat"
     open-focused true
 }
 window-rule {
-    match app-id=r#"^Signal$"# 
+    match app-id=r#"^(?i)Signal$"# 
     match at-startup=true app-id=r#"^Signal$"# 
     open-maximized true
     open-on-workspace "chat"
     open-focused true
 }
 window-rule {
-    match app-id=r#"^com\.rtosta\.zapzap$"#
+    match app-id=r#"^(?i)com\.rtosta\.zapzap$"#
     match at-startup=true app-id=r#"^com\.rtosta\.zapzap$"#
     open-maximized true
     open-on-workspace "chat"
     open-focused true
 }
 window-rule {
-    match app-id=r#"^electron-mail$"#
+    match app-id=r#"^(?i)electron-mail$"#
     match at-startup=true app-id=r#"^electron-mail$"#
     open-maximized true
     open-on-workspace "chat"
@@ -92,13 +92,13 @@ window-rule {
 }
 
 window-rule {
-    match app-id=r#"^com.github.flxzt.rnote$"#
+    match app-id=r#"^(?i)com.github.flxzt.rnote$"#
     open-maximized true
     open-focused true
 }
 
 window-rule {
-    match app-id=r#"^librewolf$"#
+    match app-id=r#"^(?i)librewolf$"#
     open-maximized true
     open-focused true
 }

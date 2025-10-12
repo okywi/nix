@@ -18,18 +18,6 @@ in {
     home.packages = with pkgs; [ eww pamixer brightnessctl ];
 
     home.file = mkMerge [
-      (mkIf config.modules.hyprland.enable {
-        ".config/eww/eww.yuck".text =
-          builtins.replaceStrings [ "session" ] [ "hypr" ] eww_yuck;
-        ".config/eww/eww.scss".text =
-          builtins.replaceStrings [ "session" ] [ "hypr" ] eww_style;
-        ".config/eww/scripts/hypr/workspaces.sh" = {
-          text =
-            builtins.replaceStrings [ "input_workspaces" ] [ hypr_workspaces ]
-            (builtins.readFile ./scripts/hypr/workspaces.sh);
-          executable = true;
-        };
-      })
       (mkIf config.modules.sway.enable {
         ".config/eww/eww.yuck".text =
           builtins.replaceStrings [ "session" ] [ "sway" ] eww_yuck;

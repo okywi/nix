@@ -64,6 +64,7 @@ in {
     gsettings-desktop-schemas
     acpi # battery
     qbittorrent
+    cups-filters
 
     # Applications
     inputs.zen-browser.packages."${system}".default
@@ -104,14 +105,31 @@ in {
     ausweisapp
     chromium
     dconf-editor
+    osu-lazer
+    opentabletdriver
+    watchmate
+    pkg-config
 
-    # Programming
+    ### Programming
     jdk
     jetbrains.idea-community-bin
     jetbrains.pycharm-community
     android-tools
     androidSdk.androidsdk
     go
+    glfw
+    libGL
+    xorg.libX11
+    xorg.libXcursor
+    xorg.libXext
+    xorg.libXrandr
+    xorg.libXxf86vm
+
+    # rust
+    rustup
+    cargo
+    gcc
+    rustfmt
 
     # Gaming
     lutris

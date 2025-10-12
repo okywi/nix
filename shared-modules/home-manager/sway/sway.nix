@@ -18,7 +18,15 @@ in {
     # wayland scaling issue fixs
     home.sessionVariables.NIXOS_OZONE_WL = "1";
 
-    # Hyprland
+    dconf = {
+      settings = {
+        "org/gnome/desktop/interface" = {
+          cursor-theme = config.gtk.cursorTheme.name;
+        };
+      };
+    };
+
+    # Sway
     wayland.windowManager.sway = {
       enable = true;
       package = pkgs.swayfx;
@@ -26,10 +34,10 @@ in {
 
       config = {
         seat = {
-          "*" = {
+          "seat0" = {
             xcursor_theme = "${config.gtk.cursorTheme.name} ${
-                toString config.gtk.cursorTheme.size
-              }";
+              toString config.gtk.cursorTheme.size
+            }";
           };
         };
         keybindings = { };
