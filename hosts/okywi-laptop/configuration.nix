@@ -59,8 +59,6 @@ with lib; {
   # Pipewire custom
   hardware.sensor.iio.enable = true;
 
-  services.printing.enable = true;
-
   ### Printing
   services.printing = {
     enable = true;
