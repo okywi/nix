@@ -5,7 +5,7 @@ in {
   options.modules.power = { enable = mkEnableOption "power"; };
 
   config = mkIf cfg.enable {
-    services.tlp = {
+    /*services.tlp = {
       enable = true;
       settings = {
         CPU_SCALING_GOVERNOR_ON_AC = "performance";
@@ -19,6 +19,20 @@ in {
         CPU_MIN_PERF_ON_BAT = 0;
         CPU_MAX_PERF_ON_BAT = 20;
       };
-    };
+    };*/
+
+   /* services.auto-cpufreq.enable = true;
+    services.auto-cpufreq.settings = {
+      battery = {
+        governor = "powersave";
+        turbo = "never";
+      };
+      charger = {
+        governor = "performance";
+        turbo = "auto";
+      };
+    };*/
+    services.power-profiles-daemon.enable = true;
+
   };
 }

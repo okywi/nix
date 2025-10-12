@@ -62,6 +62,8 @@ in {
     caligula # burn usb's cli
     socat
     gsettings-desktop-schemas
+    acpi # battery
+    qbittorrent
 
     # Applications
     inputs.zen-browser.packages."${system}".default
@@ -97,6 +99,11 @@ in {
     squeekboard
     gnome-font-viewer
     calibre
+    protonvpn-gui
+    kdePackages.kdeconnect-kde
+    ausweisapp
+    chromium
+    dconf-editor
 
     # Programming
     jdk

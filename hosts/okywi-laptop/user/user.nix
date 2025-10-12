@@ -22,4 +22,6 @@
       monitors = config.my.monitors; # Pass to HM
     };
   };
+
+	home-manager.backupFileExtension = "backup";
 }

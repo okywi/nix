@@ -4,6 +4,7 @@
 		./vesktop
 		./sway
 		./niri
+		./gnome
 		./eww
 		./zsh
 		./kitty

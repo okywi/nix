@@ -41,6 +41,14 @@ pop_stats() {
     fi
 }
 
+pop_power() {
+    if [[ -z $($EWW active-windows | grep "cpu-power: cpu-power") ]]; then
+        $EWW open cpu-power --screen $SCREEN
+    else
+        $EWW close cpu-power
+    fi
+}
+
 pop_powermenu() {
     killall rofi 2>/dev/null || ~/.config/rofi/powermenu/type-2/powermenu.sh
 }
@@ -75,6 +83,8 @@ elif [[ $1 == "--powermenu" ]]; then
     pop_powermenu
 elif [[ $1 == "--stats" ]]; then
     pop_stats
+elif [[ $1 == "--power" ]]; then
+    pop_power
 elif [[ $1 == "--audio" ]]; then
     pop_audio
 elif [[ $1 == "--mic" ]]; then

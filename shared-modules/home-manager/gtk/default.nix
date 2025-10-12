@@ -5,16 +5,29 @@ in {
   options.modules.gtk = { enable = mkEnableOption "gtk"; };
 
   config = mkIf cfg.enable {
+
+    home.packages = with pkgs; [
+      gtk-engine-murrine
+    ];
+    
     # GTK Theme
     gtk = {
       enable = true;
       theme = {
+        /*name = "";
+        package = pkgs.catppuccin-gtk.override {
+          accent = [ "pink" ];
+          size = "standard";
+          variant = "dark";
+          variant = [ "" ];
+        };*/
         name = "catppuccin-mocha-pink-standard";
         package = pkgs.catppuccin-gtk.override {
           accents = [ "pink" ];
           size = "standard";
           variant = "mocha";
         };
+        # package = pkgs.dracula-theme;
       };
 
       iconTheme = {

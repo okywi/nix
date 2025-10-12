@@ -26,15 +26,15 @@
         config_right_widgets))
 
 (defwidget launcher []
-    (eventbox :cursor "pointer" (box :class "launcher" (button :onclick "./scripts/pop.sh --launcher" "♥"))))
+    (eventbox :onclick "./scripts/pop.sh --launcher" :cursor "pointer" (box :class "launcher" (button  "♥"))))
 
 
 (defwidget overview []
-    (eventbox :cursor "pointer" (box :class "overview" (button :onclick "niri msg action toggle-overview" ""))))
+    (eventbox :onclick "niri msg action toggle-overview" :cursor "pointer" (box :class "overview" (button ""))))
 
 
 (defwidget keyboard []
-    (eventbox :cursor "pointer" (box :class "keyboard" (button :onclick "squeekboard" ""))))
+    (eventbox :cursor "pointer" (box :class "keyboard" (button :onclick "./scripts/keyboard.sh" ""))))
 
 
 (defwidget metrics []
@@ -53,10 +53,10 @@
 
 (defwidget battery []
     (box :space-evenly "false" :class "battery-box"
-        (eventbox :cursor "pointer" :onclick ``
+        (eventbox :cursor "pointer" :onclick `./scripts/pop.sh --power` :space-evenly "false"
             (box :space-evenly "false"
-            (label :text {EWW_BATTERY["BATT"]["status"] == "Charging" ? "" : ""})
-            (progress :class "battery-progress" :width 40 :value {EWW_BATTERY["BATT"]["capacity"]} :orientation "h")))))
+            (label :class "battery-icon" :text `${EWW_BATTERY["BATT"]["status"] == "Charging" ? "" : ""}`)
+            (label :class "battery-percentage" :text `${EWW_BATTERY["BATT"]["capacity"]}%`)))))
 
 
 (defwidget tray []
@@ -137,6 +137,6 @@
     :geometry (geometry :x "0px"
                         :y "10px"
                         :width "100%"
-                        :height "30px"
+                        :height "35px"
                         :anchor "top center")
     (bar :wsscreen wsscreen))

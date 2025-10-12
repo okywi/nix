@@ -4,13 +4,15 @@ binds {
     Mod+Shift+O { show-hotkey-overlay; }
 
     // Overview
-    Mod+O repeat=false { toggle-overview; }
+    Mod+S repeat=false { toggle-overview; }
 
     // ----- Applications & Launchers -----
     Mod+Return hotkey-overlay-title="Open a Terminal: alacritty" { spawn "kitty"; }
     Mod+E hotkey-overlay-title="Run an Application: nautilus" { spawn "nautilus"; }
-    Mod+D hotkey-overlay-title="Run an Application: rofi" { spawn "~/.config/rofi/launchers/type-1/launcher.sh"; }
+    Mod+D hotkey-overlay-title="Run an Application: rofi" { spawn "sh" "-c" "$(killall rofi 2>/dev/null || ~/.config/rofi/launchers/type-1/launcher.sh)"; }
     Super+Alt+Ctrl+P { spawn "sh" "-c" "$(killall rofi 2>/dev/null || ~/.config/rofi/powermenu/type-2/powermenu.sh)"; }
+    Mod+Shift+P { spawn "~/.config/niri/scripts/clipboardedit.sh"; }
+    Super+Shift+V { spawn "sh" "-c" "$(killall rofi 2>/dev/null || killall wl-screenrec 2>/dev/null || ~/.config/rofi/applets/bin/nirirecord.sh)"; }
     Mod+Shift+B hotkey-overlay-title="Restart eww bar" { spawn "~/.config/eww/launch_eww.sh"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
     Super+Alt+Ctrl+C { spawn "codium" "nixos"; }
@@ -220,7 +222,7 @@ binds {
     // Mod+Space       { switch-layout "next"; }
     // Mod+Shift+Space { switch-layout "prev"; }
 
-    Mod+Shift+S { screenshot; }
+    Mod+Shift+S { spawn "sh" "-c" "~/.config/rofi/applets/bin/niriscreenshot.sh"; }
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
 
@@ -236,5 +238,5 @@ binds {
 
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.
-    Mod+Shift+P { power-off-monitors; }
+    Mod+Ctrl+Alt+P { power-off-monitors; }
 }

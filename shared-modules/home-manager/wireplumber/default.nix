@@ -11,7 +11,7 @@ in {
         ];
 
         # configuration
-        # home.file.".config/wireplumber/wireplumber.conf.d/alsa-soft-mixer.conf".source = ./alsa-soft-mixer.conf;
-        # home.file.".config/wireplumber/wireplumber.conf.d/alsa-disable-suspension.conf".source = ./alsa-disable-suspension.conf;        
+        home.file.".config/wireplumber/wireplumber.conf.d/alsa-soft-mixer.conf".source = ./alsa-soft-mixer.conf;
+        home.file.".config/wireplumber/wireplumber.conf.d/alsa-disable-suspension.conf".source = ./alsa-disable-suspension.conf;        
     };
 }

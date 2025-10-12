@@ -5,6 +5,7 @@
 (deflisten song_art_url "./scripts/getSpotifyImage.sh")
 (deflisten song_volume "./scripts/volume.sh")
 (deflisten song_status "./scripts/music.sh --status")
+(deflisten cpupower_mode "./scripts/cpupower.sh")
 (defvar music_reveal false)
 (defvar song_art_reveal true)
 (defvar button_active "active")
@@ -75,6 +76,32 @@
                 :anchor "top left")
     (stats))
 
+(defwidget cpu-power []
+    (box :class "cpu-power" :space-evenly "false" :orientation "v"
+        (eventbox :onclick `powerprofilesctl set performance` 
+            (box :space-evenly "false" (label :class "cpu-power-icon" :text {cpupower_mode == "performance" ? "" : ""} "")
+            (button :class "performance-button" "Performance")))
+        (eventbox :onclick `powerprofilesctl set balanced`
+            (box :space-evenly "false" (label :class "cpu-power-icon" :text {cpupower_mode == "balanced" ? "" : ""})
+            (button :class "balanced-button" "Balanced")))
+        (eventbox  :onclick `powerprofilesctl set power-saver`
+            (box :space-evenly "false" (label :class "cpu-power-icon" :text {cpupower_mode == "power-saver" ? "" : ""})
+            (button :class "powersave-button" "Powersave")))
+        ))
+
+(defwindow cpu-power
+    :monitor 0
+    :windowtype "normal"
+    :namespace "eww"
+    :wm-ignore true
+    :geometry (geometry
+                :x 260
+                :y 25
+                :width "0"
+                :height "0"
+                :anchor "top right")
+    (cpu-power))
+
 (defwidget calendarWidget []
     (box :class "calender"
     (calendar :class "cal" :day "date +%d" :month "date +%m" :year "date +%Y")))
@@ -85,7 +112,7 @@
     :namespace "eww"
     :wm-ignore true
     :geometry (geometry
-                :x 1629
+                :x 1550
                 :y 25
                 :width "0"
                 :height "0"

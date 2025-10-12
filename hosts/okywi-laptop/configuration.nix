@@ -56,6 +56,11 @@ with lib; {
     enable32Bit = true;
   };
 
+  # Pipewire custom
+  hardware.sensor.iio.enable = true;
+
+  services.printing.enable = true;
+
   ### garbage collection
   nix.gc = {
     automatic = true;

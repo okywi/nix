@@ -34,19 +34,19 @@ fi
 # Options
 layout=`cat ${theme} | grep 'USE_ICON' | cut -d'=' -f2`
 if [[ "$layout" == 'NO' ]]; then
-	option_1=" Record Desktop"
-	option_2=" Record Area"
-	option_3=" Record Window"
-	option_4=" Record Desktop with audio"
-	option_5=" Record Area with audio"
-    option_6=" Record Window with audio"
+	option_1=" Record Desktop"
+	option_2=" Record Area"
+	option_3=" Record Window"
+	option_4=" Record Desktop with audio"
+	option_5=" Record Area with audio"
+    option_6=" Record Window with audio"
 else
-	option_1=" "
-	option_2=" "
-	option_3=" "
-	option_4=" "
-	option_5=" "
-    option_6=" "
+	option_1=" "
+	option_2=" "
+	option_3=" "
+	option_4=" "
+	option_5=" "
+    option_6=" "
 fi
 
 # Rofi CMD
@@ -89,7 +89,6 @@ recordwin () {
 }
 
 recorddesktopwithaudio () {
-    echo test
 	wl-screenrec --codec auto --dri-device /dev/dri/renderD128 -f "$dir/$file"  --audio --audio-backend pulse -g "$(slurp -o)" --audio-device $(pactl list short sources | grep "$(pactl get-default-sink)" | awk '{print $2}')
 }
 

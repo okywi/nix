@@ -5,6 +5,7 @@ run_eww() {
 
     $HOME/.config/eww/scripts/start_streamers.sh &
     $HOME/.config/eww/scripts/weather.sh &
+    $HOME/.config/eww/scripts/battery.sh &
 
     $EWW daemon
 
