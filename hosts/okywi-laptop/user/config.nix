@@ -16,7 +16,7 @@
     gnome.enable = false;
     storage.enable = true;
     audio.enable = true;
-    #power.enable = true;
+    power.enable = true;
     nautilus.enable = true;
     fonts.enable = true;
     network.enable = true;

@@ -9,7 +9,9 @@
     #sway.enable = true
 		niri.enable = true;
     zsh.enable = true;
+    fish.enable = false;
     #hyprland.enable = true;
+    btop.enable = true;
     gnome.enable = true;
     eww.enable = true;
     kitty.enable = true;
@@ -62,12 +64,12 @@
       (launcher)
       (overview)
       (title)
+      (keyboard)
       (metrics)
       (tray)
     '';
     right_widgets = ''
       (twitch)
-      (keyboard)
       (spotify)
       (weather)
       (battery)

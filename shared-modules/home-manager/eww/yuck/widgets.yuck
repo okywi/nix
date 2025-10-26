@@ -35,10 +35,11 @@
     :windowtype "normal"
     :namespace "eww"
     :geometry (geometry
-                :x 1140
+                :x 0
                 :y 25
                 :width "0"
-                :height "0")
+                :height "0"
+                :anchor "top center")
     (music_box))
 
 (defwidget stats []
@@ -112,9 +113,9 @@
     :namespace "eww"
     :wm-ignore true
     :geometry (geometry
-                :x 1550
+                :x 25
                 :y 25
                 :width "0"
                 :height "0"
-                :anchor "top left")
+                :anchor "top right")
     (calendarWidget))

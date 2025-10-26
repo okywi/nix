@@ -1,7 +1,6 @@
 { pkgs, config, home-manager, ... }: {
   imports = [ ./config.nix ];
-  
-  # enable zsh
+
   programs.zsh.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.

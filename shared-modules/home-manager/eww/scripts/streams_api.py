@@ -4,7 +4,7 @@ import os
 import sys
 
 CLIENT_ID = "kkal61sp3sfeqr891nzti0fsonmftr"
-CLIENT_SECRET = "8izv62x2kn7mqlosrkarbhuh6pej6j"
+CLIENT_SECRET = "pjadwx9hi8eghri1z3zghoaa0kgg13"
 
 # Get OAuth Token
 TOKEN_URL = 'https://id.twitch.tv/oauth2/token'
@@ -24,7 +24,7 @@ else:
     exit()
 
 streams = [["dekarldent", "☭", "#ff0000"],
-        ["marqqusi", "⚒", "#8a45d9"],
+        ["whyqusi", "⚒", "#8a45d9"],
         ["krassthema", "","#00ff00"],
         ["banniuwu", "✿", "#F5C2E7"],
         ["naitan", "∩", "#ffffff"],
@@ -37,13 +37,16 @@ streams = [["dekarldent", "☭", "#ff0000"],
 new_streamers = []
 
 payload = {
-    'Client-ID': CLIENT_ID,
-    'Authorization': f'Bearer {access_token}'
+    'Client-Id': CLIENT_ID,
+    'Authorization': f'Bearer {access_token}',
+    'Content-Type': 'application/json'
 }
 
 for streamer in streams:
     response = r.get(f"https://api.twitch.tv/helix/streams?user_login={streamer[0]}", headers=payload)
-    data = json.loads(response.text)["data"]
+    
+    if response.status_code == 200:
+        data = json.loads(response.text)["data"]
 
     if data:
         title = data[0]["title"]
@@ -68,8 +71,7 @@ for new_streamer in new_streamers:
         #print(new_streamer["name"] + old_streamer["name"])
         if new_streamer["name"] == old_streamer["name"]:
             inside_old = True
-    print(inside_old)
-           
+
     if not inside_old:
         command = f'user_action=$(notify-send --action=twitch="Open Twitch" "{new_streamer["icon"]} {new_streamer["name"]}" "is now online"  -u critical -i /home/okywi/.config/eww/assets/twitch.png); if [[ $user_action == "twitch" ]]; then xdg-open "https://twitch.tv/{new_streamer["name"]}"; fi'
         os.system(command)

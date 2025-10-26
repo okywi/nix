@@ -1,3 +1,4 @@
+{ inputs, ... }:
 {
 	imports = [
 		./vesktop
@@ -6,6 +7,8 @@
 		./gnome
 		./eww
 		./zsh
+		./btop
+		./fish
 		./kitty
 		./fastfetch
 		./swaync
@@ -16,6 +19,7 @@
 		./git
 		./options.nix
 	];
+
 
 	home.file.".wallpapers".source = ./wallpapers;
 }

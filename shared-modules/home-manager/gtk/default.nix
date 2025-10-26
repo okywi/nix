@@ -9,6 +9,12 @@ in {
     home.packages = with pkgs; [
       gtk-engine-murrine
     ];
+
+    home.pointerCursor = {
+      name = "Banana";
+      package = pkgs.banana-cursor;
+      size = 24;
+    };
     
     # GTK Theme
     gtk = {

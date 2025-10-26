@@ -34,7 +34,7 @@
 
 
 (defwidget keyboard []
-    (eventbox :cursor "pointer" (box :class "keyboard" (button :onclick "./scripts/keyboard.sh" ""))))
+    (eventbox :onclick "./scripts/keyboard.sh" :cursor "pointer" (box :class "keyboard" (button ""))))
 
 
 (defwidget metrics []

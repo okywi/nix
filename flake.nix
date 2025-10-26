@@ -7,6 +7,7 @@
     hyprland.url = "github:hyprwm/Hyprland";
     nix-flatpak.url = "github:gmodena/nix-flatpak/";
     niri.url = "github:sodiboo/niri-flake";
+    chromium-webapps.url = "github:chobbledotcom/nix-chromium-webapps";
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";

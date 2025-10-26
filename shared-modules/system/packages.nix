@@ -75,7 +75,6 @@ in {
     copyq
     vscodium
     signal-desktop
-    electron-mail
     zapzap
     nwg-look
     loupe
@@ -109,6 +108,7 @@ in {
     opentabletdriver
     watchmate
     pkg-config
+    gnome-calculator
 
     ### Programming
     jdk

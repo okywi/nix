@@ -8,7 +8,7 @@ binds {
     Mod+S hotkey-overlay-title="Open overview" { spawn "niri" "msg" "action" "toggle-overview"; }
     Mod+E hotkey-overlay-title="Run an Application: nautilus" { spawn "nautilus"; }
     Mod+D hotkey-overlay-title="Run an Application: rofi" { spawn "sh" "-c" "$(killall rofi 2>/dev/null || ~/.config/rofi/launchers/type-1/launcher.sh)"; }
-    Super+Period { spawn "~/.config/rofi/launchers/emoji.sh"; }
+    Super+Shift+E { spawn "~/.config/rofi/launchers/emoji.sh"; }
     Super+Alt+Ctrl+P { spawn "sh" "-c" "$(killall rofi 2>/dev/null || ~/.config/rofi/powermenu/type-2/powermenu.sh)"; }
     Mod+Shift+P { spawn "~/.config/niri/scripts/clipboardedit.sh"; }
     Super+Shift+V { spawn "sh" "-c" "$(killall rofi 2>/dev/null || killall wl-screenrec 2>/dev/null || ~/.config/rofi/applets/bin/nirirecord.sh)"; }
@@ -205,8 +205,8 @@ binds {
     Mod+Shift+Plus { set-window-height "+10%"; }
 
     // Move the focused window between the floating and the tiling layout.
-    Mod+V       { toggle-window-floating; }
-    Mod+Shift+V { switch-focus-between-floating-and-tiling; }
+    Mod+Space       { toggle-window-floating; }
+    Mod+Shift+Space { switch-focus-between-floating-and-tiling; }
 
     // Toggle tabbed column display mode.
     // Windows in this column will appear as vertical tabs,
@@ -237,5 +237,5 @@ binds {
 
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.
-    Mod+Ctrl+Alt+P { power-off-monitors; }
+    Mod+Ctrl+Alt+M  { power-off-monitors; }
 }
