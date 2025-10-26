@@ -5,6 +5,7 @@ in {
   options.modules.btop = { enable = mkEnableOption "btop"; };
 
   config = mkIf cfg.enable {
-    home.configFile."btop/themes/catppuccin_mocha.theme" = ./catppuccin_mocha.theme;
+    xdg.configFile."btop/themes/catppuccin_mocha.theme".source = ./catppuccin_mocha.theme;
+    xdg.configFile."btop/btop.conf".source = ./btop.conf;
   };
 }
