@@ -73,7 +73,7 @@ for new_streamer in new_streamers:
             inside_old = True
 
     if not inside_old:
-        command = f'user_action=$(notify-send --action=twitch="Open Twitch" "{new_streamer["icon"]} {new_streamer["name"]}" "is now online"  -u critical -i /home/okywi/.config/eww/assets/twitch.png); if [[ $user_action == "twitch" ]]; then xdg-open "https://twitch.tv/{new_streamer["name"]}"; fi'
+        command = f'user_action=$(notify-send --action=twitch="Open Twitch" "{new_streamer["icon"]} {new_streamer["name"]}" "is now online"  -u critical -i $HOME/.config/eww/assets/twitch.png); if [[ $user_action == "twitch" ]]; then xdg-open "https://twitch.tv/{new_streamer["name"]}"; fi'
         os.system(command)
 
 with open(streamer_file_path, "w") as f:

@@ -20,9 +20,24 @@ in {
     gamescopeSession.enable = true;
   };
 
-  services.udev.packages = [
-    pkgs.android-udev-rules
-  ];
+    services.iptsd = {
+    enable = true;
+    config = {
+      Touchscreen.DisableOnPalm = false;
+      Touchscreen.DisableOnStylus = true;
+    };
+  };
+
+  services.mullvad-vpn = {
+    enable = true;
+    package = pkgs.mullvad-vpn;
+  };
+
+  services.saned.enable = true;
+
+  hardware.sane.enable = true;
+
+  virtualisation.docker.enable = true;
   # Required for AAPT2 to work
   programs.nix-ld.enable = true;
 
@@ -68,8 +83,9 @@ in {
 
     # Applications
     inputs.zen-browser.packages."${system}".default
+    inputs.hytale-launcher.packages.${system}.default
     librewolf
-    bitwarden
+    bitwarden-desktop
     vesktop
     spotify
     copyq
@@ -86,7 +102,6 @@ in {
     gnome-disk-utility
     baobab
     pavucontrol
-    libreoffice
     obsidian
     prismlauncher
     heroic
@@ -99,7 +114,6 @@ in {
     squeekboard
     gnome-font-viewer
     calibre
-    protonvpn-gui
     kdePackages.kdeconnect-kde
     ausweisapp
     chromium
@@ -109,6 +123,12 @@ in {
     watchmate
     pkg-config
     gnome-calculator
+    mullvad-browser
+    xournalpp
+    vlc
+    simple-scan
+    
+
 
     ### Programming
     jdk
@@ -124,6 +144,10 @@ in {
     xorg.libXext
     xorg.libXrandr
     xorg.libXxf86vm
+    nodejs
+    mqttx
+    docker
+    arduino-ide
 
     # rust
     rustup
@@ -150,6 +174,7 @@ in {
     packages = [
       "com.github.flxzt.rnote"
       "org.vinegarhq.Sober"
+      "org.libreoffice.LibreOffice"
     ];
   };
 }

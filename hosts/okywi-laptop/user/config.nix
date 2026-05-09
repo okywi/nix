@@ -13,7 +13,8 @@
     sddm.enable = true;
     redshift.enable = true;
     # hyprland.enable = true;
-    gnome.enable = false;
+    kde.enable = true;
+    # gnome.enable = true;
     storage.enable = true;
     audio.enable = true;
     power.enable = true;

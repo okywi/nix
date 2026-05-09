@@ -5,6 +5,9 @@ in {
   options.modules.fish = { enable = mkEnableOption "fish"; };
 
   config = mkIf cfg.enable {
+
+
+
     programs.fish = {
       enable = true;
       generateCompletions = true;
@@ -12,7 +15,7 @@ in {
         rebuild = "sudo nixos-rebuild switch --flake ~/nixos";
       };
 
-      shellInit = "fastfetch --logo ~/.config/fastfetch/ascii";
+      interactiveShellInit = "fastfetch --logo ~/.config/fastfetch/ascii";
     };
   };
 }

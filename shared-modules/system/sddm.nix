@@ -3,7 +3,7 @@ with lib;
 let 
   cfg = config.modules.sddm;
   customized_sddm_astronaut = pkgs.sddm-astronaut.override {
-    embeddedTheme = "purple_leaves";
+    embeddedTheme = "pixel_sakura";
     #themeConfig = {
     #  Background = "path/to/background.jpg"; # This theme also accepts videos
     #};2
@@ -18,7 +18,7 @@ in {
     ];
 
     # Service
-    services.displayManager.sddm = {
+    services.displayManager.sddm = lib.mkForce  {
       enable = true;
       wayland = {
         enable = true;
@@ -30,5 +30,7 @@ in {
       theme = "sddm-astronaut-theme";
 
     };
+
   };
+
 }

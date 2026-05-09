@@ -14,6 +14,7 @@ in {
         #gnomeExtensions.im-panel-integrated-with-osk
         #gnomeExtensions.forge
         gnomeExtensions.dash-to-dock
+        gnomeExtensions.blur-my-shell
       ];
 
     dconf.settings = {
@@ -47,8 +48,8 @@ in {
           binding = "<Super><Alt><Ctrl>C";
         };
       "org/gnome/desktop/wm/keybindings" = {
-        toggle-maximized = [ "<Super><Shift>F" ];
-        toggle-fullscreen = [ "<Super>F" ];
+        toggle-maximized = [ "<Super>F" ];
+        toggle-fullscreen = [ "<Super><Shift>F" ];
         close = [ "<Super>W" ];
         switch-to-workspace-1 = [ "<Super>1" ];
         switch-to-workspace-2 = [ "<Super>2" ];
@@ -80,6 +81,7 @@ in {
           "system-monitor@gnome-shell-extensions.gcampax.github.com"
           "windowsNavigator@gnome-shell-extensions.gcampax.github.com"
           "dash-to-dock@micxgx.gmail.com"
+          pkgs.gnomeExtensions.blur-my-shell.extensionUuid
         ];
       };
       "org/gnome/desktop/a11y/applications" = {
@@ -100,15 +102,15 @@ in {
       };
       "org/gnome/shell" = {
         favorite-apps = [
-          "librewolf.desktop"
+          "zen-beta.desktop"
           "org.gnome.Nautilus.desktop"
           "org.gnome.Calendar.desktop"
           "com.github.flxzt.rnote.desktop"
           "spotify.desktop"
           "steam.desktop"
-          "vesktop.desktop"
           "com.rtosta.zapzap.desktop"
           "signal.desktop"
+          "org.gnome.Settings.desktop"
         ];
       };
       "org/gnome/shell/extensions/dash-to-dock" = {

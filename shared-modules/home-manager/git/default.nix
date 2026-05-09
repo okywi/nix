@@ -8,7 +8,7 @@ in {
     programs.git = {
       enable = true;
       package = pkgs.git;
-      userName = "okywi";
+      userName = "maya";
       userEmail = "m.laupheimer@protonmail.com";
     };
   };

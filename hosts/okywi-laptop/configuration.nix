@@ -58,6 +58,12 @@ with lib; {
 
   # Pipewire custom
   hardware.sensor.iio.enable = true;
+	
+
+    nixpkgs.config.permittedInsecurePackages = [
+       "electron-36.9.5"
+    ];
+  
 
   ### Printing
   services.printing = {

@@ -22,6 +22,9 @@
 			"x-scheme-handler/unknown" = "zen-beta.desktop";
 			"application/pdf" = "zen-beta.desktop";
 			"application/vnd.oasis.opendocument.text" = "writer.desktop";
+			"image/png" = "org.gnome.Loupe.desktop";
+			"image/jpeg" = "org.gnome.Loupe.desktop";
+			"image/webp" = "org.gnome.Loupe.desktop";
 		};
 	};
 

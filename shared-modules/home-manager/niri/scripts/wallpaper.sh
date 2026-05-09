@@ -6,5 +6,5 @@ else
     pkill swww 2>/dev/null
     swww-daemon &
     sleep 0.5
-    swww img ~/.wallpapers/waiting-for-someone.png
+    swww img ~/.wallpapers/waiting-for-someone.jpg
 fi

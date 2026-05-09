@@ -8,7 +8,7 @@ wlsunset -t 3000 -T 3500 &
 #sleep 1
 #spotify &
 #sleep 1
-vesktop &
+# vesktop &
 #sleep 5
 #zapzap &
 #sleep 3

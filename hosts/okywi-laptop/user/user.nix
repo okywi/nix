@@ -8,7 +8,15 @@
     shell = pkgs.zsh;
     isNormalUser = true;
     description = "okywi-laptop";
-    extraGroups = [ "networkmanager" "wheel" "storage" "disk" "plugdev" "input" "video" ];
+    extraGroups = [ "networkmanager" "wheel" "storage" "disk" "plugdev" "input" "video" "syncthing" "docker" ];
+  };
+
+  services.syncthing = {
+    enable = true;
+    user = "okywi-laptop";
+    dataDir = "/home/okywi-laptop";
+    configDir = "/home/okywi-laptop/.config/syncthing";
+    openDefaultPorts = true;
   };
 
   environment.sessionVariables = {
