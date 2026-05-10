@@ -15,7 +15,17 @@ with lib; {
       enable = true;
       useOSProber = true;
       efiSupport = true;
+      efiInstallAsRemovable = true;
+      extraEntriesBeforeNixOS = false;
       devices = [ "nodev" ];
+      extraEntries = ''
+      menuentry "Reboot" --class reboot{
+        reboot
+      }
+      menuentry "Shutdown" --class shutdown {
+        halt
+      }
+    '';
       theme = pkgs.catppuccin-grub;
     };
   };
@@ -47,7 +57,7 @@ with lib; {
   };
 
   # Configure console keymap
-  console.keyMap = "de";
+  console.keyMap = "us";
 
   # X Server
   services.xserver = {
@@ -59,7 +69,6 @@ with lib; {
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
-    extraPackages = [ pkgs.amdvlk ];
   };
   hardware.openrazer.enable = true;
   environment.systemPackages = with pkgs; [ openrazer-daemon razergenie ];

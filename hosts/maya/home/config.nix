@@ -7,7 +7,8 @@
     git.enable = true;
     #sway.enable = true;
     niri.enable = true;
-    zsh.enable = true;
+    #zsh.enable = true;
+    fish.enable = true;
     btop.enable = true;
     eww.enable = true;
     kitty.enable = true;

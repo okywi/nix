@@ -13,10 +13,9 @@ fi
 
 (
     flock -n 9 || exit 1
-    nix-shell ~/.config/eww/scripts/shell.nix --run '
     while [ true ]; do
         python $HOME/.config/eww/scripts/streams_api.py
         sleep 60
-    done'
+    done
 ) 9>"$LOCKFILE"
 

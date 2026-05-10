@@ -1,1 +1,0 @@
-killall wvkbd-mobintl || wvkbd-mobintl -L 300

@@ -13,7 +13,6 @@
     redshift.enable = true;
     #sway.enable = true;
     niri.enable = true;
-    storage.enable = true;
     audio.enable = true;
     power.enable = true;
     nautilus.enable = true;

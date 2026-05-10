@@ -1,7 +1,5 @@
 
-// Input device configuration.
-// Find the full list of options on the wiki:
-// https://github.com/YaLTeR/niri/wiki/Configuration:-Input
+// INPUT
 input {
     keyboard {
         xkb {
@@ -9,8 +7,9 @@ input {
             // For more information, see xkeyboard-config(7).
 
             // For example:
-            layout "de"
-            //options "compose:ralt"
+            layout "us"
+            variant "altgr-intl"
+            options "compose:rctrl"
         }
 
         // Enable numlock on startup, omitting this setting disables it.

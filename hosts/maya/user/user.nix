@@ -4,22 +4,22 @@
     ./config.nix
   ];
 
-  # enable zsh
-  programs.zsh.enable = true;
+  # enable fish
+  programs.fish.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.okywi = {
-    shell = pkgs.zsh;
+  users.users.maya = {
+    shell = pkgs.fish;
     isNormalUser = true;
-    description = "okywi";
+    description = "maya";
     extraGroups = [ "video" "input" "networkmanager" "wheel" "storage" "disk" "openrazer" "plugdev" ];
   };
 
   services.syncthing = {
     enable = true;
-    user = "okywi";
-    dataDir = "/home/okywi";
-    configDir = "/home/okywi/.config/syncthing";
+    user = "maya";
+    dataDir = "/home/maya";
+    configDir = "/home/maya/.config/syncthing";
   };
   
   environment.sessionVariables = {
@@ -27,7 +27,7 @@
   };
 
   # Pass `my.monitors` as an argument to Home Manager
-  home-manager.users.okywi = {
+  home-manager.users.maya = {
     _module.args = {
       monitors = config.my.monitors;
     };

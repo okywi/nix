@@ -5,9 +5,6 @@ in {
   options.modules.fish = { enable = mkEnableOption "fish"; };
 
   config = mkIf cfg.enable {
-
-
-
     programs.fish = {
       enable = true;
       generateCompletions = true;

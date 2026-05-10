@@ -1,9 +1,3 @@
-// Window rules let you adjust behavior for individual windows.
-// Find more information on the wiki:
-// https://github.com/YaLTeR/niri/wiki/Configuration:-Window-Rules
-
-// Work around WezTerm's initial configure bug
-// by setting an empty default-column-width.
 window-rule {
     // This regular expression is intentionally made as specific as possible,
     // since this is the default config, and we want no false positives.
@@ -14,7 +8,7 @@ window-rule {
 
 // Open the Firefox picture-in-picture player as floating by default.
 window-rule {
-    match app-id=r#"librewolf$"# title="^Picture-in-Picture$"
+    match app-id=r#"zen$"# title="^Picture-in-Picture$"
     open-floating true
 }
 
@@ -41,25 +35,48 @@ window-rule {
     open-on-workspace "gaming"
     open-focused true
 }
+
 window-rule {
     match app-id=r#".*x86.*"#
     open-on-workspace "gaming"
     open-focused true
 }
 
-// autostart
+
 window-rule {
-    match at-startup=true app-id=r#"^steam$"#
+    match app-id=r#".*.exe.*"#
+    open-on-workspace "gaming"
+    open-focused true
+}
+
+window-rule {
     match app-id=r#"^steam$"#
     open-on-workspace "gaming"
+    open-floating true
+}
+
+// autostart
+window-rule {
+    match at-startup=true app-id=r#"^steam$"# title="^Steam$"
+    match app-id=r#"^steam$"# title="^Steam$"
+    open-on-workspace "gaming"
     open-maximized true
+    open-floating false
     open-focused false
 }
+
 window-rule {
-    match at-startup=true app-id=r#"^spotify$"#
+    match at-startup=true app-id=r#"^(?i)spotify$"#
     match app-id=r#"^(?i)spotify$"#
     open-maximized true
     open-on-workspace "spotify"
+    open-focused false
+}
+window-rule {
+    match app-id=r#"^(?i)discord$"#
+    match at-startup=true app-id=r#"^discord$"#
+    open-maximized true
+    open-on-workspace "chat"
     open-focused false
 }
 window-rule {
@@ -67,38 +84,38 @@ window-rule {
     match at-startup=true app-id=r#"^vesktop$"#
     open-maximized true
     open-on-workspace "chat"
-    open-focused true
+    open-focused false
 }
 window-rule {
     match app-id=r#"^(?i)Signal$"# 
     match at-startup=true app-id=r#"^Signal$"# 
     open-maximized true
     open-on-workspace "chat"
-    open-focused true
+    open-focused false
 }
 window-rule {
     match app-id=r#"^(?i)com\.rtosta\.zapzap$"#
     match at-startup=true app-id=r#"^com\.rtosta\.zapzap$"#
     open-maximized true
     open-on-workspace "chat"
-    open-focused true
+    open-focused false
 }
 window-rule {
     match app-id=r#"^(?i)electron-mail$"#
     match at-startup=true app-id=r#"^electron-mail$"#
     open-maximized true
     open-on-workspace "chat"
-    open-focused true
+    open-focused false
 }
 
 window-rule {
     match app-id=r#"^(?i)com.github.flxzt.rnote$"#
     open-maximized true
-    open-focused true
+    open-focused false
 }
 
 window-rule {
-    match app-id=r#"^(?i)librewolf$"#
+    match app-id=r#"^(?i)zen$"#
     open-maximized true
     open-focused true
 }

@@ -1,0 +1,41 @@
+// This config is in the KDL format: https://kdl.dev
+// "/-" comments out the following node.
+// Check the wiki for a full description of the configuration:
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Introduction
+include "animations.kdl"
+include "input.kdl"
+include "windows.kdl"
+include "layout.kdl"
+include "workspaces.kdl"
+include "binds.kdl"
+include "outputs.kdl"
+include "startup.kdl"
+
+prefer-no-csd
+
+hotkey-overlay {
+    skip-at-startup
+}
+
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+environment {
+    DISPLAY ":0"
+    QT_QPA_PLATFORMTHEME "qt6ct"
+    QT_QPA_PLATFORM "wayland;xcb"
+    TERMINAL "kitty"
+    ELECTRON_OZONE_PLATFORM_HINT "auto"
+    XCURSOR_THEME "Strawberry_Micro"
+    XCURSOR_SIZE "32"
+    EDITOR "nvim"
+}
+
+
+// CURSOR
+cursor {
+    xcursor-theme "Strawberry_Micro"
+    xcursor-size 32
+
+    hide-when-typing
+    hide-after-inactive-ms 2000
+}

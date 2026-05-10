@@ -41,22 +41,12 @@ pop_stats() {
     fi
 }
 
-pop_power() {
-    if [[ -z $($EWW active-windows | grep "cpu-power: cpu-power") ]]; then
-        $EWW open cpu-power --screen $SCREEN
-    else
-        $EWW close cpu-power
-    fi
-}
-
 pop_powermenu() {
     killall rofi 2>/dev/null || ~/.config/rofi/powermenu/type-2/powermenu.sh
 }
 
 pop_audio() {
-    if [[ $DESKTOP_SESSION == "hyprland" ]]; then
-        hyprctl dispatch exec "pavucontrol -t 3"
-    elif [[ $DESKTOP_SESSION == "sway" ]]; then
+    if [[ $DESKTOP_SESSION == "sway" ]]; then
         swaymsg exec "pavucontrol -t 3"
     elif [[ $DESKTOP_SESSION == "niri" ]]; then
         niri msg action spawn -- pavucontrol -t 3
@@ -64,12 +54,10 @@ pop_audio() {
 }
 
 pop_mic() {
-    if [[ $DESKTOP_SESSION == "hyprland" ]]; then
-        hyprctl dispatch exec "pavucontrol -t 4"
-    elif [[ $DESKTOP_SESSION == "sway" ]]; then
-        swaymsg exec "pavucontrol -t 4"
+    if [[ $DESKTOP_SESSION == "sway" ]]; then
+        swaymsg exec "pavucontrol -t 3"
     elif [[ $DESKTOP_SESSION == "niri" ]]; then
-        niri msg action spawn -- pavucontrol -t 4
+        niri msg action spawn -- pavucontrol -t 3
     fi
 }
 
@@ -83,8 +71,6 @@ elif [[ $1 == "--powermenu" ]]; then
     pop_powermenu
 elif [[ $1 == "--stats" ]]; then
     pop_stats
-elif [[ $1 == "--power" ]]; then
-    pop_power
 elif [[ $1 == "--audio" ]]; then
     pop_audio
 elif [[ $1 == "--mic" ]]; then

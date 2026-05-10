@@ -36,6 +36,8 @@ in {
   services.saned.enable = true;
 
   hardware.sane.enable = true;
+  hardware.opentabletdriver.enable = true;
+  hardware.uinput.enable = true;
 
   virtualisation.docker.enable = true;
   # Required for AAPT2 to work
@@ -119,7 +121,6 @@ in {
     chromium
     dconf-editor
     osu-lazer
-    opentabletdriver
     watchmate
     pkg-config
     gnome-calculator
@@ -157,6 +158,7 @@ in {
 
     # Gaming
     lutris
+    inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}.osu-stable # installs a package
 
     # Launchers & Status Bars
     networkmanagerapplet

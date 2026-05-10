@@ -2,7 +2,7 @@ playerctl metadata --format '{{ (mpris:artUrl) }}' --player=spotify --follow | w
     # Check if the art URL exists
     if [ -n "$art_url" ]; then
         # Get the cache directory location
-        cache_dir="$HOME/.album_art_cache"
+        cache_dir="/tmp/.album_art_cache"
         
         # Create the cache directory if it doesn't exist
         mkdir -p "$cache_dir"
