@@ -2,6 +2,7 @@
 {
 	imports = [
 		./vesktop
+		./signal
 		./sway
 		./niri
 		./gnome

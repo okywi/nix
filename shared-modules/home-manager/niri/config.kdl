@@ -25,17 +25,7 @@ environment {
     QT_QPA_PLATFORM "wayland;xcb"
     TERMINAL "kitty"
     ELECTRON_OZONE_PLATFORM_HINT "auto"
-    XCURSOR_THEME "Strawberry_Micro"
-    XCURSOR_SIZE "32"
+    XCURSOR_THEME "StrawberryMicro"
+    XCURSOR_SIZE "24"
     EDITOR "nvim"
-}
-
-
-// CURSOR
-cursor {
-    xcursor-theme "Strawberry_Micro"
-    xcursor-size 32
-
-    hide-when-typing
-    hide-after-inactive-ms 2000
 }

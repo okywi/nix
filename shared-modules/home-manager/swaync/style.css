@@ -276,17 +276,56 @@ slider {
   border: 1px solid #6c7086;
 }
 
-.widget-mpris .widget-mpris-player {
+
+.widget-mpris-player {
   background: #1E1E2E;
-  padding: 7px;
+  border-radius: 12.6px;
+  color: #cdd6f4;
 }
 
-.widget-mpris .widget-mpris-title {
+.mpris-overlay {
+  background-color: #1E1E2E;
+  opacity: 0.9;
+  padding: 15px 10px;
+}
+
+.widget-mpris-album-art {
+  -gtk-icon-size: 100px;
+  border-radius: 12.6px;
+  margin: 0 10px;
+}
+
+.widget-mpris-title {
   font-size: 1.2rem;
+  color: #cdd6f4;
 }
 
-.widget-mpris .widget-mpris-subtitle {
-  font-size: 0.8rem;
+.widget-mpris-subtitle {
+  font-size: 1rem;
+  color: #cdd6f4;
+}
+
+.widget-mpris button {
+  border-radius: 12.6px;
+  color: #cdd6f4;
+  margin: 0 5px;
+  padding: 2px;
+}
+
+.widget-mpris button image {
+  -gtk-icon-size: 1.8rem;
+}
+
+.widget-mpris button:hover {
+  background-color: black;
+}
+
+.widget-mpris button:active {
+  background-color: black;
+}
+
+.widget-mpris button:disabled {
+  opacity: 0.5;
 }
 
 .widget-menubar > box > .menu-button-bar > button > label {

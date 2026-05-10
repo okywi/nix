@@ -122,7 +122,7 @@ element {
     cursor:                      pointer;
 }
 element-text {
-    font:                        "Font Awesome 6 Free 24";
+    font:                        "Font Awesome 7 Free 24";
     background-color:            transparent;
     text-color:                  inherit;
     cursor:                      inherit;

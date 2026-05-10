@@ -8,8 +8,12 @@ in {
     programs.git = {
       enable = true;
       package = pkgs.git;
-      userName = "maya";
-      userEmail = "m.laupheimer@protonmail.com";
+      settings = {
+        user = {
+          name = "okywi";
+          email = "m.laupheimer@protonmail.com";
+        };
+      };
     };
   };
 }

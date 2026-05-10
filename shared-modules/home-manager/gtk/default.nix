@@ -10,10 +10,8 @@ in {
       gtk-engine-murrine
     ];
 
-    home.pointerCursor = {
-      name = "Banana";
-      package = pkgs.banana-cursor;
-      size = 24;
+    dconf.settings = {
+      "org/gnome/desktop/interface".color-scheme = "prefer-dark";
     };
     
     # GTK Theme
@@ -42,8 +40,7 @@ in {
       };
 
       cursorTheme = {
-        name = "Banana";
-        package = pkgs.banana-cursor;
+        name = "StrawberryMicro";
         size = 24;
       };
 

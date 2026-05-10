@@ -11,5 +11,6 @@
 		./fonts.nix
 		./monitors.nix
 		./redshift.nix
+		./docker.nix
 	];
 }

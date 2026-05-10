@@ -1,6 +1,8 @@
 {
   "positionX": "right",
   "positionY": "top",
+  "layer": "overlay",
+  "layer-shell": true,
   "control-center-margin-top": 5,
   "control-center-margin-bottom": 10,
   "control-center-margin-right": 5,
@@ -10,9 +12,9 @@
   "timeout": 7,
   "timeout-low": 3,
   "timeout-critical": 0,
-  "fit-to-screen": false,
+  "fit-to-screen": true,
   "control-center-width": 500,
-  "control-center-height": 1025,
+  "control-center-height": -1,
   "notification-window-width": 500,
   "keyboard-shortcuts": true,
   "image-visibility": "when-available",
@@ -36,7 +38,7 @@
     },
     "mpris": {
       "image-size": 96,
-      "image-radius": 7
+      "image-radius": 12
     },
     "volume": {
       "label": "󰕾"
@@ -53,11 +55,11 @@
         },
         {
           "label": "󰌾",
-          "command": "swaylock"
+          "command": "hyprlock -c ~/.config/niri/hyprlock.conf"
         },
         {
           "label": "󰍃",
-          "command": "swaymsg quit"
+          "command": "niri msg action quit -s"
         },
         {
           "label": "󰕾",
@@ -69,7 +71,7 @@
         },
         {
           "label": "󰂯",
-          "command": "blueberry"
+          "command": "blueman-manager"
         }
       ]
     }

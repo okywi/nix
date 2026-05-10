@@ -12,10 +12,10 @@
     niri.enable = true;
     sddm.enable = true;
     redshift.enable = true;
-    # hyprland.enable = true;
     kde.enable = true;
     # gnome.enable = true;
     storage.enable = true;
+    docker.enable = true;
     audio.enable = true;
     power.enable = true;
     nautilus.enable = true;

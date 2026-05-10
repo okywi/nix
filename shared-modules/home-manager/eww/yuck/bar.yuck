@@ -115,7 +115,7 @@
             (box :space-evenly "false"
                 (label :text volume_icon)))
         (eventbox :cursor "pointer"
-            (scale :width 40  :max 50 :onchange `pamixer --set-volume {}` :class "audio-scale" :value volume :orientation "h"))))
+            (scale :width 40  :max 100 :onchange `pamixer --set-volume {}` :class "audio-scale" :value volume :orientation "h"))))
 
 (defwidget clock []
     (box :space-evenly "false" :class "time-box"

@@ -122,7 +122,7 @@ textbox-prompt-colon {
     str:                         "";
     background-color:            inherit;
     text-color:                  inherit;
-    font:			 "Font Awesome 6 Free 10";
+    font:			 "Font Awesome 7 Free 10";
 }
 entry {
     enabled:                     true;

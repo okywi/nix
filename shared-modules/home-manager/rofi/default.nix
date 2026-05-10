@@ -17,6 +17,8 @@ in {
         # configuration
         home.file.".config/rofi".source = ../rofi;
 
+        home.file.".rofi-cache/rofi3.druncache".source = ./rofi3.druncache;
+
         programs.rofi = {
             enable = true;
             package = pkgs.rofi;

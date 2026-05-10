@@ -6,8 +6,21 @@ let
     buildToolsVersions = [ "34.0.0" ];
   };
 in {
+
+  
   ### Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+  
+  ### Enable Lix
+  nixpkgs.overlays = [ (final: prev: {
+    inherit (prev.lixPackageSets.stable)
+      nixpkgs-review
+      nix-eval-jobs
+      nix-fast-build
+      colmena;
+  }) ];
+
+  nix.package = pkgs.lixPackageSets.stable.lix;
 
   ### Programs
   programs.direnv.enable = true;
@@ -84,15 +97,14 @@ in {
     cups-filters
 
     # Applications
-    inputs.zen-browser.packages."${system}".default
-    inputs.hytale-launcher.packages.${system}.default
+    inputs.zen-browser.packages."${stdenv.hostPlatform.system}".default
+    inputs.hytale-launcher.packages.${stdenv.hostPlatform.system}.default
     librewolf
     bitwarden-desktop
     vesktop
     spotify
     copyq
     vscodium
-    signal-desktop
     zapzap
     nwg-look
     loupe
@@ -120,7 +132,6 @@ in {
     ausweisapp
     chromium
     dconf-editor
-    osu-lazer
     watchmate
     pkg-config
     gnome-calculator
@@ -128,27 +139,25 @@ in {
     xournalpp
     vlc
     simple-scan
-    
-
 
     ### Programming
     jdk
-    jetbrains.idea-community-bin
-    jetbrains.pycharm-community
+    jetbrains.idea-oss
+    jetbrains.pycharm-oss
     android-tools
     androidSdk.androidsdk
     go
     glfw
     libGL
-    xorg.libX11
-    xorg.libXcursor
-    xorg.libXext
-    xorg.libXrandr
-    xorg.libXxf86vm
+    libx11
+    libxcursor
+    libxext
+    libxrandr
+    libxxf86vm
     nodejs
     mqttx
-    docker
     arduino-ide
+    python3
 
     # rust
     rustup
@@ -158,7 +167,7 @@ in {
 
     # Gaming
     lutris
-    inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}.osu-stable # installs a package
+    inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}.osu-stable
 
     # Launchers & Status Bars
     networkmanagerapplet

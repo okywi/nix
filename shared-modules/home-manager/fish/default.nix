@@ -12,7 +12,10 @@ in {
         rebuild = "sudo nixos-rebuild switch --flake ~/nixos";
       };
 
-      interactiveShellInit = "fastfetch --logo ~/.config/fastfetch/ascii";
+      interactiveShellInit = "
+        set -g fish_greeting \"\"
+        fastfetch --logo ~/.config/fastfetch/ascii
+      ";
     };
   };
 }

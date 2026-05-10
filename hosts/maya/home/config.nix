@@ -8,6 +8,7 @@
     #sway.enable = true;
     niri.enable = true;
     #zsh.enable = true;
+    signal.enable = true;
     fish.enable = true;
     btop.enable = true;
     eww.enable = true;

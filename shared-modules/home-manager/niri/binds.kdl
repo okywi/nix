@@ -11,12 +11,13 @@ binds {
     Super+Period { spawn "~/.config/rofi/launchers/emoji.sh"; }
     Super+Shift+P { spawn "~/.config/niri/scripts/clipboardedit.sh"; }
     Super+Alt+Ctrl+P { spawn "sh" "-c" "$(killall rofi 2>/dev/null || ~/.config/rofi/powermenu/type-2/powermenu.sh)"; }
-    Mod+Shift+V hotkey-overlay-title="Run video recorder: rofi -> wl-screenrec" { spawn "sh" "-c" "$(killall wl-screenrec 2>/dev/null || ~/.config/rofi/applets/bin/record.sh)"; }
+    Mod+Shift+V hotkey-overlay-title="Run video recorder: rofi -> wl-screenrec" { spawn "sh" "-c" "$(~/.config/rofi/applets/bin/record.sh)"; }
     Mod+Shift+B hotkey-overlay-title="Restart eww bar" { spawn "~/.config/eww/launch_eww.sh"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
     Super+Alt+Ctrl+C { spawn "sh" "-c" "codium ~/nixos"; }
     Super+Alt+R { spawn "sh" "-c" "~/.config/niri/scripts/reload.sh"; }
     Mod+Shift+C { spawn "hyprpicker" "-a"; }
+    Mod+Shift+S { spawn "~/.config/rofi/applets/bin/screenshot.sh"; }
 
     // ----- Volume & Brightness -----
     // Example volume keys mappings for PipeWire & WirePlumber.
@@ -222,9 +223,9 @@ binds {
     // Mod+Space       { switch-layout "next"; }
     // Mod+Shift+Space { switch-layout "prev"; }
 
-    Mod+Shift+S { screenshot show-pointer=true; }
-    Ctrl+Print { screenshot-screen; }
-    Alt+Print { screenshot-window; }
+    //Mod+Shift+S { screenshot show-pointer=true; }
+    //Ctrl+Print { screenshot-screen; }
+    //Alt+Print { screenshot-window; }
 
     // Applications such as remote-desktop clients and software KVM switches may
     // request that niri stops processing the keyboard shortcuts defined here

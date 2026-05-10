@@ -12,7 +12,7 @@
     shell = pkgs.fish;
     isNormalUser = true;
     description = "maya";
-    extraGroups = [ "video" "input" "networkmanager" "wheel" "storage" "disk" "openrazer" "plugdev" ];
+    extraGroups = [ "video" "input" "networkmanager" "wheel" "storage" "disk" "openrazer" "plugdev" "docker" ];
   };
 
   services.syncthing = {
@@ -35,6 +35,6 @@
 
   xdg.icons = {
     enable = true;
-    fallbackCursorThemes = [ "Banana" ];
+    fallbackCursorThemes = [ "StrawberryMicro" ];
   };
 }

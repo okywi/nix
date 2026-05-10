@@ -14,6 +14,7 @@
     #sway.enable = true;
     niri.enable = true;
     audio.enable = true;
+    docker.enable = true;
     power.enable = true;
     nautilus.enable = true;
     fonts.enable = true;

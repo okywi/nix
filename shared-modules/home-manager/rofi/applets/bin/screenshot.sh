@@ -101,7 +101,7 @@ countdown () {
 
 # take shots
 shotnow () {
-	grim -g "$(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | "\(.rect.x),\(.rect.y) \(.rect.width)x\(.rect.height)"')" $dir$file
+	grim -g "$(slurp -o)" $dir$file
 	wl-copy < $dir$file
 	# flameshot screen --path $dir$file -n $(swaymsg -t get_outputs | jq -r 'to_entries | map(select(.value.focused == true)) | .[0].key')  --raw | wl-copy
 	if [ -s $dir$file ]; then
@@ -111,7 +111,7 @@ shotnow () {
 
 shot5 () {
 	countdown '5'
-	grim -g "$(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | "\(.rect.x),\(.rect.y) \(.rect.width)x\(.rect.height)"')" $dir$file
+	grim -g "$(slurp -o)" $dir$file
 	if [ -s $dir$file ]; then
 		wl-copy < $dir$file
     	notify-send "Screenshot saved" "Image saved in $dir$file and copied to the clipboard." -t 1200 --icon="$dir$file"
@@ -120,7 +120,7 @@ shot5 () {
 
 shot10 () {
 	countdown '10'
-	grim -g "$(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | "\(.rect.x),\(.rect.y) \(.rect.width)x\(.rect.height)"')" $dir$file
+	grim -g "$(slurp -o)" $dir$file
 	if [ -s $dir$file ]; then
 		wl-copy < $dir$file
     	notify-send "Screenshot saved" "Image saved in $dir$file and copied to the clipboard." -t 1200 --icon="$dir$file"
@@ -128,7 +128,7 @@ shot10 () {
 }
 
 shotwin () {
-	sway-screenshot -m window -o ~/Pictures/Screenshots -f $file -s
+	niri msg action screenshot-window
 	if [ -s $dir$file ]; then
     	notify-send "Screenshot saved" "Image saved in $dir$file and copied to the clipboard." -t 1200 --icon="$dir$file"
 	fi

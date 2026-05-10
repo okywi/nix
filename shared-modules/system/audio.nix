@@ -1,8 +1,15 @@
-{ pkgs, config, lib, ... }:
+{ inputs, pkgs, config, lib, ... }:
+
+
 
 with lib;
 let cfg = config.modules.audio;
+
 in {
+  imports = [
+     inputs.nix-gaming.nixosModules.pipewireLowLatency
+  ];
+  
   options.modules.audio = { enable = mkEnableOption "audio"; };
 
   config = mkIf cfg.enable {
@@ -15,8 +22,16 @@ in {
       enable = true;
       alsa.enable = true;
       alsa.support32Bit = true;
-      # pulse.enable = true;
+      pulse.enable = true;
       audio.enable = true;
+
+      lowLatency = {
+        # enable this module
+        enable = true;
+        # defaults (no need to be set unless modified)
+        quantum = 64;
+        rate = 48000;
+      };
 
       # If you want to use JACK applications, uncomment this
       #jack.enable = true;
