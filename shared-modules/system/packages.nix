@@ -32,6 +32,7 @@ in {
     extraCompatPackages = [ pkgs.proton-ge-bin ];
     gamescopeSession.enable = true;
   };
+  programs.kdeconnect.enable = true;
 
     services.iptsd = {
     enable = true;
@@ -106,6 +107,7 @@ in {
     copyq
     vscodium
     zapzap
+    element-desktop
     nwg-look
     loupe
     localsend
@@ -128,7 +130,6 @@ in {
     squeekboard
     gnome-font-viewer
     calibre
-    kdePackages.kdeconnect-kde
     ausweisapp
     chromium
     dconf-editor
@@ -139,6 +140,9 @@ in {
     xournalpp
     vlc
     simple-scan
+    gnome-clocks
+    gnome-sound-recorder
+    audacity
 
     ### Programming
     jdk

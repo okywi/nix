@@ -36,7 +36,7 @@ with lib; {
     "amd_pstate=active"
     "amd_pstate_epp=balance_performance"
   ];
-  #boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   ### Locale
   # Set your time zone.

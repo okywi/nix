@@ -8,7 +8,7 @@ window-rule {
 
 // Open the Firefox picture-in-picture player as floating by default.
 window-rule {
-    match app-id=r#"zen$"# title="^Picture-in-Picture$"
+    match app-id=r#"zen-beta$"# title="^Picture-in-Picture$"
     open-floating true
 }
 
@@ -112,6 +112,12 @@ window-rule {
     match app-id=r#"^(?i)com.github.flxzt.rnote$"#
     open-maximized true
     open-focused false
+}
+
+window-rule {
+    match app-id=r#"^(?i)zen-beta$"#
+    open-maximized true
+    open-focused true
 }
 
 window-rule {

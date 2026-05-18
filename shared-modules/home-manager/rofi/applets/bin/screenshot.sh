@@ -101,46 +101,71 @@ countdown () {
 
 # take shots
 shotnow () {
-	grim -g "$(slurp -o)" $dir$file
-	wl-copy < $dir$file
-	# flameshot screen --path $dir$file -n $(swaymsg -t get_outputs | jq -r 'to_entries | map(select(.value.focused == true)) | .[0].key')  --raw | wl-copy
-	if [ -s $dir$file ]; then
-		notify-send "Screenshot saved" "Image saved in $dir$file and copied to the clipboard." -t 1200 --icon="$dir$file"
+	if [[ "$DESKTOP_SESSION" == 'niri' ]]; then
+		niri msg action screenshot-screen --path $dir$file
+		wl-copy < $dir$file
+	else
+		grim -g "$(slurp -o)" $dir$file
+		wl-copy < $dir$file
+		# flameshot screen --path $dir$file -n $(swaymsg -t get_outputs | jq -r 'to_entries | map(select(.value.focused == true)) | .[0].key')  --raw | wl-copy
+		if [ -s $dir$file ]; then
+			notify-send "Screenshot saved" "Image saved in $dir$file and copied to the clipboard." -t 1200 --icon="$dir$file"
+		fi
 	fi
 }
 
 shot5 () {
 	countdown '5'
-	grim -g "$(slurp -o)" $dir$file
-	if [ -s $dir$file ]; then
+	if [[ "$DESKTOP_SESSION" == 'niri' ]]; then
+		niri msg action screenshot-screen --path $dir$file
 		wl-copy < $dir$file
-    	notify-send "Screenshot saved" "Image saved in $dir$file and copied to the clipboard." -t 1200 --icon="$dir$file"
+	else
+		grim -g "$(slurp -o)" $dir$file
+		if [ -s $dir$file ]; then
+			wl-copy < $dir$file
+			notify-send "Screenshot saved" "Image saved in $dir$file and copied to the clipboard." -t 1200 --icon="$dir$file"
+		fi
 	fi
 }
 
 shot10 () {
 	countdown '10'
-	grim -g "$(slurp -o)" $dir$file
-	if [ -s $dir$file ]; then
+	if [[ "$DESKTOP_SESSION" == 'niri' ]]; then
+		niri msg action screenshot-screen --path $dir$file
 		wl-copy < $dir$file
-    	notify-send "Screenshot saved" "Image saved in $dir$file and copied to the clipboard." -t 1200 --icon="$dir$file"
+	else
+		grim -g "$(slurp -o)" $dir$file
+		if [ -s $dir$file ]; then
+			wl-copy < $dir$file
+			notify-send "Screenshot saved" "Image saved in $dir$file and copied to the clipboard." -t 1200 --icon="$dir$file"
+		fi
 	fi
 }
 
 shotwin () {
-	niri msg action screenshot-window
-	if [ -s $dir$file ]; then
-    	notify-send "Screenshot saved" "Image saved in $dir$file and copied to the clipboard." -t 1200 --icon="$dir$file"
+	if [[ "$DESKTOP_SESSION" == 'niri' ]]; then
+		niri msg action screenshot-window --path $dir$file
+		wl-copy < $dir$file
+	else
+		if [ -s $dir$file ]; then
+			notify-send "Screenshot saved" "Image saved in $dir$file and copied to the clipboard." -t 1200 --icon="$dir$file"
+		fi
 	fi
 }
 
 shotarea () {
+	if [[ "$DESKTOP_SESSION" == 'niri' ]]; then
+		niri msg action screenshot --path $dir$file
+		wl-copy < $dir$file
+	else
 	grim -g "$(slurp -d -w 1)" $dir$file
-	wl-copy < $dir$file
-	# flameshot gui --path $dir$file --raw | wl-copy
-	if [ -s $dir$file ]; then
-    	notify-send "Screenshot saved" "Image saved in $dir$file and copied to the clipboard." -t 1200 --icon="$dir$file"
+		wl-copy < $dir$file
+		# flameshot gui --path $dir$file --raw | wl-copy
+		if [ -s $dir$file ]; then
+			notify-send "Screenshot saved" "Image saved in $dir$file and copied to the clipboard." -t 1200 --icon="$dir$file"
+		fi
 	fi
+	
 	# notify-send "Screenshot saved" "Image saved in $dir$file and copied to the clipboard." --icon="$dir$file"
 }
 

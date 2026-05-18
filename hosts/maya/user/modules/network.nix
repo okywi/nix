@@ -20,8 +20,20 @@ in {
 
     # Open ports in the firewall.
     # localsend, 
-    networking.firewall.allowedTCPPorts = [ 53317 5353 8611 8612 9100 631 ];
-    networking.firewall.allowedUDPPorts = [ 53317 8611 8612 9100 631 ];
+    networking.firewall.allowedTCPPorts = [ 53317 5353 8611 8612 9100 631  ];
+    networking.firewall.allowedTCPPortRanges = [
+      {
+        from  = 1714;
+        to = 1764;
+      }
+    ];
+    networking.firewall.allowedUDPPorts = [ 53317 5353 8611 8612 9100 631  ];
+     networking.firewall.allowedUDPPortRanges = [
+      {
+        from  = 1714;
+        to = 1764;
+      }
+    ];
     # Or disable the firewall altogether.
     networking.firewall.enable = true;
   };
