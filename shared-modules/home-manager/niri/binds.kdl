@@ -17,6 +17,7 @@ binds {
     Super+Alt+Ctrl+C { spawn "sh" "-c" "codium ~/nixos"; }
     Super+Alt+R { spawn "sh" "-c" "~/.config/niri/scripts/reload.sh"; }
     Mod+Shift+C { spawn "hyprpicker" "-a"; }
+    
     //Mod+Shift+S { spawn "~/.config/rofi/applets/bin/screenshot.sh"; }
 
     // ----- Volume & Brightness -----

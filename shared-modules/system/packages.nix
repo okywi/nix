@@ -33,6 +33,10 @@ in {
     gamescopeSession.enable = true;
   };
   programs.kdeconnect.enable = true;
+  programs.ausweisapp = {
+    enable = true;
+    openFirewall = true;
+  };
 
     services.iptsd = {
     enable = true;
@@ -130,7 +134,6 @@ in {
     squeekboard
     gnome-font-viewer
     calibre
-    ausweisapp
     chromium
     dconf-editor
     watchmate
@@ -143,6 +146,7 @@ in {
     gnome-clocks
     gnome-sound-recorder
     audacity
+    friture
 
     ### Programming
     jdk
@@ -172,6 +176,8 @@ in {
     # Gaming
     lutris
     inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}.osu-stable
+    inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}.osu-lazer-bin
+
 
     # Launchers & Status Bars
     networkmanagerapplet
