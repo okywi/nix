@@ -55,5 +55,24 @@
           nix-flatpak.nixosModules.nix-flatpak
         ];
       };
+
+      nixosConfigurations.maya-laptop = nixpkgs.lib.nixosSystem {
+        specialArgs = {
+          inherit inputs;
+          inherit system;
+        };
+        modules = [
+          ./hosts/maya-laptop/configuration.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.overwriteBackup = true;
+            home-manager.users.maya-laptop = import ./hosts/maya-laptop/home/home.nix;
+            home-manager.backupFileExtension = "home-manager-backup";
+          }
+          nix-flatpak.nixosModules.nix-flatpak
+        ];
+      };
     };
 }

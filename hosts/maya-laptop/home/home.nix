@@ -1,0 +1,32 @@
+{ inputs, ... }: {
+  imports = [
+		./config.nix
+	];
+  
+	home = {
+		username = "maya-laptop";
+		homeDirectory = "/home/maya-laptop";
+		stateVersion = "26.05";
+	};
+
+
+	programs.home-manager.enable = true;
+
+	xdg.mimeApps = {
+		enable = true;
+		defaultApplications = {
+  		"text/html" = "zen-beta.desktop";
+			"x-scheme-handler/http" = "zen-beta.desktop";
+			"x-scheme-handler/https" = "zen-beta.desktop";
+			"x-scheme-handler/about" = "zen-beta.desktop";
+			"x-scheme-handler/unknown" = "zen-beta.desktop";
+			"application/pdf" = "zen-beta.desktop";
+			"application/vnd.oasis.opendocument.text" = "writer.desktop";
+			"image/png" = "org.gnome.Loupe.desktop";
+			"image/jpeg" = "org.gnome.Loupe.desktop";
+			"image/webp" = "org.gnome.Loupe.desktop";
+		};
+	};
+
+  xdg.configFile."mimeapps.list".force = true;
+}
