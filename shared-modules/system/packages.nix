@@ -47,7 +47,7 @@ in {
   };
 
   services.saned.enable = true;
-
+  services.udev.packages = [ pkgs.arduino-ide ];
   hardware.sane.enable = true;
   hardware.opentabletdriver.enable = true;
   hardware.uinput.enable = true;
@@ -139,6 +139,7 @@ in {
     xournalpp
     vlc
     simple-scan
+    google-chrome
 
     ### Programming
     jdk
@@ -168,6 +169,7 @@ in {
     # Gaming
     lutris
     inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}.osu-stable
+    inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}.osu-lazer-bin
 
     # Launchers & Status Bars
     networkmanagerapplet

@@ -12,7 +12,7 @@
     shell = pkgs.fish;
     isNormalUser = true;
     description = "maya";
-    extraGroups = [ "video" "input" "networkmanager" "wheel" "storage" "disk" "openrazer" "plugdev" "docker" ];
+    extraGroups = [ "video" "input" "networkmanager" "wheel" "storage" "disk" "openrazer" "plugdev" "docker" "dialout" ];
   };
 
   services.syncthing = {

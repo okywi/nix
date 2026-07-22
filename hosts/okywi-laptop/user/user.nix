@@ -1,14 +1,14 @@
 { pkgs, config, home-manager, ... }: {
   imports = [ ./config.nix ];
 
-  programs.zsh.enable = true;
+  programs.fish.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.okywi-laptop = {
-    shell = pkgs.zsh;
+    shell = pkgs.fish;
     isNormalUser = true;
     description = "okywi-laptop";
-    extraGroups = [ "networkmanager" "wheel" "storage" "disk" "plugdev" "input" "video" "syncthing" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "storage" "disk" "plugdev" "input" "video" "syncthing" "docker" "dialout" ];
   };
 
   services.syncthing = {
@@ -29,6 +29,4 @@
       monitors = config.my.monitors; # Pass to HM
     };
   };
-
-	home-manager.backupFileExtension = "backup";
 }

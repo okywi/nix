@@ -10,9 +10,9 @@ in {
       gtk-engine-murrine
     ];
 
-    dconf.settings = {
-      "org/gnome/desktop/interface".color-scheme = "prefer-dark";
-    };
+    #dconf.settings = {
+    #  "org/gnome/desktop/interface".color-scheme = "prefer-dark";
+    #};
     
     # GTK Theme
     gtk = {
@@ -40,7 +40,7 @@ in {
       };
 
       cursorTheme = {
-        name = "StrawberryMicro";
+        name = "Strawberry_Macro";
         size = 24;
       };
 

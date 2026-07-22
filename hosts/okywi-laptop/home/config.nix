@@ -13,14 +13,14 @@
     fish.enable = true;
     #hyprland.enable = true;
     btop.enable = true;
-    #gnome.enable = true;
+    gnome.enable = true;
     eww.enable = true;
     kitty.enable = true;
     fastfetch.enable = true;
     swaync.enable = true;
     rofi.enable = true;
-    # qt.enable = true;
-   # gtk.enable = true;
+    #qt.enable = true;
+    gtk.enable = true;
     git.enable = true;
     vesktop.enable = true;
     wireplumber.enable = false;

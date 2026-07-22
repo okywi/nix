@@ -12,8 +12,8 @@
     niri.enable = true;
     sddm.enable = true;
     redshift.enable = true;
-    kde.enable = true;
-    # gnome.enable = true;
+    #kde.enable = true;
+    gnome.enable = true;
     storage.enable = true;
     docker.enable = true;
     audio.enable = true;
