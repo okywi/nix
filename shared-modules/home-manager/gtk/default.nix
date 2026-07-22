@@ -16,6 +16,14 @@ in {
     
     # GTK Theme
     gtk = {
+      gtk4.theme = {
+        name = "catppuccin-mocha-pink-standard";
+         package = pkgs.catppuccin-gtk.override {
+          accents = [ "pink" ];
+          size = "standard";
+          variant = "mocha";
+        };
+      };
       enable = true;
       theme = {
         /*name = "";

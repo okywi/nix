@@ -17,7 +17,8 @@ binds {
     Super+Alt+Ctrl+C { spawn "sh" "-c" "codium ~/nixos"; }
     Super+Alt+R { spawn "sh" "-c" "~/.config/niri/scripts/reload.sh"; }
     Mod+Shift+C { spawn "hyprpicker" "-a"; }
-    Mod+Shift+S { spawn "~/.config/rofi/applets/bin/screenshot.sh"; }
+    
+    //Mod+Shift+S { spawn "~/.config/rofi/applets/bin/screenshot.sh"; }
 
     // ----- Volume & Brightness -----
     // Example volume keys mappings for PipeWire & WirePlumber.
@@ -223,7 +224,7 @@ binds {
     // Mod+Space       { switch-layout "next"; }
     // Mod+Shift+Space { switch-layout "prev"; }
 
-    //Mod+Shift+S { screenshot show-pointer=true; }
+    Mod+Shift+S { screenshot show-pointer=true; }
     //Ctrl+Print { screenshot-screen; }
     //Alt+Print { screenshot-window; }
 

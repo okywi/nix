@@ -5,11 +5,9 @@ in {
   options.modules.gnome = { enable = mkEnableOption "gnome"; };
 
   config = mkIf cfg.enable {
-    services.xserver = {
-      desktopManager.gnome = {
+      services.desktopManager.gnome = {
         enable = true;
       };
-    };
     hardware.sensor.iio.enable = true;
   };
 }

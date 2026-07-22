@@ -28,7 +28,7 @@
     (box :class "right_widgets" :space-evenly "false" :halign "end"
         (twitch)
       (rebuild)
-      (spotify)
+      (musicbar)
       (weather)
       (microphone)
       (audio)
@@ -85,13 +85,13 @@
             (eventbox :onclick `kitty -e sudo nixos-rebuild switch --flake ~/nixos && notify-send 'The system has been rebuild and switched'` :cursor "pointer"
                 (label :class "rebuild-icon" :text ""))))
                 
-(defwidget spotify []
-    (box :space-evenly "false" :class "spotify-box"
+(defwidget musicbar []
+    (box :space-evenly "false" :class "musicbar-box"
         (eventbox :onscroll "./scripts/music.sh {}" :onclick "./scripts/pop.sh --music" :cursor "pointer" :onmiddleclick "./scripts/music.sh --toggle"
-            (box :space-evenly "false" :class "spotify"
-                (label :class "spotify-icon" :text " ")
-                (label :class "spotify-label" :limit-width 24 :text "${song_scroll}")
-                (scale :value song_volume :orientation "v" :flipped "true" :onchange "playerctl volume $(echo 'scale=2; {} / 100' | bc) --player=spotify")))))
+            (box :space-evenly "false" :class "musicbar"
+                (label :class "musicbar-icon" :text " ")
+                (label :class "musicbar-label" :limit-width 24 :text "${song_scroll}")
+                (scale :value song_volume :orientation "v" :flipped "true" :onchange "./scripts/music.sh --set-volume {}")))))
 
 (defwidget weather []
     (box :space-evenly "false" :class "weather"
@@ -115,7 +115,7 @@
             (box :space-evenly "false"
                 (label :text volume_icon)))
         (eventbox :cursor "pointer"
-            (scale :width 40  :max 100 :onchange `pamixer --set-volume {}` :class "audio-scale" :value volume :orientation "h"))))
+            (scale :width 40  :max 60 :onchange `pamixer --set-volume {}` :class "audio-scale" :value volume :orientation "h"))))
 
 (defwidget clock []
     (box :space-evenly "false" :class "time-box"

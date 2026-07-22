@@ -8,7 +8,7 @@ in {
   options.modules.qt = { enable = mkEnableOption "qt"; };
 
   config = mkIf cfg.enable {
-    home.packages = with pkgs; [ adwaita-qt adwaita-qt6 darkly darkly-qt5 rose-pine-kvantum ];
+    home.packages = with pkgs; [ adwaita-qt adwaita-qt6 darkly rose-pine-kvantum ];
 
     qt = {
       enable = true;

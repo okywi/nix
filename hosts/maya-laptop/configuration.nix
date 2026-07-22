@@ -7,46 +7,22 @@ with lib; {
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./user/user.nix
-   
   ];
 
   ### Bootloader.
   boot.loader = {
+    systemd-boot.enable = false;  
     grub = {
       enable = true;
       useOSProber = true;
       efiSupport = true;
-      efiInstallAsRemovable = true;
-      extraEntriesBeforeNixOS = false;
       devices = [ "nodev" ];
-      extraEntries = ''
-      menuentry "Reboot" --class reboot{
-        reboot
-      }
-      menuentry "Shutdown" --class shutdown {
-        halt
-      }
-    '';
       theme = pkgs.catppuccin-grub;
     };
+ 
+    efi.canTouchEfiVariables = true;
   };
-  boot.kernelParams = [
-    "amdgpu"
-    "amdgpu.ppfeaturemask=0xffffffff"
-    "amd_pstate=active"
-    "amd_pstate_epp=balance_performance"
-  ];
-
-  #boot.kernelPackages = pkgs.linuxPackagesFor (pkgs.linux_7_0.override {
-	#argsOverride = rec {
-	#	src = pkgs.fetchurl {
-  #          	url = "mirror://kernel/linux/kernel/v7.x/linux-${version}.tar.xz";
-  #          	sha256 = "08vm18wx6399phzgr3wz94yga3ab4fyca79445ygvbspm904996b";
-	#};
-	#version = "7.0.6";
-	#modDirVersion = "7.0.6";
-	#};
- #});
+  boot.kernelParams = [ "amdgpu" ];
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   ### Locale
@@ -69,7 +45,7 @@ with lib; {
   };
 
   # Configure console keymap
-  console.keyMap = "us";
+  console.keyMap = "de";
 
   # X Server
   services.xserver = {
@@ -82,8 +58,15 @@ with lib; {
     enable = true;
     enable32Bit = true;
   };
-  hardware.openrazer.enable = true;
-  environment.systemPackages = with pkgs; [ openrazer-daemon razergenie ];
+
+  # Pipewire custom
+  hardware.sensor.iio.enable = true;
+	
+
+    nixpkgs.config.permittedInsecurePackages = [
+       "electron-39.8.10"
+    ];
+  
 
   ### Printing
   services.printing = {
@@ -101,7 +84,7 @@ with lib; {
     nssmdns4 = true;
     openFirewall = true;
   };
-  
+
   ### garbage collection
   nix.gc = {
     automatic = true;

@@ -10,6 +10,11 @@ in {
   
   ### Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+
+  nixpkgs.config.permittedInsecurePackages = [
+       "electron-39.8.10"
+       "pnpm-10.29.2"
+    ];
   
   ### Enable Lix
   nixpkgs.overlays = [ (final: prev: {
@@ -31,6 +36,11 @@ in {
     enable = true;
     extraCompatPackages = [ pkgs.proton-ge-bin ];
     gamescopeSession.enable = true;
+  };
+  programs.kdeconnect.enable = true;
+  programs.ausweisapp = {
+    enable = true;
+    openFirewall = true;
   };
 
     services.iptsd = {
@@ -67,7 +77,7 @@ in {
     # Terminal
     neovim
     bash
-    nixfmt-classic
+    nixfmt
 
     # Utilities
     home-manager
@@ -98,14 +108,17 @@ in {
 
     # Applications
     inputs.zen-browser.packages."${stdenv.hostPlatform.system}".default
+    pear-desktop
+    #kdePackages.audiotube
     inputs.hytale-launcher.packages.${stdenv.hostPlatform.system}.default
     librewolf
     bitwarden-desktop
     vesktop
-    spotify
+    labymod-launcher
     copyq
     vscodium
     zapzap
+    element-desktop
     nwg-look
     loupe
     localsend
@@ -128,8 +141,6 @@ in {
     squeekboard
     gnome-font-viewer
     calibre
-    kdePackages.kdeconnect-kde
-    ausweisapp
     chromium
     dconf-editor
     watchmate
@@ -139,7 +150,11 @@ in {
     xournalpp
     vlc
     simple-scan
-    google-chrome
+    gnome-clocks
+    gnome-sound-recorder
+    audacity
+    friture
+    libreoffice-fresh
 
     ### Programming
     jdk
@@ -171,8 +186,10 @@ in {
     inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}.osu-stable
     inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}.osu-lazer-bin
 
+
     # Launchers & Status Bars
     networkmanagerapplet
+    iwgtk
   ];
 
   # env variables for programs
@@ -187,7 +204,6 @@ in {
     packages = [
       "com.github.flxzt.rnote"
       "org.vinegarhq.Sober"
-      "org.libreoffice.LibreOffice"
     ];
   };
 }

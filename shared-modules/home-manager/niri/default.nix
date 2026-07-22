@@ -18,7 +18,7 @@ in {
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       xwayland-satellite
-      swww
+      awww
       wlsunset
       hyprlock
       wvkbd

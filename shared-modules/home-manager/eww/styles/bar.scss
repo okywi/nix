@@ -235,35 +235,35 @@ circular-progress {
     background-color: $background_color;
     background-clip: padding-box;
     border-radius: $border_radius;
-    border: 2px solid rgba(232, 162, 175, 0.99);
+    border: 2px solid #b55fbd;
     color: $text_color;
     padding: 3px 8px 3px 8px;
     margin-left: 5px;
 }
 
 .rebuild-icon {
-    color: #E8A2AF;
+    color: #b55fbd;
     font-family: "Font Awesome 7 Free Solid";
 }
 
-.spotify-box {
+.musicbar-box {
     margin-left: 5px;
 }
 
-.spotify {
+.musicbar {
     background-color: $background_color;
     background-clip: padding-box;
     border-radius: $border_radius;
-    border: 2px solid rgba(101, 243, 146, 0.99);
+    border: 2px solid $music_color;
     color: $text_color;
     padding: 3px 8px 3px 8px;
 }
 
-.spotify-icon {
-    color: #65F392;
+.musicbar-icon {
+    color: $music_color;
 }
 
-.spotify scale trough {
+.musicbar scale trough {
     background-color: $base_color_darker;
     min-width: 5px;
     min-height: 10px;
@@ -273,8 +273,8 @@ circular-progress {
     border-radius: 5px;
 }
 
-.spotify scale trough highlight {
-    background-color: #65F392;
+.musicbar scale trough highlight {
+    background-color: $music_color;
     border-radius: 5px;
 }
 

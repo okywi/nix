@@ -4,8 +4,8 @@
 	];
   
 	home = {
-		username = "okywi-laptop";
-		homeDirectory = "/home/okywi-laptop";
+		username = "maya-laptop";
+		homeDirectory = "/home/maya-laptop";
 		stateVersion = "26.05";
 	};
 
