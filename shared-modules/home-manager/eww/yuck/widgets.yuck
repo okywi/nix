@@ -2,8 +2,8 @@
 (deflisten song_artist "playerctl metadata --format '{{ artist }}' --follow --player=spotify")
 (deflisten song_scroll "./scripts/music.sh --title")
 (deflisten song_time "playerctl position --follow --player=spotify")
-(deflisten song_art_url "./scripts/getSpotifyImage.sh")
-(deflisten song_volume "./scripts/volume.sh")
+(deflisten song_art_url "./scripts/getMusicImage.sh")
+(deflisten song_volume "./scripts/music_volume.sh")
 (deflisten song_status "./scripts/music.sh --status")
 (defvar music_reveal false)
 (defvar song_art_reveal true)
@@ -25,7 +25,7 @@
                     (eventbox :class "eventbox_song_btn_next" :timeout "0ms" :cursor "pointer" (button :class "song_btn_next" :timeout "50ms" :onclick "./scripts/music.sh --next" ""))))
               (revealer :transition "slideup" :reveal music_reveal :duration "350ms"
                 (eventbox :class "volume_scale" :cursor "pointer" (scale :width 200 :value song_volume :min 0 :max 101 :orientation "h"
-                :onchange "playerctl volume $(echo 'scale=2; {} / 100' | bc) --player=spotify")))
+                :onchange "./scripts/music.sh --set-volume {}")))
               )))))
         
 

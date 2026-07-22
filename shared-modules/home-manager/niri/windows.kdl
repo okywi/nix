@@ -69,9 +69,17 @@ window-rule {
     match at-startup=true app-id=r#"^(?i)spotify$"#
     match app-id=r#"^(?i)spotify$"#
     open-maximized true
-    open-on-workspace "spotify"
+    open-on-workspace "music"
     open-focused false
 }
+window-rule {
+    match at-startup=true app-id=r#"^(?i)com.github.th_ch.youtube_music$"#
+    match app-id=r#"^(?i)com.github.th_ch.youtube_music$"#
+    open-maximized true
+    open-on-workspace "music"
+    open-focused false
+}
+
 window-rule {
     match app-id=r#"^(?i)discord$"#
     match at-startup=true app-id=r#"^discord$"#

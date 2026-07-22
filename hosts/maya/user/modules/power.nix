@@ -23,9 +23,9 @@ in {
     powerManagement = {
       enable = true;
       cpuFreqGovernor = "schedutil";
-      powerUpCommands = ''
-        echo "balance_performance" | tee /sys/devices/system/cpu/cpu*/cpufreq/energy_performance_preference
-      '';
+      # powerUpCommands = ''
+      #  echo "balance_performance" | tee /sys/devices/system/cpu/cpu*/cpufreq/energy_performance_preference
+      #'';
     };
   };
 }

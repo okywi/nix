@@ -13,6 +13,7 @@ in {
 
   nixpkgs.config.permittedInsecurePackages = [
        "electron-39.8.10"
+       "pnpm-10.29.2"
     ];
   
   ### Enable Lix
@@ -76,7 +77,7 @@ in {
     # Terminal
     neovim
     bash
-    nixfmt-classic
+    nixfmt
 
     # Utilities
     home-manager
@@ -107,11 +108,13 @@ in {
 
     # Applications
     inputs.zen-browser.packages."${stdenv.hostPlatform.system}".default
+    pear-desktop
+    #kdePackages.audiotube
     inputs.hytale-launcher.packages.${stdenv.hostPlatform.system}.default
     librewolf
     bitwarden-desktop
     vesktop
-    spotify
+    labymod-launcher
     copyq
     vscodium
     zapzap
@@ -151,6 +154,7 @@ in {
     gnome-sound-recorder
     audacity
     friture
+    libreoffice-fresh
 
     ### Programming
     jdk
@@ -185,6 +189,7 @@ in {
 
     # Launchers & Status Bars
     networkmanagerapplet
+    iwgtk
   ];
 
   # env variables for programs
@@ -199,7 +204,6 @@ in {
     packages = [
       "com.github.flxzt.rnote"
       "org.vinegarhq.Sober"
-      "org.libreoffice.LibreOffice"
     ];
   };
 }

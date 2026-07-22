@@ -7,7 +7,7 @@ process_workspaces() {
         elif .name == "gaming" then .icon = ""
         elif .name == "terminal" then .icon = ""
         elif .name == "coding" then .icon = ""
-        elif .name == "spotify" then .icon = ""
+        elif .name == "music" then .icon = ""
         elif .name == "chat" then .icon = ""
         else .
         end

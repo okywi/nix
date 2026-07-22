@@ -1,4 +1,4 @@
-playerctl metadata --format '{{ (mpris:artUrl) }}' --player=spotify --follow | while read art_url; do
+playerctl metadata --format '{{ (mpris:artUrl) }}' --player=YoutubeMusic --follow | while read art_url; do
     # Check if the art URL exists
     if [ -n "$art_url" ]; then
         # Get the cache directory location
@@ -11,14 +11,14 @@ playerctl metadata --format '{{ (mpris:artUrl) }}' --player=spotify --follow | w
         rm -f "$cache_dir"/*
 
         # Get the file name from the URL (last part of the URL)
-        filename=$(basename "$art_url")
+        filename="cover.jpg"
 
         # Create the full file path in the cache
         cache_path="$cache_dir/$filename"
 
         # Download the image
-        wget -O "$cache_path" "$art_url" > /dev/null 2>&1
-
+        wget -T 2 -O "$cache_path" "$art_url" > /dev/null 2>&1
+        
         # Display the path to the cached image
         echo "$cache_path"
     else

@@ -3,7 +3,7 @@ if which linux-wallpaperengine >/dev/null 2>&1; then
 elif which mpvpaper >/dev/null 2>&1; then
     pkill mpvpaper 2>/dev/null; mpvpaper -o "--loop --no-audio" "*" ~/Pictures/Wallpapers/Animated/suzume.mp4
 else
-    pkill swww 2>/dev/null && swww-daemon &
+    pkill awww 2>/dev/null && awww-daemon &
     sleep 0.5
-    swww img ~/.wallpapers/girlmoonearth.jpg
+    awww img ~/.wallpapers/girlmoonearth.jpg
 fi
