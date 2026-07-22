@@ -19,7 +19,7 @@ with lib; {
       theme = pkgs.catppuccin-grub;
     };
   };
-  boot.kernelParams = [ "amdgpu" ];
+  boot.kernelParams = [ "" ];
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   ### Locale

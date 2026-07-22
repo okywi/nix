@@ -43,21 +43,15 @@ in {
     openFirewall = true;
   };
 
-    services.iptsd = {
-    enable = true;
-    config = {
-      Touchscreen.DisableOnPalm = false;
-      Touchscreen.DisableOnStylus = true;
-    };
-  };
 
   services.mullvad-vpn = {
     enable = true;
     package = pkgs.mullvad-vpn;
   };
 
+
   services.saned.enable = true;
-  services.udev.packages = [ pkgs.arduino-ide ];
+
   hardware.sane.enable = true;
   hardware.opentabletdriver.enable = true;
   hardware.uinput.enable = true;

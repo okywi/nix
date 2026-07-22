@@ -20,7 +20,7 @@
     swaync.enable = true;
     rofi.enable = true;
     # qt.enable = true;
-    # gtk.enable = true;
+    #gtk.enable = true;
     git.enable = true;
     vesktop.enable = true;
     wireplumber.enable = false;

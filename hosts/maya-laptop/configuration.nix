@@ -22,7 +22,7 @@ with lib; {
  
     efi.canTouchEfiVariables = true;
   };
-  boot.kernelParams = [ "amdgpu" ];
+  boot.kernelParams = [  ];
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   ### Locale
@@ -45,12 +45,11 @@ with lib; {
   };
 
   # Configure console keymap
-  console.keyMap = "de";
+  console.keyMap = "us";
 
   # X Server
   services.xserver = {
     enable = true;
-    videoDrivers = [ "amdgpu" ];
   };
 
   ### Hardware
@@ -103,5 +102,5 @@ with lib; {
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "24.11"; # Did you read the comment?
+  system.stateVersion = "25.11"; # Did you read the comment?
 }
