@@ -25,11 +25,13 @@ input {
         // dwtp
         // drag false
         // drag-lock
+        scroll-factor vertical=1.0 horizontal=1.0
         natural-scroll
-        // accel-speed 0.2
-        // accel-profile "flat"
+        accel-speed 0.5
+        accel-profile "flat"
         // scroll-method "two-finger"
         // disabled-on-external-mouse
+        middle-emulation
     }
 
     mouse {
@@ -56,4 +58,31 @@ input {
     // Focus windows and outputs automatically when moving the mouse into them.
     // Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
     focus-follows-mouse max-scroll-amount="0%"
+}
+
+gestures {
+     dnd-edge-view-scroll {
+        trigger-width 30
+        delay-ms 100
+        max-speed 1500
+    }
+
+    dnd-edge-workspace-switch {
+        trigger-height 50
+        delay-ms 100
+        max-speed 1500
+    }
+
+
+    hot-corners {
+        // off
+        top-left
+        // top-right
+        // bottom-left
+        // bottom-right
+    }
+}
+
+clipboard {
+    disable-primary
 }

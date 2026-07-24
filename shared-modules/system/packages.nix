@@ -53,8 +53,8 @@ in {
   services.saned.enable = true;
 
   hardware.sane.enable = true;
-  hardware.opentabletdriver.enable = true;
-  hardware.uinput.enable = true;
+  hardware.opentabletdriver.enable = false;
+  hardware.uinput.enable = false;
 
   virtualisation.docker.enable = true;
   # Required for AAPT2 to work

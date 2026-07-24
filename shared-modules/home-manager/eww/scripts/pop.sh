@@ -41,6 +41,14 @@ pop_stats() {
     fi
 }
 
+pop_power() {
+    if [[ -z $($EWW active-windows | grep "cpu-power: cpu-power") ]]; then
+        $EWW open cpu-power --screen $SCREEN
+    else
+        $EWW close cpu-power
+    fi
+}
+
 pop_powermenu() {
     killall rofi 2>/dev/null || ~/.config/rofi/powermenu/type-2/powermenu.sh
 }
@@ -61,6 +69,10 @@ pop_mic() {
     fi
 }
 
+pop_keyboard() {
+    killall wvkbd-mobintl || wvkbd-mobintl -L 275 -R 10 -H 400 --bg 000000 --fg 1e1e2e --fg-sp 1f1f2f --alpha 220 --text f5c2e7 --text-sp f5c2e7 --press f5c2e7 --press-sp f4b8e4  --fn "Jetbrains Mono Nerd Font 20"
+}
+
 if [[ $1 == "--music" ]] then
     pop_music
 elif [[ $1 == "--calendar" ]]; then
@@ -75,4 +87,8 @@ elif [[ $1 == "--audio" ]]; then
     pop_audio
 elif [[ $1 == "--mic" ]]; then
     pop_mic
+elif [[ $1 == "--power" ]]; then
+    pop_power
+elif [[ $1 == "--keyboard" ]]; then
+    pop_keyboard
 fi

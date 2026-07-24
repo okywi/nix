@@ -8,6 +8,7 @@
     margin-right: 10px;
 }
 
+
 .launcher {
     font-family: "Font Awesome 7 Free Solid";
     background-color: $background_color;
@@ -30,7 +31,7 @@
     font-size: 18px;
     padding: 5px;
     padding-right: 6px;
-    margin-left: 5px;
+    margin-left: 10px;
 }
 
 .keyboard {
@@ -43,7 +44,7 @@
     font-size: 18px;
     padding: 5px;
     padding-right: 6px;
-    margin-left: 5px;
+    margin-left: 10px;
 }
 
 .title {
@@ -53,7 +54,7 @@
     border: 2px solid #F5C2E7;
     color: $text_color;
     padding: 3px 8px 3px 8px;
-    margin-left: 5px;
+    margin-left: 10px;
 }
 
 .metrics {
@@ -123,6 +124,16 @@ circular-progress {
     margin-left: 5px;
 }
 
+.battery-tooltip {
+    background-color: $background_color;
+    border-radius: $border_radius;
+    border: 2px solid #f7acf3;
+    color: $text_color;
+    font-size: 16px;
+    font-family: "JetBrainsMono Nerd Font";
+    padding: 8px;
+}
+
 .battery-box label {
     font-family: "Font Awesome 7 Free Solid";
     font-size: 16px;
@@ -136,6 +147,7 @@ circular-progress {
     min-height: 11.5px;
 
     margin-left: 5px;
+    margin-right: 5px;
     border-radius: 4px;
     margin-bottom: 6px;
 }

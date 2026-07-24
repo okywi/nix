@@ -47,14 +47,14 @@ with lib; {
   # X Server
   services.xserver = {
     enable = true;
-    videoDrivers = [ "amdgpu" ];
+    videoDrivers = [  ];
   };
 
   ### Hardware
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
-  };
+  #hardware.graphics = {
+  #  enable = true;
+  #  enable32Bit = true;
+  #};
 
   # Pipewire custom
   hardware.sensor.iio.enable = true;

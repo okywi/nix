@@ -6,5 +6,5 @@ else
     pkill awww 2>/dev/null
     awww-daemon &
     sleep 0.5
-    awww img ~/.wallpapers/girlmoonearth.jpg
+    awww img ~/.wallpapers/green-tree.jpg
 fi

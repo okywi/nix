@@ -25,13 +25,13 @@
   # Define monitors
   config.my.monitors = {
     sway = [
-      "output eDP-1 scale 1.5 resolution 2560x1600@165Hz position 0,0"
+      "output eDP-1 scale 1 resolution 1920x1080@60Hz position 0,0"
     ];
     niri = [
       ''
         output "eDP-1" {
-          mode "2560x1600@165"
-          scale 1.5
+          mode "1920x1080@60"
+          scale 1.2
           transform "normal"
           position x=0 y=0
           focus-at-startup

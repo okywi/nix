@@ -2,6 +2,7 @@
 (deflisten twitch_channels :initial "" `tail -F /tmp/streamers`)
 (defpoll time :interval "1s" `date +%H:%M`)
 (defpoll date :interval "1s" `date "+%B %0d, %Y"`)
+(defpoll battery_status :interval "5s" `acpi`)
 (defvar alttime false)
 (deflisten volume `./scripts/audio.sh --volume`)
 (deflisten volume_icon `./scripts/audio.sh --icon`)
@@ -19,33 +20,22 @@
 
 (defwidget left_widgets []
     (box :class "left_widgets" :space-evenly "false"
-    (launcher)
-      (title)
-      (metrics)
-      (tray)))
+        config_left_widgets))
 
 (defwidget right_widgets []
     (box :class "right_widgets" :space-evenly "false" :halign "end"
-        (twitch)
-      (rebuild)
-      (musicbar)
-      (weather)
-      (microphone)
-      (audio)
-      (clock)
-      (notifications)
-      (power)))
+                config_right_widgets))
 
 (defwidget launcher []
-    (eventbox :cursor "pointer" (box :class "launcher" (button :onclick "./scripts/pop.sh --launcher" "♥"))))
+    (eventbox :onclick "./scripts/pop.sh --launcher" :cursor "pointer" (box :class "launcher" (button "♥"))))
 
 
 (defwidget overview []
-    (eventbox :cursor "pointer" (box :class "overview" (button :onclick "niri msg action toggle-overview" ""))))
+    (eventbox :onclick "niri msg action toggle-overview" :cursor "pointer" (box :class "overview" (button ""))))
 
 
 (defwidget keyboard []
-    (eventbox :cursor "pointer" (box :class "keyboard" (button :onclick "squeekboard" ""))))
+    (eventbox :onclick "./scripts/pop.sh --keyboard" :cursor "pointer" (box :class "keyboard" (button ""))))
 
 
 (defwidget metrics []
@@ -64,11 +54,12 @@
 
 (defwidget battery []
     (box :space-evenly "false" :class "battery-box"
-        (eventbox :cursor "pointer" :onclick ``
+    (tooltip (label :class "battery-tooltip" :text battery_status)
+        (eventbox :cursor "pointer" :onclick `./scripts/pop.sh --power`
             (box :space-evenly "false"
-            (label :text {EWW_BATTERY["BATT"]["status"] == "Charging" ? "" : ""})
-            (progress :class "battery-progress" :width 40 :value {EWW_BATTERY["BATT"]["capacity"]} :orientation "h")))))
-
+            (label :text {EWW_BATTERY["BAT0"]["status"] == "Discharging" ? "" : ""})
+            (progress :class "battery-progress" :width 40 :value {EWW_BATTERY["BAT0"]["capacity"]} :orientation "h")
+            (label :text {cpupower_mode == "performance" ? "" : cpupower_mode == "balanced" ? "" : ""}))))))
 
 (defwidget tray []
     (systray :class "tray" :spacing 5 :icon-size 18 :prepend-new "false"))

@@ -23,6 +23,7 @@ in {
       hyprlock
       wvkbd
       hyprpicker
+      iio-niri
     ];
 
     xdg.configFile = {
@@ -32,10 +33,10 @@ in {
       "niri/animations.kdl".source = ./animations.kdl;
       "niri/input.kdl".source = ./input.kdl;
       "niri/layout.kdl".source = ./layout.kdl;
-      "niri/outputs.kdl".source = ./outputs.kdl;
+      "niri/outputs.kdl".text = builtins.concatStringsSep "\n" monitors.niri + "\n";
       "niri/startup.kdl".source = ./startup.kdl;
       "niri/windows.kdl".source = ./windows.kdl;
-      "niri/workspaces.kdl".source = ./workspaces.kdl;
+      "niri/workspaces.kdl".text = lib.replaceStrings ["$primary" "$secondary" ] [ "${primary}" "${secondary}" ] (config.my.workspaces.niri);
       "niri/scripts".source = ./scripts;
       "niri/hyprlock.conf".text = builtins.replaceStrings ["\""] [""] (builtins.replaceStrings ["primaryMonitor"] ["${primary}"] (builtins.readFile ./hyprlock.conf));
     };

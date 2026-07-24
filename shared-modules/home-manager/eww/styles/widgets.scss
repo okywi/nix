@@ -23,7 +23,7 @@
 
 .song_cover_art {
     background-size: cover;
-    
+    background-position: center center;
     background-repeat: no-repeat;
     border-radius: 10px;
 }
@@ -73,6 +73,22 @@
     margin-top: 20px;
 }
 
+// cpu power widget
+
+.cpu-power {
+    background-color: $background_color;
+    background-clip: padding-box;
+    color: #f7acf3;
+    border-radius: $border_radius;
+    border: 2px solid #f7acf3;
+    padding: 10px;
+}
+
+.cpu-power-icon {
+    font-family: "Font Awesome 6 Free Solid";
+    color: #f7acf3;
+    margin-right: 5px;
+}
 
 // stats widget
 .stats {
