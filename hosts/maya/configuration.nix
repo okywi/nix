@@ -36,6 +36,11 @@ with lib; {
     "amd_pstate=active"
     "amd_pstate_epp=balance_performance"
   ];
+   nixpkgs.config.permittedInsecurePackages = [
+                "idea-oss-2025.3.4"
+                "electron-39.8.10"
+                "pycharm-oss-2025.3.3"
+              ];
 
   #boot.kernelPackages = pkgs.linuxPackagesFor (pkgs.linux_7_0.override {
 	#argsOverride = rec {

@@ -43,18 +43,11 @@ in {
     openFirewall = true;
   };
 
-
-  services.mullvad-vpn = {
-    enable = true;
-    package = pkgs.mullvad-vpn;
-  };
-
-
   services.saned.enable = true;
 
   hardware.sane.enable = true;
-  hardware.opentabletdriver.enable = false;
-  hardware.uinput.enable = false;
+  hardware.opentabletdriver.enable = true;
+  hardware.uinput.enable = true;
 
   virtualisation.docker.enable = true;
   # Required for AAPT2 to work
@@ -99,6 +92,7 @@ in {
     acpi # battery
     qbittorrent
     cups-filters
+    wine
 
     # Applications
     inputs.zen-browser.packages."${stdenv.hostPlatform.system}".default
@@ -116,6 +110,7 @@ in {
     nwg-look
     loupe
     localsend
+    qpwgraph
     pinta
     kdePackages.kdenlive
     mpv
@@ -141,6 +136,7 @@ in {
     pkg-config
     gnome-calculator
     mullvad-browser
+    proton-vpn
     xournalpp
     vlc
     simple-scan
