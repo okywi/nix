@@ -129,6 +129,12 @@ window-rule {
 }
 
 window-rule {
+    match app-id=r#"^(?i)OmniControl$"#
+    open-maximized true
+    open-focused true
+}
+
+window-rule {
     match app-id=r#"^(?i)zen$"#
     open-maximized true
     open-focused true

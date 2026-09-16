@@ -120,6 +120,7 @@ in {
     baobab
     pavucontrol
     obsidian
+    pdfarranger
     prismlauncher
     heroic
     gnome-themes-extra
@@ -152,7 +153,7 @@ in {
 
     ### Programming
     jdk
-    jetbrains.idea-oss
+    jetbrains.idea
     jetbrains.pycharm-oss
     android-tools
     androidSdk.androidsdk
@@ -174,6 +175,7 @@ in {
     cargo
     gcc
     rustfmt
+    androidenv.androidPkgs.androidsdk
 
     # Gaming
     lutris

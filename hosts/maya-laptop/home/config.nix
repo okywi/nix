@@ -81,4 +81,15 @@
     '';
     bar = ''$EWW open bar --arg screen="0" --arg wsscreen="0"'';
   };
+  config.my.startup = {
+    niri = ''
+      spawn-at-startup "iio-niri" "listen"
+      spawn-sh-at-startup "sh -c $(wlsunset -t 3000 -T 3500)"
+      spawn-sh-at-startup "~/.config/niri/scripts/wallpaper.sh"
+      spawn-sh-at-startup "~/.config/eww/launch_eww.sh"
+      spawn-at-startup "copyq"
+      spawn-sh-at-startup "sh -c $(killall swaync; swaync)"
+      spawn-at-startup "blueman-applet"
+    '';
+  };
 }

@@ -8,7 +8,7 @@
     shell = pkgs.fish;
     isNormalUser = true;
     description = "maya-laptop";
-    extraGroups = [ "networkmanager" "wheel" "storage" "disk" "plugdev" "input" "video" "syncthing" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "storage" "disk" "plugdev" "input" "video" "syncthing" "docker" "dialout" ];
   };
 
   services.syncthing = {
