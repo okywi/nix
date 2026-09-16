@@ -93,6 +93,7 @@ in {
     qbittorrent
     cups-filters
     wine
+    dnsutils
 
     # Applications
     inputs.zen-browser.packages."${stdenv.hostPlatform.system}".default
@@ -145,6 +146,9 @@ in {
     audacity
     friture
     libreoffice-fresh
+    freecad
+    texlivePackages.latexmk
+    texliveMedium
 
     ### Programming
     jdk

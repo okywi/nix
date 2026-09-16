@@ -19,20 +19,49 @@ in {
     # Enable networking
     networking.networkmanager = {
       enable = true;
+      # dns = "none";
       wifi = {
         powersave = false;
       };
     };
     # These options are unnecessary when managing DNS ourselves
-    #networking.useDHCP = true;
-    #networking.dhcpcd.enable = true;
-
-
-    #boot.kernel.sysctl."net.ipv6.conf.wlp5s0.disable_ipv6" = true;
-
-    networking.nameservers = [ "9.9.9.9" "149.112.112.112" "2620:fe::fe" "2620:fe::9"];
-    networking.enableIPv6 = true;
+    networking.useDHCP = false;
+    networking.dhcpcd.enable = false;
     
+    #boot.kernel.sysctl."net.ipv6.conf.wlp5s0.disable_ipv6" = true;
+    /*services.doh-server.enable = true;
+    services.dnscrypt-proxy2 = {
+      enable = true;
+    };
+    networking.resolvconf.enable = true;
+    networking.nameservers = [ "9.9.9.9" "149.112.112.112" "2620:fe::fe" "2620:fe::9" ];
+   */
+
+ /* services.dnscrypt-proxy = {
+    enable = true;
+    settings = {
+      # Server selection
+      # "cloudflare" is a good default, but you can choose from:
+      # https://github.com/DNSCrypt/dnscrypt-resolvers/blob/master/v3/public-resolvers.md
+      server_names = [ "quad9-dnscrypt-ip4-filter-pri" ];
+
+      # Privacy and Security
+      require_dnssec = true;
+      require_nolog = true;
+      require_nofilter = false; # Set to false if you want ad-blocking
+      
+      # Network
+      # Set to false if you don't have IPv6, to avoid connection issues.
+      ipv6_servers = false;
+      block_ipv6 = true;
+    };
+  };*/
+    # Change anything here and have fun going insane debugging issues with no documentation.
+    services.resolved.enable = false;
+    networking.networkmanager.dns = "none";
+    networking.nameservers = [ "9.9.9.9" "149.112.112.112" "2620:fe::fe" "2620:fe::9" ];
+    networking.enableIPv6 = false;
+
     # Enable the OpenSSH daemon
     services.openssh.enable = true;
 

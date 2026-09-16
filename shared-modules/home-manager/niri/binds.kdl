@@ -13,7 +13,7 @@ binds {
     Super+Alt+Ctrl+P { spawn "sh" "-c" "$(killall rofi 2>/dev/null || ~/.config/rofi/powermenu/type-2/powermenu.sh)"; }
     Mod+Shift+V hotkey-overlay-title="Run video recorder: rofi -> wl-screenrec" { spawn "sh" "-c" "$(~/.config/rofi/applets/bin/record.sh)"; }
     Mod+Shift+B hotkey-overlay-title="Restart eww bar" { spawn "~/.config/eww/launch_eww.sh"; }
-    Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
+    Super+Alt+L hotkey-overlay-title="Lock the Screen: hyprlock" { spawn "sh" "-c" "hyprlock -c ~/.config/niri/hyprlock.conf"; }
     Super+Alt+Ctrl+C { spawn "sh" "-c" "codium ~/nixos"; }
     Super+Alt+R { spawn "sh" "-c" "~/.config/niri/scripts/reload.sh"; }
     Mod+Shift+C { spawn "hyprpicker" "-a"; }
