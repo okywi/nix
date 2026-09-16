@@ -5,23 +5,22 @@ in {
   options.modules.power = { enable = mkEnableOption "power"; };
 
   config = mkIf cfg.enable {
-    /*services.tlp = {
-      enable = true;
-      settings = {
-        CPU_SCALING_GOVERNOR_ON_AC = "performance";
-        CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+        environment.systemPackages = with pkgs;
+      [
+        lact
+      ];
+    systemd.packages = with pkgs; [ lact ];
+    systemd.services.lactd.wantedBy = ["multi-user.target"];
+    systemd.services.cpufreq.enable = false;
 
-        CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
-        CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
+    services = {
+      power-profiles-daemon.enable = true;
+      thermald.enable = true;
+      tlp.enable = false;
+      cpupower-gui.enable = false;
+    };
 
-        CPU_MIN_PERF_ON_AC = 0;
-        CPU_MAX_PERF_ON_AC = 100;
-        CPU_MIN_PERF_ON_BAT = 0;
-        CPU_MAX_PERF_ON_BAT = 20;
-      };
-    };*/
-
-   /* services.auto-cpufreq.enable = true;
+    /*services.auto-cpufreq.enable = true;
     services.auto-cpufreq.settings = {
       battery = {
         governor = "powersave";
@@ -32,7 +31,12 @@ in {
         turbo = "auto";
       };
     };*/
-    services.power-profiles-daemon.enable = true;
-
+    powerManagement = {
+      enable = true;
+      cpuFreqGovernor = "schedutil";
+      # powerUpCommands = ''
+      #  echo "balance_performance" | tee /sys/devices/system/cpu/cpu*/cpufreq/energy_performance_preference
+      #'';
+    };
   };
 }

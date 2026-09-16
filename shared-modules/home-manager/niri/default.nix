@@ -1,4 +1,4 @@
-{ pkgs, config, lib, monitors, ... }:
+{ pkgs, config, lib, monitors, startup, ... }:
 with lib;
 let 
   cfg = config.modules.niri;
@@ -11,6 +11,7 @@ let
 
   primary =  builtins.elemAt (lib.splitString " " (builtins.elemAt monitors.niri 0)) 1;
   secondary = builtins.elemAt (lib.splitString " " (getSecond monitors.niri)) 1;
+
 in {
   
   options.modules.niri = { enable = mkEnableOption "niri"; };
@@ -34,7 +35,7 @@ in {
       "niri/input.kdl".source = ./input.kdl;
       "niri/layout.kdl".source = ./layout.kdl;
       "niri/outputs.kdl".text = builtins.concatStringsSep "\n" monitors.niri + "\n";
-      "niri/startup.kdl".source = ./startup.kdl;
+      "niri/startup.kdl".text = config.my.startup.niri; 
       "niri/windows.kdl".source = ./windows.kdl;
       "niri/workspaces.kdl".text = lib.replaceStrings ["$primary" "$secondary" ] [ "${primary}" "${secondary}" ] (config.my.workspaces.niri);
       "niri/scripts".source = ./scripts;

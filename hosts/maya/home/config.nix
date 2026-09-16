@@ -50,6 +50,23 @@
     '';
   };
 
+  config.my.startup = {
+    niri = ''
+      spawn-at-startup "iio-niri" "listen"
+      spawn-sh-at-startup "sh -c $(wlsunset -t 3000 -T 3500)"
+      spawn-sh-at-startup "~/.config/niri/scripts/wallpaper.sh"
+      spawn-sh-at-startup "~/.config/eww/launch_eww.sh"
+      spawn-sh-at-startup "sh -c steam"
+      spawn-sh-at-startup "sh -c $(sleep 3; zapzap)"
+      spawn-sh-at-startup "sh -c $(sleep 3; signal-desktop)"
+      spawn-at-startup "copyq"
+      spawn-sh-at-startup "sh -c $(killall swaync; swaync)"
+      spawn-at-startup "blueman-applet"
+      spawn-at-startup "mullvad-gui"
+      spawn-sh-at-startup "sh -c $(sleep 3; pear-desktop)"
+    '';
+  };
+
   # Input for hyprland
   config.my.input = {
     sensitivity = 0;

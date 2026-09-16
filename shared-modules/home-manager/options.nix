@@ -26,4 +26,11 @@ in {
     ]);
     default = {};
   };
+  # startup string for WMs
+  options.my.startup = lib.mkOption {
+    type = lib.types.attrsOf (lib.types.oneOf [
+      lib.types.str
+    ]);
+    default = {};
+  };
 }
