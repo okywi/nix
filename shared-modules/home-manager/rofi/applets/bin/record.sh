@@ -83,7 +83,7 @@ record () {
 }
 
 recordwithaudio () {
-	run_screenrec "$(slurp -o)" "--audio --audio-backend pulse --audio-device $(pactl list short sources | grep "$(pactl get-default-sink)" | awk '{print $2}'))"
+	run_screenrec "$(slurp -o)" "--audio --audio-backend pulse --audio-device $(pactl list short sources | grep "$(pactl get-default-sink)" | awk '{print $2}')"
 	notify_finish
 }
 

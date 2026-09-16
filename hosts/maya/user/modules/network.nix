@@ -23,11 +23,15 @@ in {
         powersave = false;
       };
     };
+    # These options are unnecessary when managing DNS ourselves
+    #networking.useDHCP = true;
+    #networking.dhcpcd.enable = true;
 
-    boot.kernel.sysctl."net.ipv6.conf.wlan0.disable_ipv6" = true;
 
-    networking.nameservers = [ "9.9.9.9" "149.112.112.112" "1.1.1.1" "8.8.8.8" ];
-    networking.enableIPv6 = false;
+    #boot.kernel.sysctl."net.ipv6.conf.wlp5s0.disable_ipv6" = true;
+
+    networking.nameservers = [ "9.9.9.9" "149.112.112.112" "2620:fe::fe" "2620:fe::9"];
+    networking.enableIPv6 = true;
     
     # Enable the OpenSSH daemon
     services.openssh.enable = true;

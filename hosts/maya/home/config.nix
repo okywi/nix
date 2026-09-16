@@ -38,15 +38,16 @@
           open-on-output $primary
       }
 
-      workspace "browser2" {
-          open-on-output $secondary
-      }
-      workspace "spotify" {
+      workspace "music" {
           open-on-output $secondary
       }
       workspace "chat" {
           open-on-output $secondary
       }
+      workspace "browser2" {
+          open-on-output $secondary
+      }
+      
     '';
   };
 
@@ -88,9 +89,8 @@
       (tray)
     '';
     right_widgets = ''
-      (twitch)
       (rebuild)
-      (spotify)
+      (musicbar)
       (weather)
       (microphone)
       (audio)
