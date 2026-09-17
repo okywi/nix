@@ -57,10 +57,10 @@ in {
     };
   };*/
     # Change anything here and have fun going insane debugging issues with no documentation.
-    services.resolved.enable = false;
+    #services.resolved.enable = false;
     networking.networkmanager.dns = "none";
     networking.nameservers = [ "9.9.9.9" "149.112.112.112" "2620:fe::fe" "2620:fe::9" ];
-    networking.enableIPv6 = false;
+    networking.enableIPv6 = true;
 
     # Enable the OpenSSH daemon
     services.openssh.enable = true;

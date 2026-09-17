@@ -151,6 +151,7 @@ in {
     texlivePackages.latexmk
     texliveMedium
     pandoc
+    nextcloud-client
 
     ### Programming
     jdk
