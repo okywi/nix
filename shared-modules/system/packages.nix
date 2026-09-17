@@ -150,11 +150,12 @@ in {
     freecad
     texlivePackages.latexmk
     texliveMedium
+    pandoc
 
     ### Programming
     jdk
     jetbrains.idea
-    jetbrains.pycharm-oss
+    jetbrains.pycharm
     android-tools
     androidSdk.androidsdk
     go

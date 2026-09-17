@@ -1,4 +1,4 @@
-{ pkgs, config, lib, inputs, ... }:
+{ pkgs, config, lib, inputs, battery-notifier, ... }:
 with lib;
 let cfg = config.modules.niri;
 in {
@@ -9,7 +9,6 @@ in {
 
     services.gnome.gnome-keyring.enable = true;
     services.iio-niri.enable = true;
-
 
     xdg.portal = {
       enable = true;
