@@ -29,7 +29,7 @@ get_sink() {
     ID=$(pw-dump | jq -r '
                   .[] |
                   select(
-                    .info.props."application.name"=="Chromium" and
+                    .info.props."application.name"=="com.github.th_ch.youtube_music" and
                     .info.props."media.class"=="Stream/Output/Audio"
                   ) |
                   .id
