@@ -53,11 +53,11 @@ in {
       };
 
       gtk3.bookmarks = [
-        "file:///home/${config.home.username}/Documents"
+        "file:///home/${config.home.username}/Nextcloud/Documents"
         "file:///home/${config.home.username}/Downloads"
-        "file:///home/${config.home.username}/Pictures"
-        "file:///home/${config.home.username}/Videos"
-        "file:///home/${config.home.username}/Music"
+        "file:///home/${config.home.username}/Nextcloud/Pictures"
+        "file:///home/${config.home.username}/Nextcloud/Videos"
+        "file:///home/${config.home.username}/Nextcloud/Music"
       ];
     };
   };

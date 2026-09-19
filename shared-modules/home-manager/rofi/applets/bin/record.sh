@@ -10,7 +10,7 @@ theme="$type/$style"
 
 # Theme Elements
 prompt='Record'
-mesg="DIR: `xdg-user-dir PICTURES`/Screenrecordings"
+mesg="DIR: `xdg-user-dir`/Screenrecordings"
 
 if [[ "$theme" == *'type-1'* ]]; then
 	list_col='1'
@@ -60,7 +60,7 @@ run_rofi() {
 }
 
 # Screenshot
-dir="`xdg-user-dir VIDEOS`/Screenrecordings"
+dir="`xdg-user-dir`/Screenrecordings"
 if [[ ! -d "$dir" ]]; then
 		mkdir -p "$dir"
 fi

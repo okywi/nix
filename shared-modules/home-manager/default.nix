@@ -15,6 +15,7 @@
 		./swaync
 		./rofi
 		./wireplumber
+		./easyeffects
 		./gtk
 		./qt
 		./git
