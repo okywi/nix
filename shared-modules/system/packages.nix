@@ -6,7 +6,6 @@ let
     buildToolsVersions = [ "34.0.0" ];
   };
 in {
-
   
   ### Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -23,7 +22,8 @@ in {
       nix-eval-jobs
       nix-fast-build
       colmena;
-  }) ];
+  })
+  ];
 
   nix.package = pkgs.lixPackageSets.stable.lix;
 
@@ -156,7 +156,6 @@ in {
     marksman
     tectonic
     texlab
-    nextcloud-client
     gnome-text-editor
     evince
     zathura
