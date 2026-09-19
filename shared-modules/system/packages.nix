@@ -44,6 +44,7 @@ in {
   };
 
   services.saned.enable = true;
+  services.easyeffects.enable = true;
 
   hardware.sane.enable = true;
   hardware.opentabletdriver.enable = true;
