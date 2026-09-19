@@ -14,6 +14,7 @@
     eww.enable = true;
     kitty.enable = true;
     fastfetch.enable = true;
+    easyeffects.enable = true;
     swaync.enable = true;
     rofi.enable = true;
     wireplumber.enable = false;
