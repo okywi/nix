@@ -13,6 +13,8 @@
     fish.enable = true;
     #hyprland.enable = true;
     btop.enable = true;
+    helix.enable = true;
+    nvim.enable = true;
     #gnome.enable = true;
     eww.enable = true;
     kitty.enable = true;

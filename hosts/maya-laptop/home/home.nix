@@ -1,6 +1,6 @@
-{ inputs, ... }: {
+{ inputs, outputs, ... }: {
   imports = [
-		./config.nix
+		./config.nix		
 	];
   
 	home = {

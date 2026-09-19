@@ -53,6 +53,7 @@ in {
   # Required for AAPT2 to work
   programs.nix-ld.enable = true;
 
+
   # for android sdk
   nixpkgs.config.android_sdk.accept_license = true;
 
@@ -149,9 +150,14 @@ in {
     libreoffice-fresh
     freecad
     texlivePackages.latexmk
-    texliveMedium
+    texliveFull
     pandoc
+    marksman
+    tectonic
+    texlab
     nextcloud-client
+    evince
+    zathura
 
     ### Programming
     jdk

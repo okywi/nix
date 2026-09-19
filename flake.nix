@@ -13,9 +13,10 @@
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    lazyvim.url = "github:pfassina/lazyvim-nix";
   };
 
-  outputs = { nixpkgs, home-manager, nix-flatpak, ... }@inputs:
+  outputs = { nixpkgs, home-manager, nix-flatpak, lazyvim, ... }@inputs:
     let system = "x86_64-linux";
     in {
       nixosConfigurations.maya-pc = nixpkgs.lib.nixosSystem {
@@ -32,6 +33,7 @@
             home-manager.overwriteBackup = true;
             home-manager.users.maya = import ./hosts/maya/home/home.nix;
             home-manager.backupFileExtension = "home-manager-backup";
+            home-manager.extraSpecialArgs = { inherit inputs; };
           }
           nix-flatpak.nixosModules.nix-flatpak
         ];
@@ -51,7 +53,9 @@
             home-manager.overwriteBackup = true;
             home-manager.users.okywi-laptop = import ./hosts/okywi-laptop/home/home.nix;
             home-manager.backupFileExtension = "home-manager-backup";
+            home-manager.extraSpecialArgs = { inherit inputs; };
           }
+
           nix-flatpak.nixosModules.nix-flatpak
         ];
       };
@@ -70,6 +74,7 @@
             home-manager.overwriteBackup = true;
             home-manager.users.maya-laptop = import ./hosts/maya-laptop/home/home.nix;
             home-manager.backupFileExtension = "home-manager-backup";
+            home-manager.extraSpecialArgs = { inherit inputs; };
           }
           nix-flatpak.nixosModules.nix-flatpak
         ];

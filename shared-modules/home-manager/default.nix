@@ -7,6 +7,8 @@
 		./niri
 		./gnome
 		./eww
+		./helix
+		./nvim
 		./zsh
 		./btop
 		./fish
