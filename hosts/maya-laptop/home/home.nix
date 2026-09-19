@@ -34,6 +34,7 @@ application/vnd.openxmlformats-officedocument.wordprocessingml.document=writer.d
 image/gif=org.gnome.Loupe.desktop
 image/png=org.gnome.Loupe.desktop
 image/svg+xml=org.gnome.Loupe.desktop
+text/plain=org.gnome.TextEditor.desktop
 
 [Added Associations]
 x-scheme-handler/http=zen-beta.desktop;
@@ -53,6 +54,7 @@ application/vnd.openxmlformats-officedocument.wordprocessingml.document=writer.d
 image/gif=org.gnome.Loupe.desktop;
 image/png=org.gnome.Loupe.desktop;
 image/svg+xml=org.gnome.Loupe.desktop;
+text/plain=org.gnome.TextEditor.desktop;
 	'';
   xdg.configFile."mimeapps.list".force = true;
 }
