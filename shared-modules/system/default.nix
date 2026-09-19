@@ -12,6 +12,5 @@
 		./monitors.nix
 		./redshift.nix
 		./docker.nix
-		./nextcloud
 	];
 }

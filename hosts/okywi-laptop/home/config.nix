@@ -12,6 +12,7 @@
     signal.enable = true;
     fish.enable = true;
     #hyprland.enable = true;
+    nextcloud.enable = true;
     btop.enable = true;
     gnome.enable = true;
     eww.enable = true;

@@ -18,6 +18,7 @@
 		./rofi
 		./wireplumber
 		./easyeffects
+		./nextcloud
 		./gtk
 		./qt
 		./git

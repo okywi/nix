@@ -9,6 +9,7 @@
     niri.enable = true;
     #zsh.enable = true;
     nvim.enable = true;
+    nextcloud.enable = true;
     signal.enable = true;
     fish.enable = true;
     btop.enable = true;

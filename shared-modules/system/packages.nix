@@ -157,6 +157,8 @@ in {
     tectonic
     texlab
     gnome-text-editor
+    nextcloud-client
+
     evince
     zathura
 

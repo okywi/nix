@@ -13,6 +13,7 @@
     fish.enable = true;
     #hyprland.enable = true;
     btop.enable = true;
+    nextcloud.enable = true;
     helix.enable = true;
     nvim.enable = true;
     #gnome.enable = true;
