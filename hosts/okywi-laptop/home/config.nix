@@ -41,7 +41,7 @@
       workspace "gaming" {
           open-on-output $primary
       }
-      workspace "spotify" {
+      workspace "music" {
           open-on-output $primary
       }
       workspace "chat" {
@@ -83,7 +83,7 @@
       (tray)
     '';
     right_widgets = ''
-      (spotify)
+      (musicbar)
       (weather)
       (battery)
       (audio)

@@ -13,7 +13,7 @@
     sddm.enable = true;
     redshift.enable = true;
     #kde.enable = true;
-    gnome.enable = true;
+    #gnome.enable = true;
     storage.enable = true;
     docker.enable = true;
     audio.enable = true;
@@ -36,6 +36,14 @@
           transform "normal"
           position x=0 y=0
           focus-at-startup
+        }
+
+        output "DP-2" {
+            mode "1920x1080@120"
+            scale 1.0
+            transform "normal"
+            position x=1920 y=0
+            focus-at-startup
         }
       ''
     ];
