@@ -49,9 +49,14 @@ window-rule {
     open-focused true
 }
 
+// window-rule {
+//    match app-id=r#"^steam$"#
+//    open-on-workspace "gaming"
+//    open-floating true
+//}
+
 window-rule {
-    match app-id=r#"^steam$"#
-    open-on-workspace "gaming"
+    match title="TowerDefense"
     open-floating true
 }
 

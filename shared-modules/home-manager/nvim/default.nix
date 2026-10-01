@@ -11,7 +11,16 @@ in {
   options.modules.nvim = { enable = mkEnableOption "nvim"; };
   
   config = mkIf cfg.enable {
-    programs.lazyvim.enable = true;
+    programs.lazyvim = {
+      enable = true;
+      extras = {
+        lang.typst = {
+        enable = true;
+        };
+      };
+
+      
+    };
 
     xdg.configFile."nvim/lua/plugins/latex.lua".source = ./plugins/latex.lua;
   };

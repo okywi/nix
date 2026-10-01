@@ -20,11 +20,20 @@ return {
                 forwardSearchAfter = true,
               },
 
+              auxDirectory = "pdf", 
+
               chktex = {
                 onEdit = true,
                 onOpenAndSave = true,
               },
             },
+          },
+        },
+        tinymist = {
+          single_file_support = true,
+          settings = {
+            exportPdf = "onSave",
+            formatterMode = "typstyle",
           },
         },
       },

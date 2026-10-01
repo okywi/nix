@@ -40,17 +40,12 @@
       workspace "gaming" {
           open-on-output $primary
       }
-
       workspace "music" {
-          open-on-output $secondary
+          open-on-output $primary
       }
       workspace "chat" {
-          open-on-output $secondary
+          open-on-output $primary
       }
-      workspace "browser2" {
-          open-on-output $secondary
-      }
-      
     '';
   };
 
@@ -103,8 +98,8 @@
     '';
     bar = ''
       $EWW open-many \
-        bar:primary --arg primary:screen="1" --arg primary:wsscreen="0" \
-        bar:secondary --arg secondary:screen="0" --arg secondary:wsscreen="1"
+        bar:primary --arg primary:screen="0" --arg primary:wsscreen="0" \
+        # bar:secondary --arg secondary:screen="0" --arg secondary:wsscreen="1"
     '';
   };
 }

@@ -48,7 +48,7 @@ in {
       [ "config_left_widgets" "config_right_widgets" ] [ left_widgets right_widgets ]
       (builtins.readFile ./yuck/bar.yuck);
       }
-      # flsdjf
+      
       {
         # exclude workspaces.sh
         ".config/eww/scripts" = {

@@ -158,6 +158,9 @@ in {
     texlab
     gnome-text-editor
     nextcloud-client
+    typst
+    typstyle
+    tinymist
 
     evince
     zathura
