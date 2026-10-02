@@ -58,6 +58,11 @@ in {
   # for android sdk
   nixpkgs.config.android_sdk.accept_license = true;
 
+  environment.variables = {
+    TYPST_PACKAGE_PATH = "$HOME/Nextcloud/typst_packages";
+    TYPST_PACKAGE_CACHE_PATH = "$HOME/Nextcloud/typst_packages";
+  };
+
   ### System Packages
   environment.systemPackages = with pkgs; [
     # Libraries
