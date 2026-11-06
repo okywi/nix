@@ -1,4 +1,4 @@
-playerctl metadata --format '{{ (mpris:artUrl) }}' --player=YoutubeMusic --follow | while read art_url; do
+playerctl metadata --format '{{ (mpris:artUrl) }}' --player=limusic --follow | while read art_url; do
     # Check if the art URL exists
     if [ -n "$art_url" ]; then
         # Get the cache directory location

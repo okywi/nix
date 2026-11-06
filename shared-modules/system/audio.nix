@@ -29,7 +29,7 @@ in {
         # enable this module
         enable = true;
         # defaults (no need to be set unless modified)
-        quantum = 64;
+        quantum = 512;
         rate = 48000;
       };
 

@@ -1,4 +1,4 @@
-player="--player=YoutubeMusic"
+player="--player=limusic"
 
 get_status() {
     playerctl status $player -F | while read -r status
@@ -38,18 +38,16 @@ get_sink() {
 }
 
 change_volume() {
-    ID=$(get_sink)
     if [[ $1 == "up" ]]; then
-        wpctl set-volume $ID 2%+ -l 1.0
+        playerctl volume 0.02+ $player
     elif [[ $1 == "down" ]]; then
-        wpctl set-volume $ID 2%- -l 1.0
+        playerctl volume 0.02- $player
     fi
 }
 
 set_volume() {
-    ID=$(get_sink)
     volume=$(echo "scale=2; $1 / 100" | bc)
-    wpctl set-volume "$ID" "$volume"
+    echo $(playerctl volume $volume $player)
 }
 
 scroll_title() {
@@ -76,8 +74,6 @@ elif [[ $1 == "--title" ]] then
     scroll_title
 elif [[ $1 == "up" || $1 == "down" ]] then
    change_volume $1
-elif [[ $1 == "--get-volume" ]] then
-    get_volume
 elif [[ $1 == "--set-volume" ]] then
     set_volume $2
 fi

@@ -30,12 +30,16 @@ with lib; {
       theme = pkgs.catppuccin-grub;
     };
   };
+
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelParams = [
     "amdgpu"
     "amdgpu.ppfeaturemask=0xffffffff"
     "amd_pstate=active"
     "amd_pstate_epp=balance_performance"
   ];
+
+
    nixpkgs.config.permittedInsecurePackages = [
                 "idea-oss-2025.3.4"
                 "electron-39.8.10"
@@ -52,7 +56,6 @@ with lib; {
 	#modDirVersion = "7.0.6";
 	#};
  #});
-  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   ### Locale
   # Set your time zone.
@@ -102,9 +105,13 @@ with lib; {
   };
   # for printer browsing
   services.avahi = {
-    enable = false;
+    enable = true;
     nssmdns4 = true;
     openFirewall = true;
+    publish = {
+    enable = true;
+    userServices = true; # This is the key line that fixes the error
+  };
   };
   
   ### garbage collection

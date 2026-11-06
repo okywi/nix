@@ -14,6 +14,8 @@
     #sway.enable = true;
     niri.enable = true;
     audio.enable = true;
+    kde.enable = true;
+    #gnome.enable = true;
     docker.enable = true;
     power.enable = true;
     nautilus.enable = true;

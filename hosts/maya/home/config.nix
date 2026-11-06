@@ -16,7 +16,7 @@
     eww.enable = true;
     kitty.enable = true;
     fastfetch.enable = true;
-    easyeffects.enable = true;
+    easyeffects.enable = false;
     swaync.enable = true;
     rofi.enable = true;
     wireplumber.enable = false;
@@ -40,11 +40,14 @@
       workspace "gaming" {
           open-on-output $primary
       }
-      workspace "music" {
+      workspace "browser2" {
           open-on-output $primary
       }
+      workspace "music" {
+          open-on-output $secondary
+      }
       workspace "chat" {
-          open-on-output $primary
+          open-on-output $secondary
       }
     '';
   };
@@ -62,7 +65,7 @@
       spawn-sh-at-startup "sh -c $(killall swaync; swaync)"
       spawn-at-startup "blueman-applet"
       spawn-at-startup "mullvad-gui"
-      spawn-sh-at-startup "sh -c $(sleep 3; pear-desktop)"
+      spawn-sh-at-startup "sh -c $(sleep 3; limusic)"
     '';
   };
 
@@ -98,8 +101,8 @@
     '';
     bar = ''
       $EWW open-many \
-        bar:primary --arg primary:screen="0" --arg primary:wsscreen="0" \
-        # bar:secondary --arg secondary:screen="0" --arg secondary:wsscreen="1"
+        bar:primary --arg primary:screen="0" --arg primary:wsscreen="1" \
+        bar:secondary --arg secondary:screen="1" --arg secondary:wsscreen="0"
     '';
   };
 }

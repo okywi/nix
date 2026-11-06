@@ -1,10 +1,10 @@
-{ pkgs, inputs, ... }:
+{ pkgs, pkgs-unstable, inputs, lib, ... }:
 let
-  androidSdk = pkgs.androidenv.composeAndroidPackages {
-    cmdLineToolsVersion = "latest";
-    platformVersions = [ "34" ];
-    buildToolsVersions = [ "34.0.0" ];
-  };
+  #androidSdk = pkgs.androidenv.composeAndroidPackages {
+  #  cmdLineToolsVersion = "latest";
+   # platformVersions = [ "34" ];
+  #  buildToolsVersions = [ "34.0.0" ];
+  #};
 in {
   
   ### Allow unfree packages
@@ -28,6 +28,8 @@ in {
   nix.package = pkgs.lixPackageSets.stable.lix;
 
   ### Programs
+  programs.appimage.enable = true;
+  programs.appimage.binfmt = true;
   programs.direnv.enable = true;
   programs.dconf.enable = true;
   services.locate.enable = true;
@@ -36,6 +38,12 @@ in {
     enable = true;
     extraCompatPackages = [ pkgs.proton-ge-bin ];
     gamescopeSession.enable = true;
+    package = pkgs.steam.override {
+    extraProfile = ''
+      # This allows Monado/WiVRn to be seen by sandboxed games
+      export PRESSURE_VESSEL_IMPORT_OPENXR_1_RUNTIMES=1
+    '';
+    };
   };
   programs.kdeconnect.enable = true;
   programs.ausweisapp = {
@@ -54,9 +62,20 @@ in {
   # Required for AAPT2 to work
   programs.nix-ld.enable = true;
 
+  services.wivrn = {
+  enable = true;
+  openFirewall = true;
+  package = pkgs.wivrn;
+
+  # This is the critical part that fixes the Steam sandbox issue
+  steam = {
+    enable = true;
+    importOXRRuntimes = true;  # Sets PRESSURE_VESSEL_IMPORT_OPENXR_1_RUNTIMES=1
+    };
+  };
 
   # for android sdk
-  nixpkgs.config.android_sdk.accept_license = true;
+  #nixpkgs.config.android_sdk.accept_license = true;
 
   environment.variables = {
     TYPST_PACKAGE_PATH = "$HOME/Nextcloud/typst_packages";
@@ -95,18 +114,19 @@ in {
     usbutils
     caligula # burn usb's cli
     socat
-    gsettings-desktop-schemas
+    #gsettings-desktop-schemas
     acpi # battery
     qbittorrent
     cups-filters
-    wine
+    #wine
     dnsutils
+    protontricks
 
     # Applications
     inputs.zen-browser.packages."${stdenv.hostPlatform.system}".default
-    pear-desktop
+    limusic
     #kdePackages.audiotube
-    inputs.hytale-launcher.packages.${stdenv.hostPlatform.system}.default
+    #inputs.hytale-launcher.packages.${stdenv.hostPlatform.system}.default
     librewolf
     bitwarden-desktop
     vesktop
@@ -120,13 +140,13 @@ in {
     localsend
     qpwgraph
     pinta
-    kdePackages.kdenlive
+    #kdePackages.kdenlive
     mpv
     cheese
     gnome-disk-utility
     baobab
     pavucontrol
-    obsidian
+    #obsidian
     pdfarranger
     prismlauncher
     heroic
@@ -134,14 +154,14 @@ in {
     adwaita-icon-theme
     krita
     libresprite
-    obs-studio
-    ffmpeg
-    squeekboard
+    #obs-studio
+    #ffmpeg
+    #squeekboard
     gnome-font-viewer
-    calibre
+    #calibre
     chromium
     dconf-editor
-    watchmate
+    #watchmate
     pkg-config
     gnome-calculator
     mullvad-browser
@@ -154,62 +174,59 @@ in {
     audacity
     friture
     libreoffice-fresh
-    freecad
-    texlivePackages.latexmk
-    texliveFull
-    pandoc
+    #freecad
+    #texlivePackages.latexmk
+    #texliveMedium
+    #pandoc
     marksman
     tectonic
-    texlab
+    #texlab
     gnome-text-editor
     nextcloud-client
     typst
     typstyle
     tinymist
-
     evince
     zathura
+    jetbrains.idea
 
     ### Programming
-    jdk
-    jetbrains.idea
-    jetbrains.pycharm
-    android-tools
-    androidSdk.androidsdk
-    go
-    glfw
-    libGL
-    libx11
-    libxcursor
-    libxext
-    libxrandr
-    libxxf86vm
-    nodejs
-    mqttx
-    arduino-ide
-    python3
+    #jdk
+    #jetbrains.idea
+    #jetbrains.pycharm
+    #androidSdk.androidsdk
+    #go
+    #glfw
+    #libGL
+   # libx11
+    #libxcursor
+    #libxext
+    #libxrandr
+    #libxxf86vm
+    #nodejs
+    #mqttx
+    #arduino-ide
+    #python3
 
     # rust
-    rustup
-    cargo
-    gcc
-    rustfmt
-    androidenv.androidPkgs.androidsdk
+    #rustup
+    #cargo
+    #gcc
+    #rustfmt
 
     # Gaming
-    lutris
-    inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}.osu-stable
+    #lutris
+    #inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}.osu-stable
     inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}.osu-lazer-bin
 
 
     # Launchers & Status Bars
     networkmanagerapplet
-    iwgtk
+    #iwgtk
   ];
 
   # env variables for programs
   environment.sessionVariables = {
-    ANDROID_HOME = "${androidSdk.androidsdk}/libexec/android-sdk";
     FLATPAK_OVERRIDE_GTK_THEME = "Adwaita-dark";
   };
 
@@ -219,6 +236,13 @@ in {
     packages = [
       "com.github.flxzt.rnote"
       "org.vinegarhq.Sober"
+      { appId = "ai.storyteller.photocraft"; origin = "artcraft";  }
+      { appId = "ai.storyteller.filmcraft"; origin = "artcraft";  }
+    ];
+    remotes = lib.mkOptionDefault [
+      {
+        name = "artcraft"; location = "https://artcraft.p4rzl.it/artcraft.flatpakrepo";
+      }
     ];
   };
 }

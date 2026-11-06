@@ -60,6 +60,16 @@ window-rule {
     open-floating true
 }
 
+window-rule {
+    match title="SchachUI"
+    open-floating true
+}
+window-rule {
+    match title="OmniControl"
+    open-floating true
+}
+
+
 // autostart
 window-rule {
     match at-startup=true app-id=r#"^steam$"# title="^Steam$"
@@ -84,6 +94,14 @@ window-rule {
     open-on-workspace "music"
     open-focused false
 }
+window-rule {
+    match at-startup=true app-id=r#"^(?i)Limusic-app$"#
+    match app-id=r#"^(?i)Limusic-app$"#
+    open-maximized true
+    open-on-workspace "music"
+    open-focused false
+}
+
 
 window-rule {
     match app-id=r#"^(?i)discord$"#

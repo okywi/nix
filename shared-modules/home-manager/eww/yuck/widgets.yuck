@@ -3,7 +3,7 @@
 (deflisten song_scroll "./scripts/music.sh --title")
 (deflisten song_time "playerctl position --follow --player=spotify")
 (deflisten song_art_url "./scripts/getMusicImage.sh")
-(deflisten song_volume "./scripts/music_volume.sh")
+(deflisten song_volume "./scripts/volume.sh")
 (deflisten song_status "./scripts/music.sh --status")
 (deflisten cpupower_mode "./scripts/cpupower.sh")
 (defvar music_reveal false)
