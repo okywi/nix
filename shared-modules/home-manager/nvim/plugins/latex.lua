@@ -32,7 +32,7 @@ return {
         tinymist = {
           single_file_support = true,
           settings = {
-            exportPdf = "onSave",
+            exportPdf = "onEdit",
             formatterMode = "typstyle",
           },
         },

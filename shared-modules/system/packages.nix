@@ -166,7 +166,7 @@ in {
     typst
     typstyle
     tinymist
-
+    (import ../../pkgs/heidisql.nix { inherit pkgs; })
     evince
     zathura
 
@@ -188,6 +188,7 @@ in {
     mqttx
     arduino-ide
     python3
+    mssql_jdbc
 
     # rust
     rustup
