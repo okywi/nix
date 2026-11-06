@@ -186,6 +186,7 @@ in {
     typst
     typstyle
     tinymist
+    (import ../../pkgs/heidisql.nix { inherit pkgs; })
     evince
     zathura
     jetbrains.idea
