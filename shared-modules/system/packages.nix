@@ -63,7 +63,7 @@ in {
   programs.nix-ld.enable = true;
 
   services.wivrn = {
-  enable = true;
+  enable = false;
   openFirewall = true;
   package = pkgs.wivrn;
 
